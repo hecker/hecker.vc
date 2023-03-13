@@ -8,8 +8,11 @@ export default function Home() {
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
       <p className="my-5 max-w-[460px] text-neutral-800 dark:text-neutral-200">
         <>
-          Hey, I'm Lee. I'm the <b>VP of Developer Experience at Vercel</b>{" "}
-          where my team helps developers build a faster web.
+          I am Jan. The{" "}
+          <b>
+            Founder of <a href="https://gevamos.app">vamos!</a>
+          </b>{" "}
+          and business informatics student at the University of Mannheim.
         </>
       </p>
       <div className="flex items-start md:items-center my-8 flex-col md:flex-row">
@@ -24,10 +27,9 @@ export default function Home() {
       </div>
       <p className="my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200">
         <>
-          I'm a Next.js contributor and help lead our open-source communities.
-          I'm passionate about frontend development and have created courses on
-          React, Next.js, and web development. I'm an advisor and investor in
-          early stage startups.
+          Currently I'm learning Flutter &amp; React (Next.js) and doing a lot
+          of sports. Since 2011 I try to become Ranked Gold in League of
+          Legends, but fail every season.
         </>
       </p>
       <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
