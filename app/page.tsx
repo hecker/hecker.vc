@@ -29,9 +29,9 @@ export default function HomePage() {
       </div>
       <p className="my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200">
         <>
-          Currently, I'm learning Flutter &amp; React (Next.js) and doing a lot
-          of sports. Since 2011, I have tried to become ranked gold in League of
-          Legends but have failed every season.
+          Currently, I'm learning Flutter &amp; React (Next.js) and starting to
+          work out again. Since 2011, I have tried to become ranked gold in
+          League of Legends but have failed every season.
         </>
       </p>
       <i>
