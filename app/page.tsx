@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowIcon } from "components/icons";
-import { avatar } from "lib/info";
+import avatar from "../app/jan.png";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
@@ -10,13 +11,14 @@ export default function Home() {
         <>
           I am Jan. The{" "}
           <b>
-            Founder of <a href="https://gevamos.app">vamos!</a>
+            founder of <Link href="https://getvamos.app">vamos!</Link>
           </b>{" "}
           and business informatics student at the University of Mannheim.
         </>
       </p>
       <div className="flex items-start md:items-center my-8 flex-col md:flex-row">
         <Image
+          title="Jan Hecker"
           alt="Jan Hecker"
           className="rounded-full grayscale"
           src={avatar}
@@ -32,9 +34,13 @@ export default function Home() {
           Legends, but fail every season.
         </>
       </p>
+      <i>
+        I got a lot of inspiration from{" "}
+        <Link href="https://github.com/leerob/leerob.io">Lee's website</Link>.
+      </i>
       <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
         <li>
-          <a
+          <Link
             className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
             rel="noopener noreferrer"
             target="_blank"
@@ -42,10 +48,10 @@ export default function Home() {
           >
             <ArrowIcon />
             <p className="h-7">Follow me on LinkedIn</p>
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
             rel="noopener noreferrer"
             target="_blank"
@@ -53,7 +59,7 @@ export default function Home() {
           >
             <ArrowIcon />
             <p className="h-7">Watch me on YouTube</p>
-          </a>
+          </Link>
         </li>
       </ul>
     </section>
