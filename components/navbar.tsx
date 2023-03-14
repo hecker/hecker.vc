@@ -8,21 +8,18 @@ import { motion } from "framer-motion";
 const navItems: { [_: string]: any } = {
   "/": {
     name: "home",
-    title: "Jan Hecker",
     x: 0,
     y: 0,
     w: "64px",
   },
   "/about": {
     name: "about",
-    title: "About Me",
     x: 64,
     y: 35,
     w: "65px",
   },
   "/kit": {
     name: "kit",
-    title: "Tech Kit & Tools",
     x: 127,
     y: 69,
     w: "56px",
