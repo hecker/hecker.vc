@@ -8,13 +8,13 @@ export const metadata: Metadata = {
 export default function KitPage() {
   return (
     <section>
-      <h1 className="font-bold text-3xl font-serif mb-8">
-        Tech &amp; Tools Kit
-      </h1>
-      <p className="text-neutral-700 dark:text-neutral-300 mt-2 mb-8">
-        Here's what tools and tech I'm currently using. All links are referral
-        links, with which you can support me for free.
-      </p>
+      <h1 className="font-bold text-3xl font-serif">Tech &amp; Tools Kit</h1>
+      <div className="prose prose-neutral dark:prose-invert text-neutral-800 dark:text-neutral-200">
+        <p>
+          Here's what tools and tech I'm currently using. All links are referral
+          links, with which you can support me for free.
+        </p>
+      </div>
       <div className="prose prose-neutral dark:prose-invert">
         <h3 id="hardware">Hardware</h3>
         <ul>
