@@ -14,33 +14,33 @@ export default function AboutPage() {
         <p>
           I started programming when I was around the age of 14. Back then, I
           had my own Minecraft server with a small team, website, web shop and
-          some creative maps and game modes which I developed by myself and with
-          the help of{" "}
+          some creative maps and game modes, which I developed by myself and
+          with the help of{" "}
           <a
             href="https://github.com/hannibal002"
             style={{ fontWeight: "normal" }}
           >
             Lorenz
           </a>
-          , who was my first mentor and taught me all basics in Java. ithin that
-          time I noticed that{" "}
-          <b>I love coding, building stuff and creating communities.</b>
+          , who was my first mentor and taught me all the basics in Java. I
+          noticed that{" "}
+          <b>I loved coding, building stuff and creating online communities.</b>
         </p>
         <p>
-          During that time I had the idea to start an game server hosting
-          business but decided not to, because I were under the age of 18,
-          PayPal didn't allow me to create a business account (even if I legally
-          own a business) and my parents told me that school was too important
-          and that I should wait until I finished my A-Levels. In retrospect, I
-          very much regret not having founded it then.
+          During that time I had the idea to start a game server hosting
+          business but decided not to because I was under the age of 18, PayPal
+          would't allow me to create a business account (even if I legally owned
+          a business), and my parents told me that school was too important and
+          that I should wait until I finished my A-Levels. In retrospect, I very
+          much regret not having founded it then.
         </p>
         <p>
           During my senior year of high school, I got to start{" "}
           <a href="https://getvamos.app">vamos!</a> The starting point was a
           one-week workshop in a big city. We were there with some from school
-          and wanted to do something in the evening - unfortunately we didn't
+          and wanted to do something in the evening - unfortunately, we didn't
           know anyone and there was no way to spontaneously meet new people.
-          There I thought to myself: why not? Out of this need, I founded the
+          There, I thought to myself, "Why not?" Out of this need, I founded the
           social network vamos! so that young people can connect with each other
           and see what's going on in the area.
         </p>

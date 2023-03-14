@@ -9,9 +9,9 @@ export default function HomePage() {
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
       <p className="my-5 max-w-[460px] text-neutral-800 dark:text-neutral-200">
         <>
-          I am Jan. The{" "}
+          I am Jan.{" "}
           <b>
-            founder of <Link href="https://getvamos.app">vamos!</Link>
+            Founder of <Link href="https://getvamos.app">vamos!</Link>
           </b>{" "}
           and business informatics student at the University of Mannheim.
         </>
@@ -29,9 +29,9 @@ export default function HomePage() {
       </div>
       <p className="my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200">
         <>
-          Currently I'm learning Flutter &amp; React (Next.js) and doing a lot
-          of sports. Since 2011 I try to become Ranked Gold in League of
-          Legends, but fail every season.
+          Currently, I'm learning Flutter &amp; React (Next.js) and doing a lot
+          of sports. Since 2011, I have tried to become ranked gold in League of
+          Legends but have failed every season.
         </>
       </p>
       <i>
