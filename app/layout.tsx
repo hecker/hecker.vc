@@ -1,13 +1,13 @@
 import "./global.css";
 import clsx from "clsx";
 import Navbar from "components/navbar";
-import { Kaisei_HarunoUmi } from "@next/font/google";
+import { Libre_Baskerville } from "next/font/google";
 import { Metadata } from "next";
 
-const kaisei = Kaisei_HarunoUmi({
+const baskerville = Libre_Baskerville({
   subsets: ["latin"],
-  weight: "500",
-  variable: "--font-kaisei",
+  weight: "400",
+  variable: "--font-baskerville",
   display: "swap",
 });
 
@@ -66,7 +66,7 @@ export default function RootLayout({
       lang="en"
       className={clsx(
         "text-black bg-white dark:text-white dark:bg-[#111010]",
-        kaisei.variable
+        baskerville.variable
       )}
     >
       <body className="antialiased max-w-4xl mb-40 flex flex-col md:flex-row mx-4 mt-8 md:mt-20 lg:mt-32 lg:mx-auto">
