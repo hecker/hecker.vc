@@ -1,0 +1,90 @@
+import type { Metadata } from "next";
+import { GitHubIcon, YoutubeIcon, LinkedInIcon } from "components/icons";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Founder of vamos!",
+};
+
+export default function AboutPage() {
+  return (
+    <section>
+      <h1 className="font-bold text-3xl font-serif">About Me</h1>
+      <div className="prose prose-neutral dark:prose-invert text-neutral-800 dark:text-neutral-200">
+        <p>
+          I started programming when I was around the age of 14. Back then, I
+          had my own Minecraft server with a small team, website, web shop and
+          some creative maps and game modes which I developed by myself and with
+          the help of{" "}
+          <a
+            href="https://github.com/hannibal002"
+            style={{ fontWeight: "normal" }}
+          >
+            Lorenz
+          </a>
+          , who was my first mentor and taught me all basics in Java. ithin that
+          time I noticed that{" "}
+          <b>I love coding, building stuff and creating communities.</b>
+        </p>
+        <p>
+          During that time I had the idea to start an game server hosting
+          business but decided not to, because I were under the age of 18,
+          PayPal didn't allow me to create a business account (even if I legally
+          own a business) and my parents told me that school was too important
+          and that I should wait until I finished my A-Levels. In retrospect, I
+          very much regret not having founded it then.
+        </p>
+        <p>
+          During my senior year of high school, I got to start{" "}
+          <a href="https://getvamos.app">vamos!</a> The starting point was a
+          one-week workshop in a big city. We were there with some from school
+          and wanted to do something in the evening - unfortunately we didn't
+          know anyone and there was no way to spontaneously meet new people.
+          There I thought to myself: why not? Out of this need, I founded the
+          social network vamos! so that young people can connect with each other
+          and see what's going on in the area.
+        </p>
+        <p className="mb-8">
+          If you want to follow my journey or just want to grab a (virtual)
+          coffee, feel free to connect with me!
+        </p>
+
+        <div className="flex flex-col gap-2 md:flex-row md:gap-2">
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://github.com/hecker"
+            className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
+          >
+            <div className="flex items-center">
+              <GitHubIcon />
+              <div className="ml-3">GitHub</div>
+            </div>
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.youtube.com/@janhecker29"
+            className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
+          >
+            <div className="flex items-center">
+              <YoutubeIcon />
+              <div className="ml-3">YouTube</div>
+            </div>
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.linkedin.com/in/janhecker/"
+            className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
+          >
+            <div className="flex items-center">
+              <LinkedInIcon />
+              <div className="ml-3">LinkedIn</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
