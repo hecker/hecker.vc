@@ -24,10 +24,6 @@ export default function KitPage() {
         <h3 id="software">Software</h3>
         <ul>
           <li>
-            <a href="https://sip.so/h6oc">vamos!</a>, find events &amp;
-            activities
-          </li>
-          <li>
             <a href="https://notion.grsm.io/xx5n064t2ldu">Notion</a>, all-in-one
             workspace
           </li>
@@ -66,6 +62,7 @@ export default function KitPage() {
           <li>Figma, designing</li>
           <li>Raycast, macOS Spotlight alternative</li>
           <li>Spotify, music</li>
+          <li>vamos!, find events &amp; activities</li>
         </ul>
       </div>
     </section>
