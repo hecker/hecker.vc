@@ -6,6 +6,10 @@ module.exports = {
     "./content/**/*.mdx",
   ],
   theme: {
+    cursor: {
+      white: "url('/icons/cursor-black.svg'), default",
+      black: "url('/icons/cursor-white.svg'), default",
+    },
     extend: {
       fontFamily: {
         serif: ["var(--font-baskerville)"],
