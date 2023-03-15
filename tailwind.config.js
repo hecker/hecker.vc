@@ -7,8 +7,8 @@ module.exports = {
   ],
   theme: {
     cursor: {
-      white: "url('/icons/cursor-black.svg'), default",
-      black: "url('/icons/cursor-white.svg'), default",
+      black: "url('/icons/cursor-black.svg'), default",
+      white: "url('/icons/cursor-white.svg'), default",
     },
     extend: {
       fontFamily: {
