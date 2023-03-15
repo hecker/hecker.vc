@@ -65,7 +65,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={clsx(
-        "text-black bg-white dark:text-white dark:bg-[#111010] cursor-black dark:cursor-white",
+        "text-black bg-white dark:text-white dark:bg-[#111010] dark:cursor-black cursor-white",
         baskerville.variable
       )}
     >
