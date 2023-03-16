@@ -12,6 +12,12 @@ const navItems: { [_: string]: any } = {
     y: 0,
     w: "64px",
   },
+  "/notion": {
+    name: "notion",
+    x: 64,
+    y: 35,
+    w: "65px",
+  },
   "/about": {
     name: "about",
     x: 64,
