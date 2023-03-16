@@ -34,7 +34,9 @@ export default function HomePage() {
         <div className="mt-8 md:mt-0 ml-0 md:ml-6 space-y-2">
           <p className="flex items-center gap-2">
             <BabyIcon />
-            {`22 years old`}
+            {`${Math.floor(
+              (Date.now() - new Date("2000-09-20").getTime()) / 31536000000
+            )} years old`}
           </p>
           <Link
             href="/"
