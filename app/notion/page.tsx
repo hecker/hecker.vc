@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { ArrowIcon } from "components/icons";
 
@@ -38,19 +39,15 @@ export default function NotionPage() {
           <li>An avatar in the typical Notion style</li>
         </ul>
       </div>
-      <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
-        <li>
-          <Link
-            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="mailto:jan@hecker.vc?subject=Notion%20Services&body=Hi%20Jan%2C%0A%0AI%20came%20across%20your%20website%20and%20saw%20that%20you%20offer%20services%20and%20consulting%20in%20Notion.%0A%0AHere's%20what%20I'm%20interested%20in%3A%0A%0ABest%20regards"
-          >
-            <ArrowIcon />
-            <p className="h-7">Send me an email</p>
-          </Link>
-        </li>
-        <li>
+      <div className="flex items-start md:items-center flex-col md:flex-row">
+        <Image
+          alt="Notion Avatar"
+          src="/images/notion-avatar.svg"
+          width={150}
+          height={150}
+          priority
+        />
+        <div className="md:mt-0 ml-0 md:ml-6 space-y-2 text-neutral-500 dark:text-neutral-400">
           <Link
             className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
             rel="noopener noreferrer"
@@ -60,8 +57,17 @@ export default function NotionPage() {
             <ArrowIcon />
             <p className="h-7">My services on Fiverr</p>
           </Link>
-        </li>
-      </ul>
+          <Link
+            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="mailto:jan@hecker.vc?subject=Notion%20Services&body=Hi%20Jan%2C%0A%0AI%20came%20across%20your%20website%20and%20saw%20that%20you%20offer%20services%20and%20consulting%20in%20Notion.%0A%0AHere's%20what%20I'm%20interested%20in%3A%0A%0ABest%20regards"
+          >
+            <ArrowIcon />
+            <p className="h-7">Send me an email</p>
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }
