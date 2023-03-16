@@ -22,7 +22,6 @@ export default function HomePage() {
         </>
       </p>
       {/* <div className="flex items-start md:items-center my-8 flex-col md:flex-row"> */}
-      {/* <div className="flex items-start md:items-center my-8 flex-col md:flex-row"> */}
       <div className="flex items-center my-8 flex-row">
         <Image
           title="Jan Hecker"
@@ -33,7 +32,6 @@ export default function HomePage() {
           width={100}
           priority
         />
-        {/* <div className="mt-8 md:mt-0 ml-0 md:ml-6 space-y-2"> */}
         {/* <div className="mt-8 md:mt-0 ml-0 md:ml-6 space-y-2"> */}
         <div className="ml-6 md:ml-6 space-y-2">
           <p className="flex items-center gap-2">
