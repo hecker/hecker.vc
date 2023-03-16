@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GitHubIcon, YoutubeIcon, LinkedInIcon } from "components/icons";
+import { GitHubIcon, YouTubeIcon, LinkedInIcon } from "components/icons";
 
 export const metadata: Metadata = {
   title: "About",
@@ -68,7 +68,7 @@ export default function AboutPage() {
             className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
           >
             <div className="flex items-center">
-              <YoutubeIcon />
+              <YouTubeIcon />
               <div className="ml-3">YouTube</div>
             </div>
           </a>

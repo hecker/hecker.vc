@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowIcon } from "components/icons";
+import {
+  ArrowIcon,
+  YouTubeIcon,
+  LinkedInIcon,
+  BabyIcon,
+} from "components/icons";
 import avatar from "../app/jan.png";
 
 export default function HomePage() {
@@ -26,6 +31,26 @@ export default function HomePage() {
           width={100}
           priority
         />
+        <div className="mt-8 md:mt-0 ml-0 md:ml-6 space-y-2">
+          <p className="flex items-center gap-2">
+            <BabyIcon />
+            {`22 years old`}
+          </p>
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
+          >
+            <YouTubeIcon />
+            {`3 subscribers`}
+          </Link>
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
+          >
+            <LinkedInIcon />
+            {`1,862 followers`}
+          </Link>
+        </div>
       </div>
       <p className="my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200">
         <>
@@ -35,8 +60,8 @@ export default function HomePage() {
         </>
       </p>
       <i>
-        I got a lot of inspiration from{" "}
-        <Link href="https://github.com/leerob/leerob.io">Lee's website</Link>.
+        Thanks, <Link href="https://twitter.com/leeerob">Lee,</Link> for
+        inspiring me to start web development &amp; launching my own website.
       </i>
       <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
         <li>
@@ -44,21 +69,10 @@ export default function HomePage() {
             className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://www.linkedin.com/in/janhecker/"
+            href="https://open.spotify.com/user/eja8fqoy7qpqdm4bk7e5nt8o3?si=43929b476d604ad4"
           >
             <ArrowIcon />
-            <p className="h-7">Follow me on LinkedIn</p>
-          </Link>
-        </li>
-        <li>
-          <Link
-            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://www.youtube.com/channel/UCoskbG0wO6RawevcsI41EWQ"
-          >
-            <ArrowIcon />
-            <p className="h-7">Watch me on YouTube</p>
+            <p className="h-7">stalk me on spotify</p>
           </Link>
         </li>
       </ul>
