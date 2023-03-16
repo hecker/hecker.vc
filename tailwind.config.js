@@ -9,6 +9,7 @@ module.exports = {
     cursor: {
       black: "url('/icons/cursor-black.svg'), default",
       white: "url('/icons/cursor-white.svg'), default",
+      notion: "url('/icons/cursor-notion.svg'), default",
     },
     extend: {
       fontFamily: {

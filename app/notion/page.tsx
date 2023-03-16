@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 export default function NotionPage() {
   return (
     <section>
-      <h1 className="font-bold text-3xl font-serif">My Notion Serivces</h1>
+      <h1 className="cursor-notion font-bold text-3xl font-serif">
+        My Notion Serivces
+      </h1>
       <div className="prose prose-neutral dark:prose-invert text-neutral-800 dark:text-neutral-200">
         <p>
           I am offering a variety of Notion services. I am using Notion for over

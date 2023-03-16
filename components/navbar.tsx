@@ -10,25 +10,26 @@ const navItems: { [_: string]: any } = {
     name: "home",
     x: 0,
     y: 0,
-    w: "64px",
+    w: "66px",
   },
-  "/notion": {
-    name: "notion",
-    x: 64,
-    y: 35,
-    w: "65px",
-  },
+
   "/about": {
     name: "about",
     x: 64,
     y: 35,
-    w: "65px",
+    w: "68px",
+  },
+  "/notion": {
+    name: "notion",
+    x: 127,
+    y: 69,
+    w: "74px",
   },
   "/kit": {
     name: "kit",
-    x: 127,
-    y: 69,
-    w: "56px",
+    x: 190,
+    y: 103,
+    w: "45px",
   },
 };
 
