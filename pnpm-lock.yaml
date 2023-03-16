@@ -13,7 +13,7 @@ specifiers:
   eslint-config-next: ^13.2.4
   eslint-import-resolver-typescript: ^3.5.3
   eslint-plugin-import: ^2.27.5
-  framer-motion: ^10.3.2
+  framer-motion: ^10.3.4
   next: ^13.2.4
   postcss: ^8.4.21
   react: ^18.2.0
@@ -34,7 +34,7 @@ dependencies:
   eslint-config-next: 13.2.4_vgl77cfdswitgr47lm5swmv43m
   eslint-import-resolver-typescript: 3.5.3_eakrjjutlgqjxe5ydhtnd4qdmy
   eslint-plugin-import: 2.27.5_v7jo3sddp7aqau7pajjy572cju
-  framer-motion: 10.3.2_biqbaboplfbrettd7655fr4n2y
+  framer-motion: 10.3.4_biqbaboplfbrettd7655fr4n2y
   next: 13.2.4_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -640,7 +640,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001466
-      electron-to-chromium: 1.4.330
+      electron-to-chromium: 1.4.332
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
     dev: true
@@ -977,8 +977,8 @@ packages:
       domhandler: 5.0.3
     dev: false
 
-  /electron-to-chromium/1.4.330:
-    resolution: {integrity: sha512-PqyefhybrVdjAJ45HaPLtuVaehiSw7C3ya0aad+rvmV53IVyXmYRk3pwIOb2TxTDTnmgQdn46NjMMaysx79/6Q==}
+  /electron-to-chromium/1.4.332:
+    resolution: {integrity: sha512-c1Vbv5tuUlBFp0mb3mCIjw+REEsgthRgNE8BlbEDKmvzb8rxjcVki6OkQP83vLN34s0XCxpSkq7AZNep1a6xhw==}
     dev: true
 
   /emoji-regex/10.2.1:
@@ -1446,8 +1446,8 @@ packages:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
     dev: true
 
-  /framer-motion/10.3.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-8GrK3X2vXG/9LJCNJuU5gKxDwSN0VTf7tD6MFP3S9F7rgsUavx+8ZNwhfZfak6maCBBHZ1m86K7TIXpbdfML2w==}
+  /framer-motion/10.3.4_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-JuvIMpEN0VxpgSiLPcY/edX3sQBdHzDQBnwFNf5hbr7Iwl0NTm7sMF9NUoKVR4geP/ICfBkZFVmjMLVPQZj+dA==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0

@@ -19,7 +19,7 @@
     "eslint-config-next": "^13.2.4",
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-import": "^2.27.5",
-    "framer-motion": "^10.3.2",
+    "framer-motion": "^10.3.4",
     "next": "^13.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
