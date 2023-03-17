@@ -5,12 +5,12 @@ import useSound from "use-sound";
 
 function BackgroundMusicOnL() {
   const url = "/music/last-of-the-real-ones.mp3";
+  const [isPlaying, setIsPlaying] = useState(false);
   const [play, { pause }] = useSound(url, {
     volume: 0.25,
     onplay: () => setIsPlaying(true),
     onpause: () => setIsPlaying(false),
   });
-  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
