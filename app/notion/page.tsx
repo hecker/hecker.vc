@@ -48,7 +48,7 @@ export default function NotionPage() {
             href="https://www.fiverr.com/janhecker29"
           >
             <ArrowIcon />
-            <p className="h-7">Commission me on Fiverr</p>
+            <p className="h-7">commission me on fiverr</p>
           </Link>
           <Link
             className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
@@ -57,7 +57,7 @@ export default function NotionPage() {
             href="mailto:jan@hecker.vc?subject=Notion%20Services&body=Hi%20Jan%2C%0A%0AI%20came%20across%20your%20website%20and%20saw%20that%20you%20offer%20services%20and%20consulting%20in%20Notion.%0A%0AHere's%20what%20I'm%20interested%20in%3A%0A%0ABest%20regards"
           >
             <ArrowIcon />
-            <p className="h-7">Write me by email</p>
+            <p className="h-7">write me by email</p>
           </Link>
         </div>
         <Image
