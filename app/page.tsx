@@ -1,14 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowIcon,
-  YouTubeIcon,
-  LinkedInIcon,
-  BabyIcon,
-} from "components/icons";
+import { ArrowIcon, YouTubeIcon, BabyIcon } from "components/icons";
+import { fetchYouTubeSubscribers } from "lib/metrics";
 import avatar from "../app/jan.png";
 
-export default function HomePage() {
+export const revalidate = 60;
+
+export default async function HomePage() {
+  let youtubeSubscribers, linkedInFollowers;
+
+  try {
+    [youtubeSubscribers] = await Promise.all([fetchYouTubeSubscribers()]);
+  } catch (error) {
+    console.error(error);
+  }
+
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
@@ -41,18 +47,11 @@ export default function HomePage() {
             )} years old`}
           </p>
           <Link
-            href="/"
+            href="https://www.youtube.com/channel/UCoskbG0wO6RawevcsI41EWQ"
             className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
           >
             <YouTubeIcon />
-            {`3 subscribers`}
-          </Link>
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
-          >
-            <LinkedInIcon />
-            {`1,862 followers`}
+            {`${(youtubeSubscribers ?? "...").toLocaleString()} subscribers`}
           </Link>
         </div>
       </div>
