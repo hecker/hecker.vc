@@ -1,24 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import useSound from "use-sound";
+import { useEffect, useState, useRef } from "react";
 
 function BackgroundMusicOnL() {
-  const url = "/music/last-of-the-real-ones.mp3";
   const [isPlaying, setIsPlaying] = useState(false);
-  const [play, { pause }] = useSound(url, {
-    volume: 0.25,
-    onplay: () => setIsPlaying(true),
-    onpause: () => setIsPlaying(false),
-  });
+  const url = "/music/last-of-the-real-ones.mp3";
+  // @ts-ignore
+  // eslint-disable-next-line
+  const audio = useRef(new Audio(url));
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "l") {
-        if (isPlaying) {
-          pause();
+        if (!isPlaying) {
+          audio.current.play();
+          setIsPlaying(true);
         } else {
-          play();
+          audio.current.pause();
+          setIsPlaying(false);
         }
       }
     };
@@ -28,7 +27,7 @@ function BackgroundMusicOnL() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  });
+  }, [isPlaying]);
 
   return null;
 }
