@@ -25,7 +25,8 @@
     "react-dom": "^18.2.0",
     "sharp": "^0.31.3",
     "svgo": "^3.0.2",
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "use-sound": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
