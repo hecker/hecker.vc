@@ -1,9 +1,8 @@
-const API_KEY = "RGAPI-27759bbb-4814-46bb-a9d2-18d01db2eb89";
 const region = "euw1";
 
 async function fetchSummonerData(summonerName: string) {
   const response = await fetch(
-    `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${API_KEY}`
+    `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${process.env.RIOT_API_KEY}`
   );
   return await response.json();
 }
@@ -12,7 +11,7 @@ export async function checkPlayerExists(playerName: string): Promise<boolean> {
   const response = await fetch(
     `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${encodeURIComponent(
       playerName
-    )}?api_key=${API_KEY}`
+    )}?api_key=${process.env.RIOT_API_KEY}`
   );
 
   return response.status !== 404;
@@ -50,7 +49,7 @@ export async function fetchLeagueLevel(summonerName?: string): Promise<number> {
 
 async function fetchRankedData(summonerId: string) {
   const response = await fetch(
-    `https://${region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}?api_key=${API_KEY}`
+    `https://${region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}?api_key=${process.env.RIOT_API_KEY}`
   );
   return await response.json();
 }
@@ -86,7 +85,7 @@ export async function fetchPlayerWithMostMatches(
 
   console.log("account id: " + summonerId);
   const matchData = await fetch(
-    `https://${region}.api.riotgames.com/lol/match/v4/matchlists/by-account/${summonerData.accountId}?queue=420&endIndex=100&api_key=${API_KEY}`
+    `https://${region}.api.riotgames.com/lol/match/v4/matchlists/by-account/${summonerData.accountId}?queue=420&endIndex=100&api_key=${process.env.RIOT_API_KEY}`
   );
 
   console.log("account weiojaid: " + matchData.status);
