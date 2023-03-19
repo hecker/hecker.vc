@@ -9,6 +9,9 @@ import {
   SpotifyIcon,
   TikTokIcon,
   InstagramIcon,
+  RedditIcon,
+  DiscordIcon,
+  WhatsAppIcon,
 } from "components/icons";
 
 function Link({
@@ -91,6 +94,21 @@ export default function SocialsPage() {
             href="https://www.instagram.com/janhecker29/"
             icon={<InstagramIcon />}
             title="Instagram"
+          />
+          <Link
+            href="https://www.reddit.com/user/janhecker"
+            icon={<RedditIcon />}
+            title="Reddit"
+          />
+          <Link
+            href="https://discordapp.com/users/220992532836777985"
+            icon={<DiscordIcon />}
+            title="Discord"
+          />
+          <Link
+            href="https://chat.whatsapp.com/LhFGMUMgsylHwZF5Irfh8l"
+            icon={<WhatsAppIcon />}
+            title="WhatsApp"
           />
         </div>
       </div>
