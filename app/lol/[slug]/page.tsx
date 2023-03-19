@@ -16,6 +16,9 @@ export default async function Page({
     leagueRank,
     fetchPlayerWithMostMatches;
 
+  // Convert line breaks properly.
+  slug = slug.replace(/%20/g, "");
+
   try {
     playerExists = await leagueMetrics.checkPlayerExists(slug);
     console.log("player exists: " + playerExists);
