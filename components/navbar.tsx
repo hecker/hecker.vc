@@ -7,26 +7,26 @@ import { motion } from "framer-motion";
 
 const navItems: { [_: string]: any } = {
   "/": {
-    name: "home",
+    name: "Home",
     x: 0,
     y: 0,
     w: "66px",
   },
 
   "/about": {
-    name: "about",
+    name: "About",
     x: 69,
     y: 35,
     w: "68px",
   },
   "/notion": {
-    name: "notion",
+    name: "Notion",
     x: 136,
     y: 69,
     w: "74px",
   },
   "/kit": {
-    name: "kit",
+    name: "Kit",
     x: 210,
     y: 103,
     w: "42px",

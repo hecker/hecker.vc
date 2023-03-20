@@ -101,7 +101,7 @@ export default async function HomePage() {
             href="https://open.spotify.com/user/eja8fqoy7qpqdm4bk7e5nt8o3?si=43929b476d604ad4"
           >
             <ArrowIcon />
-            <p className="h-7">stalk me on spotify</p>
+            <p className="h-7">Stalk me on Spotify</p>
           </Link>
         </li>
       </ul>
