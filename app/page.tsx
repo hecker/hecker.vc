@@ -14,12 +14,13 @@ export const revalidate = 60;
 
 export default async function HomePage() {
   let youtubeSubscribers, leagueRank;
-
   try {
-    [youtubeSubscribers, leagueRank] = await Promise.all([
-      fetchYouTubeSubscribers(),
-      fetchLeagueRank(),
-    ]);
+    [youtubeSubscribers] = await Promise.all([fetchYouTubeSubscribers()]);
+  } catch (error) {
+    console.error(error);
+  }
+  try {
+    [leagueRank] = await Promise.all([fetchLeagueRank()]);
   } catch (error) {
     console.error(error);
   }
@@ -55,24 +56,29 @@ export default async function HomePage() {
               (Date.now() - new Date("2000-09-20").getTime()) / 31536000000
             )} years old`}
           </p>
-          <Link
-            rel="noopener noreferrer"
-            target="_self"
-            href="/lol/janhecker"
-            className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
-          >
-            <LeagueOfLegendsIcon />
-            {leagueRank}
-          </Link>
-          <Link
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://www.youtube.com/channel/UCoskbG0wO6RawevcsI41EWQ"
-            className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
-          >
-            <YouTubeIcon />
-            {`${(youtubeSubscribers ?? "...").toLocaleString()} subscribers`}
-          </Link>
+
+          {leagueRank && (
+            <Link
+              rel="noopener noreferrer"
+              target="_self"
+              href="/lol/janhecker"
+              className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
+            >
+              <LeagueOfLegendsIcon />
+              {leagueRank}
+            </Link>
+          )}
+          {youtubeSubscribers && (
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://www.youtube.com/channel/UCoskbG0wO6RawevcsI41EWQ"
+              className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
+            >
+              <YouTubeIcon />
+              {`${(youtubeSubscribers ?? "...").toLocaleString()} subscribers`}
+            </Link>
+          )}
         </div>
       </div>
       <p className="my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200">
