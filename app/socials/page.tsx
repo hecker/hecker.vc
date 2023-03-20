@@ -101,7 +101,8 @@ export default function SocialsPage() {
             title="Reddit"
           />
           <Link
-            href="https://discordapp.com/users/220992532836777985"
+            // Save for later: https://discordapp.com/users/220992532836777985
+            href="https://discord.gg/YYuraFejJX"
             icon={<DiscordIcon />}
             title="Discord"
           />
