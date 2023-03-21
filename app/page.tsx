@@ -13,6 +13,7 @@ import avatar from "../app/jan.png";
 export const revalidate = 60;
 
 export default async function HomePage() {
+  // Get YouTube followers and LoL rank
   let youtubeSubscribers, leagueRank;
   try {
     [youtubeSubscribers] = await Promise.all([fetchYouTubeSubscribers()]);
@@ -76,7 +77,7 @@ export default async function HomePage() {
               className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
             >
               <YouTubeIcon />
-              {`${(youtubeSubscribers ?? "...").toLocaleString()} subscribers`}
+              {`${youtubeSubscribers} subscribers`}
             </Link>
           )}
         </div>
