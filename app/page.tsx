@@ -6,7 +6,7 @@ import {
   BabyIcon,
   LeagueOfLegendsIcon,
 } from "components/icons";
-import { fetchYouTubeSubscribers } from "lib/metrics";
+import { fetchYouTubeSubscribers } from "lib/youtube-metrics";
 import { fetchLeagueRank } from "lib/league-metrics";
 import avatar from "../app/jan.png";
 
