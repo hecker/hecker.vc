@@ -21,7 +21,6 @@
     "eslint-plugin-import": "^2.27.5",
     "framer-motion": "^10.3.4",
     "next": "^13.2.4",
-    "next-axiom": "^0.17.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sharp": "^0.31.3",

@@ -1,7 +1,5 @@
-const { withAxiom } = require("next-axiom");
-
 /** @type {import('next').NextConfig} */
-const nextConfig = withAxiom({
+const nextConfig = {
   images: {
     domains: ["ddragon.leagueoflegends.com"],
   },
@@ -16,7 +14,7 @@ const nextConfig = withAxiom({
       },
     ];
   },
-});
+};
 
 // https://nextjs.org/docs/advanced-features/security-headers
 const ContentSecurityPolicy = `
