@@ -4,6 +4,7 @@ import Navbar from "components/navbar";
 import { Libre_Baskerville } from "next/font/google";
 import { Metadata } from "next";
 import BackgroundMusicOnL from "components/music";
+import React from "react";
 
 const baskerville = Libre_Baskerville({
   subsets: ["latin"],
