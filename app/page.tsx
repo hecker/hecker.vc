@@ -5,16 +5,23 @@ import {
   YouTubeIcon,
   BabyIcon,
   LeagueOfLegendsIcon,
+  SpotifyIcon,
 } from "components/icons";
+import { getSpotifyFollowers } from "lib/spotify-metrics";
 import { fetchYouTubeSubscribers } from "lib/youtube-metrics";
 import { fetchLeagueRank } from "lib/league-metrics";
 import avatar from "../app/jan.png";
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 export default async function HomePage() {
-  // Get YouTube followers and LoL rank
-  let youtubeSubscribers, leagueRank;
+  // Get Spotify followers, YouTube subscribers and LoL rank
+  let spotifyFollowers, youtubeSubscribers, leagueRank;
+  try {
+    [spotifyFollowers] = await Promise.all([getSpotifyFollowers()]);
+  } catch (error) {
+    console.error(error);
+  }
   try {
     [youtubeSubscribers] = await Promise.all([fetchYouTubeSubscribers()]);
   } catch (error) {
@@ -49,24 +56,16 @@ export default async function HomePage() {
           width={100}
           priority
         />
-        {/* <div className="mt-8 md:mt-0 ml-0 md:ml-6 space-y-2"> */}
         <div className="ml-6 md:ml-6 space-y-2">
-          <p className="flex items-center gap-2">
-            <BabyIcon />
-            {`${Math.floor(
-              (Date.now() - new Date("2000-09-20").getTime()) / 31536000000
-            )} years old`}
-          </p>
-
-          {leagueRank && (
+          {spotifyFollowers && (
             <Link
               rel="noopener noreferrer"
-              target="_self"
-              href="/lol/janhecker"
+              target="_blank"
+              href="https://open.spotify.com/user/eja8fqoy7qpqdm4bk7e5nt8o3?si=43929b476d604ad4"
               className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
             >
-              <LeagueOfLegendsIcon />
-              {leagueRank}
+              <SpotifyIcon />
+              {`${spotifyFollowers} followers`}
             </Link>
           )}
           {youtubeSubscribers && (
@@ -78,6 +77,17 @@ export default async function HomePage() {
             >
               <YouTubeIcon />
               {`${youtubeSubscribers} subscribers`}
+            </Link>
+          )}
+          {leagueRank && (
+            <Link
+              rel="noopener noreferrer"
+              target="_self"
+              href="/lol/janhecker"
+              className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
+            >
+              <LeagueOfLegendsIcon />
+              {leagueRank}
             </Link>
           )}
         </div>
