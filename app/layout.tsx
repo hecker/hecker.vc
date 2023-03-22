@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     default: "Jan Hecker",
     template: "%s | Jan Hecker",
   },
-  description: "founder & developer-to-be",
+  description: "founder, amateur",
   openGraph: {
     title: "Jan Hecker",
-    description: "founder & developer-to-be",
+    description: "founder, amateur",
     url: "https://hecker.vc",
     siteName: "Jan Hecker",
     images: [
@@ -48,6 +48,8 @@ export const metadata: Metadata = {
   twitter: {
     title: "Jan Hecker",
     card: "summary_large_image",
+    creator: "@janhecker29",
+    site: "@janhecker29",
   },
   icons: {
     icon: "/favicon-32x32.png",
