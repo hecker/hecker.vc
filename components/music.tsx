@@ -33,7 +33,7 @@ export default BackgroundMusicOnL;
 
 export function BackgroundMusic() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const url = "/music/west-connect.mp3";
+  const url = "/music/beautiful-mind.mp3";
   const audio = useRef<HTMLAudioElement | undefined>(
     typeof Audio !== "undefined" ? new Audio(url) : undefined
   );
