@@ -37,7 +37,9 @@ export default function CardPage() {
           <div className="flex flex-col items-start gap-1">
             <div className="border-dashed border-l-2 pl-4">
               <h1 className="font-bold text-2xl font-serif">Jan Hecker</h1>
-              <p>{contact.bio}</p>
+              <p>
+                {contact.work.role} at {contact.work.company}
+              </p>
             </div>
             <ContactSaveButton />
           </div>
