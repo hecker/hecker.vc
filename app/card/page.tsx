@@ -48,8 +48,8 @@ export default function CardPage() {
           </div>
         </div>
 
-        <div className="items-center rounded-lg shadow-lg hover:shadow-2xl overflow-hidden p-4 mt-4">
-          <h2 className="font-bold text-2xl font-serif mb-2">
+        <div className="items-center rounded-lg shadow-lg hover:shadow-2xl overflow-hidden p-4 mt-8">
+          <h2 className="font-bold text-2xl font-serif mt-2 mb-2">
             Contact Details
           </h2>
           <div className="flex flex-col items-start gap-2">
@@ -95,88 +95,92 @@ export default function CardPage() {
             </p>
           </div>
         </div>
-        <h2 className="font-bold text-2xl font-serif mt-6 mb-2">Links</h2>
-        <div className="flex flex-col gap-3">
-          {contact.socials.linkedin && (
-            <Link
-              rel="noopener noreferrer"
-              target="_blank"
-              href={
-                "https://www.linkedin.com/in/" + contact.socials.linkedin + "/"
-              }
-              className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
-            >
-              <div className="flex items-center">
-                <LinkedInIcon />
-                <div className="ml-3">LinkedIn</div>
-              </div>
-            </Link>
-          )}
-          {contact.socials.github && (
-            <Link
-              rel="noopener noreferrer"
-              target="_blank"
-              href={"https://github.com/" + contact.socials.github}
-              className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
-            >
-              <div className="flex items-center">
-                <GitHubIcon />
-                <div className="ml-3">GitHub</div>
-              </div>
-            </Link>
-          )}
-          {contact.socials.whatsapp && (
-            <Link
-              rel="noopener noreferrer"
-              target="_blank"
-              href={"https://wa.me/" + contact.socials.whatsapp}
-              className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
-            >
-              <div className="flex items-center">
-                <WhatsAppIcon />
-                <div className="ml-3">WhatsApp</div>
-              </div>
-            </Link>
-          )}
-          {contact.socials.twitter && (
-            <Link
-              rel="noopener noreferrer"
-              target="_blank"
-              href={"https://twitter.com/" + contact.socials.twitter}
-              className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
-            >
-              <div className="flex items-center">
-                <TwitterIcon />
-                <div className="ml-3">Twitter</div>
-              </div>
-            </Link>
-          )}
-          {contact.socials.youtube && (
-            <Link
-              rel="noopener noreferrer"
-              target="_blank"
-              href={"https://youtube.com/@" + contact.socials.youtube}
-              className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
-            >
-              <div className="flex items-center">
-                <YouTubeIcon />
-                <div className="ml-3">YouTube</div>
-              </div>
-            </Link>
-          )}
-          {contact.socials.twitch && (
-            <Link
-              rel="noopener noreferrer"
-              target="_blank"
-              href={"https://www.twitch.tv/" + contact.socials.twitch}
-              className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
-            >
-              <div className="flex items-center">
-                <TwitchIcon />
-                <div className="ml-3">Twitch</div>
-              </div>
-            </Link>
-          )}
+        <div className="items-center rounded-lg shadow-lg hover:shadow-2xl overflow-hidden p-4 mt-8">
+          <h2 className="font-bold text-2xl font-serif mt-2 mb-2">Links</h2>
+          <div className="flex flex-col gap-3">
+            {contact.socials.linkedin && (
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                href={
+                  "https://www.linkedin.com/in/" +
+                  contact.socials.linkedin +
+                  "/"
+                }
+                className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
+              >
+                <div className="flex items-center">
+                  <LinkedInIcon />
+                  <div className="ml-3">LinkedIn</div>
+                </div>
+              </Link>
+            )}
+            {contact.socials.github && (
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                href={"https://github.com/" + contact.socials.github}
+                className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
+              >
+                <div className="flex items-center">
+                  <GitHubIcon />
+                  <div className="ml-3">GitHub</div>
+                </div>
+              </Link>
+            )}
+            {contact.socials.whatsapp && (
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                href={"https://wa.me/" + contact.socials.whatsapp}
+                className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
+              >
+                <div className="flex items-center">
+                  <WhatsAppIcon />
+                  <div className="ml-3">WhatsApp</div>
+                </div>
+              </Link>
+            )}
+            {contact.socials.twitter && (
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                href={"https://twitter.com/" + contact.socials.twitter}
+                className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
+              >
+                <div className="flex items-center">
+                  <TwitterIcon />
+                  <div className="ml-3">Twitter</div>
+                </div>
+              </Link>
+            )}
+            {contact.socials.youtube && (
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                href={"https://youtube.com/@" + contact.socials.youtube}
+                className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
+              >
+                <div className="flex items-center">
+                  <YouTubeIcon />
+                  <div className="ml-3">YouTube</div>
+                </div>
+              </Link>
+            )}
+            {contact.socials.twitch && (
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                href={"https://www.twitch.tv/" + contact.socials.twitch}
+                className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
+              >
+                <div className="flex items-center">
+                  <TwitchIcon />
+                  <div className="ml-3">Twitch</div>
+                </div>
+              </Link>
+            )}
+          </div>
         </div>
       </section>
     </>
