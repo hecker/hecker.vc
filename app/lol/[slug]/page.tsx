@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import * as leagueMetrics from "lib/league-metrics";
-import avatar from "/app/jan.png";
 
 export default async function Page({
   params: { slug },
@@ -46,15 +45,17 @@ export default async function Page({
         <>
           <h1 className="font-bold text-3xl font-serif">{leagueName}</h1>
           <div className="flex items-center my-8 flex-row">
-            <Image
-              title={leagueName}
-              alt={leagueName as string}
-              className="rounded-full"
-              src={leagueImageUrl ?? avatar}
-              width={100}
-              height={100}
-              priority
-            />
+            {leagueImageUrl && (
+              <Image
+                title={leagueName}
+                alt={leagueName as string}
+                className="rounded-full"
+                src={leagueImageUrl}
+                width={100}
+                height={100}
+                priority
+              />
+            )}
             <div className="ml-6 md:ml-6 space-y-2">
               {fetchPlayerWithMostMatches !== "" && (
                 <Link
