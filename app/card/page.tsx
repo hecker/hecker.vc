@@ -34,7 +34,7 @@ export default function CardPage() {
           priority
         />
         <div className="items-center rounded-lg shadow-lg hover:shadow-xl overflow-hidden p-4 mt-4">
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col items-start gap-1">
             <div className="border-dashed border-l-2 pl-4">
               <h1 className="font-bold text-2xl font-serif">Jan Hecker</h1>
               <p>{contact.bio}</p>
@@ -55,7 +55,7 @@ export default function CardPage() {
           <h2 className="font-bold text-2xl font-serif mb-2">
             Contact Details
           </h2>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col items-start gap-2">
             <Link
               className="flex items-center gap-3 hover:text-neutral-700 dark:hover:text-neutral-200 transition-all text-neutral-500 dark:text-neutral-400"
               rel="noopener noreferrer"
