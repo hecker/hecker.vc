@@ -83,19 +83,16 @@ export async function fetchPlayerWithMostMatches(
   const summonerData = await fetchSummonerData(summonerName);
   const summonerId = summonerData.id;
 
-  console.log("account id: " + summonerId);
   const matchData = await fetch(
     `https://${region}.api.riotgames.com/lol/match/v4/matchlists/by-account/${summonerData.accountId}?queue=420&endIndex=100&api_key=${process.env.RIOT_API_KEY}`
   );
 
-  console.log("account weiojaid: " + matchData.status);
   if (matchData.status === 200 || 400) {
     console.log("Access to match data is forbidden.");
     return "";
   }
 
   const matchList = await matchData.json();
-  console.log("matchList: ", JSON.stringify(matchList, null, 2));
 
   const opponents: { [name: string]: number } = {};
 
