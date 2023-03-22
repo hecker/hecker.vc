@@ -39,13 +39,10 @@ export function BackgroundMusic() {
   );
 
   useEffect(() => {
-    const handleMouseOver = (event: MouseEvent) => {
-      if (event.target !== undefined && !isPlaying) {
-        console.log("yooooo");
-        setTimeout(() => {
-          audio.current?.play();
-          setIsPlaying(true);
-        }, 1000);
+    const handleClick = () => {
+      if (!isPlaying) {
+        audio.current?.play();
+        setIsPlaying(true);
       }
     };
 
@@ -62,11 +59,13 @@ export function BackgroundMusic() {
     };
 
     document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("mouseover", handleMouseOver);
+    document.addEventListener("click", handleClick);
+
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("mouseover", handleMouseOver);
+      document.removeEventListener("click", handleClick);
     };
   }, [isPlaying]);
+
   return null;
 }
