@@ -30,3 +30,43 @@ function BackgroundMusicOnL() {
 }
 
 export default BackgroundMusicOnL;
+
+export function BackgroundMusic() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const url = "/music/west-connect.mp3";
+  const audio = useRef<HTMLAudioElement | undefined>(
+    typeof Audio !== "undefined" ? new Audio(url) : undefined
+  );
+
+  useEffect(() => {
+    const handleMouseOver = (event: MouseEvent) => {
+      if (event.target !== undefined && !isPlaying) {
+        console.log("yooooo");
+        setTimeout(() => {
+          audio.current?.play();
+          setIsPlaying(true);
+        }, 1000);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "l") {
+        if (!isPlaying) {
+          audio.current?.play();
+          setIsPlaying(true);
+        } else {
+          audio.current?.pause();
+          setIsPlaying(false);
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("mouseover", handleMouseOver);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mouseover", handleMouseOver);
+    };
+  }, [isPlaying]);
+  return null;
+}

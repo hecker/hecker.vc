@@ -1,0 +1,24 @@
+{
+  "imagePath": "../../app/jan.png",
+  "name": "Jan Hecker",
+  "bio": "founder, amateur",
+  "email": "jan@hecker.vc",
+  "phone": "+4915233634351",
+  "website": "https://hecker.vc",
+  "address": {
+    "name": "Hecker Ventures UG",
+    "street": "Kalkarer Str. 47 C",
+    "city": "Goch",
+    "zip": "47574",
+    "country": "Germany"
+  },
+  "socials": {
+    "linkedin": "janhecker",
+    "github": "hecker",
+    "twitter": "janhecker29",
+    "youtube": "janhecker29",
+    "twitch": "hecker",
+    "instagram": "janhecker29",
+    "whatsapp": "+4915233634351"
+  }
+}
