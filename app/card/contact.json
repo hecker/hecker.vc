@@ -3,8 +3,13 @@
   "name": "Jan Hecker",
   "bio": "founder, amateur",
   "email": "jan@hecker.vc",
-  "phone": "+4915233634351",
+  "phone": "+49 157 92354107",
   "website": "https://hecker.vc",
+  "birthdate": "2000-09-20",
+  "work": {
+    "company": "vamos!",
+    "role": "Founder & CEO"
+  },
   "address": {
     "name": "Hecker Ventures UG",
     "street": "Kalkarer Str. 47 C",
@@ -19,6 +24,6 @@
     "youtube": "janhecker29",
     "twitch": "hecker",
     "instagram": "janhecker29",
-    "whatsapp": "+4915233634351"
+    "whatsapp": "4915792354107"
   }
 }

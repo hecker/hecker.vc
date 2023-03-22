@@ -4,7 +4,6 @@ import {
   GitHubIcon,
   YouTubeIcon,
   LinkedInIcon,
-  ArrowIcon,
   EmailIcon,
   PhoneIcon,
   LinkIcon,
@@ -14,6 +13,7 @@ import contact from "./contact.json";
 import avatar from "app/(navbar)/jan.png";
 import Link from "next/link";
 import { BackgroundMusic } from "components/music";
+import { ContactSaveButton } from "./contact-save-button";
 
 export const metadata: Metadata = {
   description: "Online Business Card",
@@ -39,15 +39,7 @@ export default function CardPage() {
               <h1 className="font-bold text-2xl font-serif">Jan Hecker</h1>
               <p>{contact.bio}</p>
             </div>
-            <Link
-              className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all text-neutral-500 dark:text-neutral-400 mt-2"
-              rel="noopener noreferrer"
-              target="_blank"
-              href="#"
-            >
-              <ArrowIcon />
-              <p className="h-7">Save in Contacts</p>
-            </Link>
+            <ContactSaveButton />
           </div>
         </div>
 
