@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Jan Hecker",
     images: [
       {
-        url: "https://leerob.io/og.jpg",
+        url: "https://hecker.vc/og.jpg",
         width: 1920,
         height: 1080,
       },
@@ -50,12 +50,19 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   icons: {
-    shortcut: "/favicon.ico",
+    icon: "/favicon-32x32.png",
+    apple: "/apple-touch-icon.png",
+    other: [
+      {
+        rel: "manifest",
+        url: "/site.webmanifest",
+      },
+      {
+        rel: "mask-icon",
+        url: "/safari-pinned-tab.svg",
+      },
+    ],
   },
-  // verification: {
-  //   google: 'eZSdmzAXlLkKhNJzfgwDqWORghxnJ8qR9_CHdAh5-xw',
-  //   yandex: '14d2e73487fa6c71',
-  // },
 };
 
 export default function RootLayout({
