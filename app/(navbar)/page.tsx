@@ -3,14 +3,13 @@ import Link from "next/link";
 import {
   ArrowIcon,
   YouTubeIcon,
-  BabyIcon,
   LeagueOfLegendsIcon,
   SpotifyIcon,
 } from "components/icons";
 import { getSpotifyFollowers } from "lib/spotify-metrics";
 import { fetchYouTubeSubscribers } from "lib/youtube-metrics";
 import { fetchLeagueRank } from "lib/league-metrics";
-import avatar from "../app/jan.png";
+import avatar from "app/(navbar)/jan.png";
 
 export const revalidate = 0;
 
