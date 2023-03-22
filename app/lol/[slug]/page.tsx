@@ -21,7 +21,6 @@ export default async function Page({
 
   try {
     playerExists = await leagueMetrics.checkPlayerExists(slug);
-    console.log("player exists: " + playerExists);
     [
       leagueName,
       leagueRegisteredDate,

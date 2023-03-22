@@ -16,7 +16,6 @@ const getAccessToken = async () => {
 
 export async function getSpotifyFollowers(): Promise<number> {
   const access_token = await getAccessToken();
-  console.log("access_token /// ", access_token);
   const response = await fetch("https://api.spotify.com/v1/me/", {
     headers: {
       Authorization: `Bearer ${access_token.access_token}`,
