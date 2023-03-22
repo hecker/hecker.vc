@@ -23,7 +23,7 @@ export default function CardPage() {
   return (
     <>
       <BackgroundMusic />
-      <section className="pl-2 pr-44">
+      <section className="pl-2 pr-2 md:pr-44">
         <Image
           title={contact.name}
           alt={contact.name}
@@ -46,7 +46,7 @@ export default function CardPage() {
               href="#"
             >
               <ArrowIcon />
-              <p className="h-7">Store to Contacts</p>
+              <p className="h-7">Save in Contacts</p>
             </Link>
           </div>
         </div>
