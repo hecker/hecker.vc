@@ -8,7 +8,8 @@
   "birthdate": "2000-09-20",
   "work": {
     "company": "vamos!",
-    "role": "Founder & CEO"
+    "role": "Founder & CEO",
+    "website": "https://getvamos.app"
   },
   "address": {
     "name": "Hecker Ventures UG",

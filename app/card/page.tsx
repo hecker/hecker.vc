@@ -41,7 +41,8 @@ export default function CardPage() {
             <div className="border-dashed border-l-2 pl-4">
               <h1 className="font-bold text-2xl font-serif">Jan Hecker</h1>
               <p>
-                {contact.work.role} at {contact.work.company}
+                {contact.work.role} at{" "}
+                <Link href={contact.work.website}>{contact.work.company}</Link>
               </p>
             </div>
             <ContactSaveButton />
