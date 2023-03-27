@@ -57,16 +57,18 @@ export default async function Page({
               />
             )}
             <div className="ml-6 md:ml-6 space-y-2">
-              {fetchPlayerWithMostMatches !== "" && (
+              <span className="inline-block">
+                Mostly played with{" "}
                 <Link
                   rel="noopener noreferrer"
                   target="_self"
-                  href="/lol/fetchPlayerWithMostMatches"
-                  className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
+                  href={`/lol/${fetchPlayerWithMostMatches?.name}`}
+                  className="text-neutral-500 dark:text-neutral-400"
                 >
-                  {`Most played with ${fetchPlayerWithMostMatches}`}
+                  {fetchPlayerWithMostMatches?.name}
                 </Link>
-              )}
+              </span>
+
               <p>{leagueRank}</p>
               <p>Level {leagueLevel}</p>
             </div>
