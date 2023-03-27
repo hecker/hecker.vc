@@ -35,10 +35,11 @@ export async function fetchLeagueNameById(summonerId: string): Promise<string> {
     `https://${region}.api.riotgames.com/lol/summoner/v4/summoners/${summonerId}?api_key=${process.env.RIOT_API_KEY}`
   );
   if (!response.ok) {
-    return "";
+    return "Faker";
     // throw new Error(`Failed to fetch summoner name for ID ${summonerId}`);
   }
   const data = await response.json();
+  console.log("data", data);
   return data.name;
 }
 
@@ -104,6 +105,7 @@ export async function fetchPlayerWithMostMatches(
   const matchIdsResponse = await fetch(
     `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${summonerPuuid}/ids?start=0&count=100&api_key=${process.env.RIOT_API_KEY}`
   );
+  console.log(matchIdsResponse.status);
   if (!matchIdsResponse.ok) {
     throw new Error(
       `Failed to fetch match IDs: ${matchIdsResponse.statusText}`
@@ -124,12 +126,11 @@ export async function fetchPlayerWithMostMatches(
 
     const matchData = await matchDataResponse.json();
     const participants = matchData.info.participants;
-    const participantIds = participants.map(
-      (participant: any) => participant.summonerId
-    );
 
     for (const participant of participants) {
+      // if (participant === )
       const playerName = await fetchLeagueNameById(participant.summonerId);
+      console.log(playerName);
       if (
         playerName === summonerName ||
         playerName === "" ||
