@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getSingleBlogPostBySlug } from "lib/notion";
+import { getSingleBlogPost } from "lib/notion";
+import ReactMarkdown from "react-markdown";
 
 export const metadata: Metadata = {
   title: "Blog //",
@@ -11,13 +12,13 @@ export default async function BlogPostPage({
 }: {
   params: { slug: string };
 }) {
-  const blogPost = await getSingleBlogPostBySlug(slug);
+  const blogPost = await getSingleBlogPost(slug);
   return (
     <section>
       <h1 className="cursor-notion font-bold text-3xl font-serif mb-5">
         {blogPost.metadata.title}
       </h1>
-      <div>{blogPost.content}</div>
+      <ReactMarkdown>{blogPost.content}</ReactMarkdown>
     </section>
   );
 }

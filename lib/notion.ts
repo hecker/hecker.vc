@@ -11,19 +11,30 @@ const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-export async function getBlogPosts(): Promise<BlogPost[]> {
+export async function getAllBlogPosts(): Promise<BlogPost[]> {
   if (process.env.NOTION_DATABASE_ID === undefined) {
     throw new Error("Notion database ID is not defined.");
   }
   const response = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID,
+    filter: {
+      property: "Published",
+      date: {
+        is_not_empty: true,
+      },
+    },
+    sorts: [
+      {
+        property: "Published",
+        direction: "descending",
+      },
+    ],
   });
-  //   console.log(response.results);
   const blogPosts: BlogPost[] = response.results.map((page: any) => ({
     id: page.id,
     title: page.properties.Name.title[0].plain_text,
     slug: page.properties.Slug.rich_text[0].plain_text,
-    created: formatDate(page.created_time),
+    created: formatDate(page.properties.Published.date.start),
   }));
   return blogPosts;
 }
@@ -33,31 +44,18 @@ function formatDate(dateString: string): string {
   const today = new Date();
   const diff = today.getTime() - date.getTime();
   const days = Math.floor(diff / (1000 * 3600 * 24));
-
-  if (days < 30) {
-    const relativeDates: { [key: number]: string } = {
-      0: "Today",
-      1: "Yesterday",
-      7: "Last week",
-    };
-    for (let i = 2; i < 7; i++) {
-      relativeDates[i] = `${i} days ago`;
-    }
-    for (let i = 2; i < 4; i++) {
-      relativeDates[i * 7] = `${i} weeks ago`;
-    }
-    return relativeDates[days] || `${Math.ceil(days / 30)} months ago`;
-  } else {
-    const month = date.toLocaleString("default", { month: "long" });
-    const year = date.getFullYear();
-    return `${month} ${year}`;
-  }
+  if (days == 0) return "Today";
+  else if (days == 1) return "Yesterday";
+  else if (days < 7) return `${days} days ago`;
+  const month = date.toLocaleString("default", { month: "long" });
+  const year = date.getFullYear();
+  return `${month} ${year}`;
 }
 
 const { NotionToMarkdown } = require("notion-to-md");
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
-export const getSingleBlogPostBySlug = async (slug: string) => {
+export const getSingleBlogPost = async (slug: string) => {
   if (process.env.NOTION_DATABASE_ID === undefined) {
     throw new Error("Notion database ID is not defined.");
   }
@@ -73,12 +71,11 @@ export const getSingleBlogPostBySlug = async (slug: string) => {
     },
   });
   const page: any = response.results[0];
-  //   console.log("page2response... ", page);
   const metadata: BlogPost = {
     id: page.id,
-    title: page.properties.Name.title[0].plain_text,
     slug: page.properties.Slug.rich_text[0].plain_text,
-    created: formatDate(page.created_time),
+    title: page.properties.Name.title[0].plain_text,
+    created: formatDate(page.properties.Published.date.start),
   };
   const mdblocks = await n2m.pageToMarkdown(page.id);
   const mdString = n2m.toMarkdownString(mdblocks);

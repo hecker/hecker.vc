@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { BlogPost, getBlogPosts } from "lib/notion";
+import { BlogPost, getAllBlogPosts } from "lib/notion";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  const blogPosts: BlogPost[] = await getBlogPosts();
+  const blogPosts: BlogPost[] = await getAllBlogPosts();
   return (
     <section>
       <h1 className="cursor-notion font-bold text-3xl font-serif mb-5">Blog</h1>
