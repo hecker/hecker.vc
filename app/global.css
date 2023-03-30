@@ -128,3 +128,13 @@ table {
 .prose-code code {
   @apply bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200;
 }
+
+.prose h1 {
+  @apply font-serif text-neutral-600;
+}
+.prose h2 {
+  @apply font-serif text-neutral-600;
+}
+.prose h3 {
+  @apply font-serif text-neutral-600;
+}
