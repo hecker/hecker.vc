@@ -84,20 +84,11 @@ input[type="email"] {
   appearance: none;
 }
 
-.prose .tweet a {
-  text-decoration: inherit;
-  font-weight: inherit;
-}
-
 table {
   display: block;
   max-width: fit-content;
   overflow-x: auto;
   white-space: nowrap;
-}
-
-.prose .callout > p {
-  margin: 0 !important;
 }
 
 [data-rehype-pretty-code-fragment] code {
@@ -131,4 +122,20 @@ table {
 }
 [data-rehype-pretty-code-title] + pre {
   @apply mt-0 rounded-t-none border-t-0;
+}
+
+.prose .callout > p {
+  margin: 0 !important;
+}
+
+/* White/gray/black style for code blocks */
+.prose-code pre {
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+/* White/gray/black style for inline code snippets */
+.prose-code code {
+  background-color: #f8f8f8;
+  color: #333;
 }
