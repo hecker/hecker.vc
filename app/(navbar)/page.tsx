@@ -11,7 +11,7 @@ import { fetchYouTubeSubscribers } from "lib/youtube-metrics";
 import { fetchLeagueRank } from "lib/league-metrics";
 import avatar from "app/(navbar)/jan.png";
 
-export const revalidate = 0;
+export const revalidate = 60;
 
 export default async function HomePage() {
   // Get Spotify followers, YouTube subscribers and LoL rank
