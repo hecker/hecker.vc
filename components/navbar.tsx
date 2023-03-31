@@ -42,7 +42,7 @@ export default function Navbar() {
                       "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle",
                       {
                         "text-neutral-600": !isActive,
-                        "font-bold": isActive,
+                        // "font-bold": isActive,
                       }
                     )}
                   >
