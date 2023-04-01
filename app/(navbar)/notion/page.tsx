@@ -17,7 +17,14 @@ export default function NotionPage() {
       <div className="prose prose-neutral dark:prose-invert text-neutral-800 dark:text-neutral-200">
         <p>
           I am offering a variety of Notion services. I am using Notion for over
-          3 years, built my own startup using Notion, deployed the{" "}
+          3 years, built my own startup using Notion, published a few{" "}
+          <Link
+            href="https://www.notion.so/templates/subscription-management-2"
+            style={{ fontWeight: "normal" }}
+          >
+            templates
+          </Link>
+          , deployed the{" "}
           <Link href="https://getvamos.app" style={{ fontWeight: "normal" }}>
             vamos! website
           </Link>{" "}
