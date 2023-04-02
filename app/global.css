@@ -130,11 +130,11 @@ table {
 }
 
 .prose h1 {
-  @apply font-serif text-neutral-600;
+  @apply font-serif text-neutral-700 dark:text-neutral-200;
 }
 .prose h2 {
-  @apply font-serif text-neutral-600;
+  @apply font-serif text-neutral-700 dark:text-neutral-200;
 }
 .prose h3 {
-  @apply font-serif text-neutral-600;
+  @apply font-serif text-neutral-700 dark:text-neutral-200;
 }
