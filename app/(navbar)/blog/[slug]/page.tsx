@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getSingleBlogPost } from "lib/notion";
 import ReactMarkdown from "react-markdown";
+import Callout from "components/notion/callout";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -20,6 +21,12 @@ export default async function BlogPostPage({
         {blogPost.metadata.title}
       </h1>
       <article className="prose dark:prose-invert prose-code">
+        {blogPost.metadata.updated && (
+          <Callout
+            text={"Last updated in " + blogPost.metadata.updated + "."}
+            emoji="🗓️"
+          />
+        )}
         <ReactMarkdown>{blogPost.content}</ReactMarkdown>
       </article>
     </section>

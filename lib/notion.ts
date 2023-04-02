@@ -5,6 +5,7 @@ export interface BlogPost {
   slug: string;
   title: string;
   created: string;
+  updated: string | undefined;
 }
 
 const notion = new Client({
@@ -34,21 +35,31 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
     id: page.id,
     title: page.properties.Name.title[0].plain_text,
     slug: page.properties.Slug.rich_text[0].plain_text,
-    created: formatDate(page.properties.Published.date.start),
+    created: formatDate(page.properties.Published.date.start, false),
+    updated: page.properties['Show "Last updated"'].checkbox
+      ? formatDate(page.last_edited_time, true)
+      : undefined,
   }));
   return blogPosts;
 }
 
-function formatDate(dateString: string): string {
+function formatDate(dateString: string, justMonthYear: boolean): string {
   const date = new Date(dateString);
   const today = new Date();
   const diff = today.getTime() - date.getTime();
   const days = Math.floor(diff / (1000 * 3600 * 24));
-  if (days == 0) return "Today";
-  else if (days == 1) return "Yesterday";
-  else if (days < 7) return `${days} days ago`;
   const month = date.toLocaleString("default", { month: "long" });
   const year = date.getFullYear();
+  if (justMonthYear) {
+    if (year === today.getFullYear()) {
+      return month;
+    } else {
+      return `${month} ${year}`;
+    }
+  }
+  if (days == 0) return "Today";
+  if (days == 1) return "Yesterday";
+  if (days < 7) return `${days} days ago`;
   return `${month} ${year}`;
 }
 
@@ -75,7 +86,10 @@ export const getSingleBlogPost = async (slug: string) => {
     id: page.id,
     slug: page.properties.Slug.rich_text[0].plain_text,
     title: page.properties.Name.title[0].plain_text,
-    created: formatDate(page.properties.Published.date.start),
+    created: formatDate(page.properties.Published.date.start, false),
+    updated: page.properties['Show "Last updated"'].checkbox
+      ? formatDate(page.last_edited_time, true)
+      : undefined,
   };
   const mdblocks = await n2m.pageToMarkdown(page.id);
   const mdString = n2m.toMarkdownString(mdblocks);
