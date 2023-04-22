@@ -9,7 +9,7 @@ import {
   SpotifyIcon,
   TikTokIcon,
   InstagramIcon,
-  RedditIcon,
+  BeRealIcon,
   DiscordIcon,
   WhatsAppIcon,
 } from "components/icons";
@@ -96,9 +96,9 @@ export default function SocialsPage() {
             title="Instagram"
           />
           <Link
-            href="https://www.reddit.com/user/janhecker"
-            icon={<RedditIcon />}
-            title="Reddit"
+            href="https://bere.al/janhecker"
+            icon={<BeRealIcon />}
+            title="BeReal"
           />
           <Link
             // Save for later: https://discordapp.com/users/220992532836777985
