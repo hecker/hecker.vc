@@ -12,6 +12,9 @@ import {
   BeRealIcon,
   DiscordIcon,
   WhatsAppIcon,
+  ClashRoyaleIcon,
+  StravaIcon,
+  JodelIcon,
 } from "components/icons";
 
 function Link({
@@ -50,7 +53,8 @@ export default function SocialsPage() {
       <div className="prose prose-neutral dark:prose-invert text-neutral-800 dark:text-neutral-200">
         <p>
           I'm most active on LinkedIn. But don't you dare not follow me on every
-          single channel!
+          single channel. ;) All icons are from{" "}
+          <a href="https://icons8.com/">Icons8</a>.
         </p>
       </div>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-3">
@@ -114,6 +118,21 @@ export default function SocialsPage() {
           href="https://chat.whatsapp.com/LhFGMUMgsylHwZF5Irfh8l"
           icon={<WhatsAppIcon />}
           title="WhatsApp"
+        />
+        <Link
+          href="https://link.clashroyale.com/invite/friend/de?tag=2YJCG20LL&token=8myh8tjx&platform=iOS"
+          icon={<ClashRoyaleIcon />}
+          title="Clash Royale"
+        />
+        <Link
+          href="https://www.strava.com/athletes/janhecker"
+          icon={<StravaIcon />}
+          title="Strava"
+        />
+        <Link
+          href="https://shared.jodel.com/3rxqoI9ixzb"
+          icon={<JodelIcon />}
+          title="Jodel"
         />
       </div>
     </section>
