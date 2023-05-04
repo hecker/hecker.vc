@@ -18,6 +18,9 @@ const navItems: { [_: string]: any } = {
   "/kit": {
     name: "Kit",
   },
+  "/socials": {
+    name: "Socials",
+  },
 };
 
 export default function Navbar() {
