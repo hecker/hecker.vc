@@ -1,13 +1,81 @@
 import type { Metadata } from "next";
 import { ArrowIcon } from "components/icons";
 import Link from "next/link";
+import CV_DATA from "./cv-data.json";
 
 export const metadata: Metadata = {
   title: "CV",
   description: "It all began in 2000...",
 };
 
+function parseHighlightText(highlight: string) {
+  return highlight.split(/({.*?})/).map((part, index) => {
+    if (part.startsWith("{") && part.endsWith("}")) {
+      const [text, link] = part.slice(1, -1).split(",");
+      return (
+        <Link
+          key={index}
+          className="font-normal"
+          href={link.trim()}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {text.trim()}
+        </Link>
+      );
+    }
+    return part;
+  });
+}
+
+function Section({ title, data }: { title: string; data: any[] }) {
+  return (
+    <>
+      <b className="text-xl">{title}</b>
+      <hr className="space-y-0" style={{ margin: "0em", borderWidth: "1px" }} />
+      {data.map((item: any, index: number) => (
+        <div key={index} style={{ marginBottom: "0.5rem" }}>
+          <div
+            className="justify-between"
+            style={{ marginTop: "0rem", marginBottom: "0rem" }}
+          >
+            <b className="grid grid-cols-[4fr_1fr]">
+              <span className="truncate">{item.organization}</span>
+              <span className="text-right">{item.location}</span>
+            </b>
+            <p
+              className="grid grid-cols-[4fr_1fr]"
+              style={{ marginTop: "0rem", marginBottom: "0rem" }}
+            >
+              <i className="whitespace-pre-wrap">{item.position}</i>
+              <span className="text-right">{item.date}</span>
+            </p>
+          </div>
+          {item.highlights && (
+            <ul
+              className="list-disc hover:list-decimal m-0"
+              style={{ paddingLeft: "1.2em" }}
+            >
+              {item.highlights.map((highlight: string, index: number) => (
+                <li
+                  key={index}
+                  className="whitespace-pre-wrap"
+                  style={{ marginTop: "0rem", marginBottom: "0rem" }}
+                >
+                  {parseHighlightText(highlight)}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))}
+      <div style={{ height: "1rem" }} />
+    </>
+  );
+}
+
 export default function CVPage() {
+  const { education, work, extracurricular } = CV_DATA;
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif">Jan Clemens Hecker</h1>
@@ -18,7 +86,7 @@ export default function CVPage() {
         <p>
           Kalkarer Str. 47b, 47574 Goch, Germany <br></br>
           Mobile:{" "}
-          <Link href={"tel:+4915792354107"} style={{ fontWeight: "normal" }}>
+          <Link href={"tel:+4915792354107"} className="font-normal">
             +49 157 92354107
           </Link>{" "}
           | E-Mail:{" "}
@@ -26,56 +94,48 @@ export default function CVPage() {
             href={
               "mailto:jan@hecker.vc?body=Hi%20Jan%2C%0A%0AI%20saw%20your%20CV%20on%20your%20website%20and%20wanted%20to%20reach%20out%20to%20you%20about%3A%0A%0A"
             }
-            style={{ fontWeight: "normal" }}
+            className="font-normal"
           >
             jan@hecker.vc
           </Link>
         </p>
-        <b className="text-xl">EDUCATION</b>
+
+        <Section title={"EDUCATION"} data={CV_DATA.education} />
+        <Section title={"WORK EXPERIENCE"} data={CV_DATA.work} />
+        <Section
+          title={"EXTRACURRICULAR ENGAGEMENT"}
+          data={CV_DATA.extracurricular}
+        />
+
+        <b className="text-xl">FURTHER QUALIFICATIONS</b>
         <hr
           className="space-y-0"
           style={{ margin: "0em", borderWidth: "1px" }}
         />
-
-        <p className="justify-between">
-          <b className="grid grid-cols-2">
-            <span>University of Mannheim</span>
-            <span className="text-right">Mannheim, Germany</span>
-          </b>
-          <p className="grid grid-cols-2" style={{ marginTop: "0rem" }}>
-            <i>Bachelor in Business Informatics (Latest GPA: 2,9)</i>
-            <span className="text-right">09/2020 – 08/2023</span>
-          </p>
-        </p>
-
-        <p className="justify-between">
-          <b className="grid grid-cols-2">
-            <span>Collegium Augustinianum Gaesdonck</span>
-            <span className="text-right">Goch, Germany</span>
-          </b>
-          <p
-            className="grid grid-cols-2"
-            style={{ marginTop: "0rem", marginBottom: "0rem" }}
-          >
-            <i>A-Levels / Abitur (Final GPA: 2.6)</i>
-            <span className="text-right">08/2017 – 07/2020</span>
-          </p>
-          <li
-            className="my-0"
-            style={{ marginTop: "0rem", marginBottom: "0rem" }}
-          >
-            Advanced courses: Mathematics, Geography
-          </li>
-          <li style={{ marginTop: "0rem" }}>
-            Head of the Preliminary Committee
-          </li>
-        </p>
-
-        <b className="text-xl">WORK EXPERIENCE</b>
-        <hr
-          className="space-y-0"
-          style={{ margin: "0em", borderWidth: "1px" }}
-        />
+        <div className="grid grid-cols-[auto_1fr] gap-x-4">
+          <b>Languages:</b>
+          <span className="whitespace-pre-line">
+            German (native speaker) | English (proficient)
+          </span>
+          <b>IT Skills:</b>
+          <span className="whitespace-pre-line">
+            Java (beginner) | Dart & Flutter (beginner) | SQL (beginner)
+          </span>
+          <b>Software:</b>
+          <span className="whitespace-pre-line">
+            Git (GitHub) | Pitch | Notion | Typeform | Tally | Facebook Business
+            Manager | Personio Cloud Platform | Firebase | Analytics | BigQuery
+            | Looker | Google Workspace
+          </span>
+          <b>Interests:</b>
+          <span className="whitespace-pre-line">
+            Tennis | Piano | Fitness | Inline Skating | Travelling
+          </span>
+          <b>Values:</b>
+          <span className="whitespace-pre-line">
+            Impact | Authenticity | Sincerity
+          </span>
+        </div>
       </div>
 
       <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">

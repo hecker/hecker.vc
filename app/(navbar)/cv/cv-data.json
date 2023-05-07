@@ -1,0 +1,94 @@
+{
+  "education": [
+    {
+      "organization": "University of Mannheim",
+      "position": "B.Sc. Business Informatics (Current GPA: 2.9)",
+      "location": "Mannheim, Germany",
+      "date": "09/2020 – 08/2023"
+    },
+    {
+      "organization": "Collegium Augustinianum Gaesdonck",
+      "position": "A-Levels (Final GPA: 2.6)",
+      "location": "Goch, Germany",
+      "date": "08/2017 – 07/2020",
+      "highlights": [
+        "Completed advanced courses in Mathematics and Geography.",
+        "Served as the Preliminary Committee Chair."
+      ]
+    },
+    {
+      "organization": "Junior Business School Gaesdonck",
+      "position": "Additional course in cooperation with the German Chamber of Industry and Commerce",
+      "location": "Goch, Germany",
+      "date": "09/2018 – 06/2019",
+      "highlights": [
+        "Completed 130 hours of advanced training in soft skills, IT, ethics, economics, and business English."
+      ]
+    }
+  ],
+  "work": [
+    {
+      "organization": "Jodel",
+      "position": "Product",
+      "location": "Berlin, Germany",
+      "date": "05/2023 – present",
+      "highlights": ["Overseeing platform moderation and community guidelines."]
+    },
+    {
+      "organization": "vamos!",
+      "position": "Founder & CEO",
+      "location": "Cologne, Germany",
+      "date": "07/2019 – 05/2023",
+      "highlights": [
+        "Created the {vamos! app,https://getvamos.app} for on-the-go events on iOS & Android.",
+        "Managed a 15-person team, focusing on fundraising, product development, and marketing.",
+        "Secured €250k from {angels,https://www.linkedin.com/feed/update/urn:li:activity:6898226711532593152/}, €3k in {crowdfunding,https://www.startnext.com/siptogether}, and self-invested €50k.",
+        "Co-developed app using Dart (Flutter) and Google Firebase backend.",
+        "Analyzed user behavior with surveys, Google Analytics, BigQuery, and Looker.",
+        "Finished a 6-week Product Discovery Workshop by Markus Müller (ex-N26)."
+      ]
+    },
+    {
+      "organization": "Pizzeria Roma",
+      "position": "Delivery Driver (part-time)",
+      "location": "Goch, Germany",
+      "date": "08/2019 – 10/2019"
+    },
+    {
+      "organization": "Online Game Server",
+      "position": "Pixel Wrangler & Code Magician",
+      "location": "Goch, Germany",
+      "date": "06/2015 – 03/2017",
+      "highlights": [
+        "Managed an 8-person team and developed Java plugins for Minecraft."
+      ]
+    }
+  ],
+  "extracurricular": [
+    {
+      "organization": "thinc! e.V. – University of Mannheim Student Initiative",
+      "position": "Co-initiator of mentoring program and IT advisor",
+      "location": "Mannheim, Germany",
+      "date": "10/2020 – 07/2021",
+      "highlights": []
+    },
+    {
+      "organization": "Gründerstipendium.NRW – Entrepreneur Scholarship ",
+      "position": "Alumnus (awarded €1k/month by the Ministry of Economy)",
+      "location": "Germany",
+      "date": "09/2020 – 09/2021"
+    },
+    {
+      "organization": "Amnesty International",
+      "position": "Raising awareness about Amnesty International",
+      "location": "Cleve, Germany",
+      "date": "12/2019 – 10/2020"
+    },
+    {
+      "organization": "Free Democratic Party FDP",
+      "position": "Member",
+      "location": "Germany",
+      "date": "10/2019 – present"
+    }
+  ]
+}
