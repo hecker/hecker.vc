@@ -14,6 +14,40 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/yt",
+        destination: "https://www.youtube.com/@janhecker00",
+        permanent: true,
+      },
+      {
+        source: "/ig",
+        destination: "https://www.instagram.com/janhecker00/",
+        permanent: true,
+      },
+      {
+        source: "/tt",
+        destination: "https://www.tiktok.com/@janhecker",
+        permanent: true,
+      },
+      {
+        source: "/gh",
+        destination: "https://github.com/hecker",
+        permanent: true,
+      },
+      {
+        source: "/li",
+        destination: "https://www.linkedin.com/in/janhecker/",
+        permanent: true,
+      },
+      {
+        source: "/wa",
+        destination: "https://chat.whatsapp.com/LhFGMUMgsylHwZF5Irfh8l",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 // https://nextjs.org/docs/advanced-features/security-headers
