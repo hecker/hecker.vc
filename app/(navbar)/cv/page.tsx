@@ -46,19 +46,17 @@ function Section({ title, data }: { title: string; data: any[] }) {
               </span>
             </b>
             <p
+              className="md:hidden"
+              style={{ marginTop: "0rem", marginBottom: "0rem" }}
+            >
+              {item.date} in {item.location}
+            </p>
+            <p
               className="md:grid md:grid-cols-[4fr_1fr]"
               style={{ marginTop: "0rem", marginBottom: "0rem" }}
             >
               <i className="whitespace-pre-wrap">{item.position}</i>
               <span className="hidden md:block text-right">{item.date}</span>
-            </p>
-            <p
-              className="md:hidden"
-              style={{ marginTop: "0rem", marginBottom: "0rem" }}
-            >
-              <i>
-                {item.date} in {item.location}
-              </i>
             </p>
           </div>
           {item.highlights && (
