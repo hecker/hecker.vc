@@ -40,7 +40,7 @@ function Section({ title, data }: { title: string; data: any[] }) {
             style={{ marginTop: "0rem", marginBottom: "0rem" }}
           >
             <b className="md:grid md:grid-cols-[4fr_1fr]">
-              <span className="truncate">{item.organization}</span>
+              <span className="whitespace-pre-wrap">{item.organization}</span>
               <span className="hidden md:block text-right">
                 {item.location}
               </span>
