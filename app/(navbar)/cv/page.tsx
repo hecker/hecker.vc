@@ -78,7 +78,7 @@ export default function CVPage() {
   const { education, work, extracurricular } = CV_DATA;
   return (
     <section>
-      <h1 className="font-bold text-3xl font-serif">Jan Clemens Hecker</h1>
+      <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
       <div
         className="prose prose-neutral dark:prose-invert text-neutral-800 dark:text-neutral-200"
         style={{ lineHeight: "1.4", whiteSpace: "nowrap" }}
