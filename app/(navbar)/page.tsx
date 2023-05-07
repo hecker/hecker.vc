@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowIcon,
   YouTubeIcon,
   LeagueOfLegendsIcon,
   SpotifyIcon,
@@ -35,13 +34,13 @@ export default async function HomePage() {
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
-      <p className="my-5 max-w-[460px] text-neutral-800 dark:text-neutral-200">
+      <p className="my-5 max-w-[500px] text-neutral-800 dark:text-neutral-200">
         <>
-          I am Jan.{" "}
+          I am Jan. I work on{" "}
           <b>
-            Founder of <Link href="https://getvamos.app">vamos!</Link>
+            product at <Link href="https://jodel.com/de/">Jodel</Link>
           </b>{" "}
-          and business informatics student at the University of Mannheim.
+          and share my ideas online.
         </>
       </p>
       {/* <div className="flex items-start md:items-center my-8 flex-col md:flex-row"> */}
@@ -93,16 +92,24 @@ export default async function HomePage() {
       </div>
       <p className="my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200">
         <>
-          Currently, I'm learning Flutter &amp; React (Next.js) and starting to
-          work out again. Since 2011, I have tried to become ranked gold in
-          League of Legends but have failed every season.
+          I joined Jodel after they have acquired my startup{" "}
+          <Link href="https://getvamos.app">vamos!</Link> Currently, I'm
+          learning Flutter &amp; React (Next.js) and starting to work out again.
+          Currently seeking a shared flat or apartment in Berlin.{" "}
+          <Link
+            href="https://www.linkedin.com/in/janhecker/"
+            className="text-gray-400"
+          >
+            Get in touch
+          </Link>{" "}
+          if you have tips.
         </>
       </p>
       <i>
         Thanks, <Link href="https://twitter.com/leeerob">Lee,</Link> for
         inspiring me to start web development &amp; launching my own website.
       </i>
-      <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
+      {/* <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
         <li>
           <Link
             className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
@@ -114,7 +121,7 @@ export default async function HomePage() {
             <p className="h-7">Stalk me on Spotify</p>
           </Link>
         </li>
-      </ul>
+      </ul> */}
     </section>
   );
 }
