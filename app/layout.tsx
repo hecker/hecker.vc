@@ -48,8 +48,8 @@ export const metadata: Metadata = {
   twitter: {
     title: "Jan Hecker",
     card: "summary_large_image",
-    creator: "@janhecker29",
-    site: "@janhecker29",
+    creator: "@janhecker00",
+    site: "@janhecker00",
   },
   icons: {
     icon: "/favicon-32x32.png",

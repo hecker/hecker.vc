@@ -64,7 +64,7 @@ export default function SocialsPage() {
           title="GitHub"
         />
         <Link
-          href="https://www.youtube.com/@janhecker29"
+          href="https://www.youtube.com/@janhecker00"
           icon={<YouTubeIcon />}
           title="YouTube"
         />
@@ -99,7 +99,7 @@ export default function SocialsPage() {
           title="TikTok"
         />
         <Link
-          href="https://www.instagram.com/janhecker29/"
+          href="https://www.instagram.com/janhecker00/"
           icon={<InstagramIcon />}
           title="Instagram"
         />
