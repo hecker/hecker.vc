@@ -39,16 +39,26 @@ function Section({ title, data }: { title: string; data: any[] }) {
             className="justify-between"
             style={{ marginTop: "0rem", marginBottom: "0rem" }}
           >
-            <b className="grid grid-cols-[4fr_1fr]">
+            <b className="md:grid md:grid-cols-[4fr_1fr]">
               <span className="truncate">{item.organization}</span>
-              <span className="text-right">{item.location}</span>
+              <span className="hidden md:block text-right">
+                {item.location}
+              </span>
             </b>
             <p
-              className="grid grid-cols-[4fr_1fr]"
+              className="md:grid md:grid-cols-[4fr_1fr]"
               style={{ marginTop: "0rem", marginBottom: "0rem" }}
             >
               <i className="whitespace-pre-wrap">{item.position}</i>
-              <span className="text-right">{item.date}</span>
+              <span className="hidden md:block text-right">{item.date}</span>
+            </p>
+            <p
+              className="md:hidden"
+              style={{ marginTop: "0rem", marginBottom: "0rem" }}
+            >
+              <i>
+                {item.date} in {item.location}
+              </i>
             </p>
           </div>
           {item.highlights && (
