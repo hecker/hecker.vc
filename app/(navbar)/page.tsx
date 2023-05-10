@@ -95,7 +95,7 @@ export default async function HomePage() {
           I joined Jodel after they have acquired my startup{" "}
           <Link href="https://getvamos.app">vamos!</Link> Currently, I'm
           learning Flutter &amp; React (Next.js) and starting to work out again.
-          Currently seeking a shared flat or apartment in Berlin.{" "}
+          Also seeking a shared flat or apartment in Berlin.{" "}
           <Link
             href="https://www.linkedin.com/in/janhecker/"
             className="text-gray-400"
