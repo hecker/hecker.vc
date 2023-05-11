@@ -46,6 +46,22 @@ const nextConfig = {
         destination: "https://chat.whatsapp.com/LhFGMUMgsylHwZF5Irfh8l",
         permanent: true,
       },
+      {
+        source: "/br",
+        destination: "https://bere.al/janhecker",
+        permanent: true,
+      },
+      {
+        source: "/cr",
+        destination:
+          "https://link.clashroyale.com/invite/friend/de?tag=2YJCG20LL&token=8myh8tjx&platform=iOS",
+        permanent: true,
+      },
+      {
+        source: "/pp",
+        destination: "https://paypal.me/llllllllllllllllllI",
+        permanent: true,
+      },
     ];
   },
 };
