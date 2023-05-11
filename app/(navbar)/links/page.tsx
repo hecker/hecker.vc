@@ -15,6 +15,9 @@ import {
   ClashRoyaleIcon,
   StravaIcon,
   JodelIcon,
+  RedditIcon,
+  PayPalIcon,
+  RevolutIcon,
 } from "components/icons";
 import Link from "next/link";
 
@@ -149,6 +152,24 @@ export default function LinksPage() {
           href="https://twitter.com/janhecker29"
           icon={<TwitterIcon />}
           title="Twitter"
+          active={false}
+        />
+        <SocialLink
+          href="https://www.reddit.com/user/hecker"
+          icon={<RedditIcon />}
+          title="Reddit"
+          active={false}
+        />
+        <SocialLink
+          href="https://paypal.me/llllllllllllllllllI"
+          icon={<PayPalIcon />}
+          title="PayPal"
+          active={false}
+        />
+        <SocialLink
+          href="https://revolut.me/janhecker"
+          icon={<RevolutIcon />}
+          title="Revolut"
           active={false}
         />
       </div>
