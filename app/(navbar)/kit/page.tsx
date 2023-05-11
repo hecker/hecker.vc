@@ -16,11 +16,6 @@ export default function KitPage() {
         </p>
       </div>
       <div className="prose prose-neutral dark:prose-invert">
-        <h3 id="hardware">Hardware</h3>
-        <ul>
-          <li>14&quot; Macbook Pro (2020)</li>
-          <li>Logitech MX Master 3 Mouse &amp; Keyboard</li>
-        </ul>
         <h3 id="software">Software</h3>
         <ul>
           <li>
@@ -63,6 +58,11 @@ export default function KitPage() {
           <li>Raycast, macOS Spotlight alternative</li>
           <li>Spotify, music</li>
           <li>vamos!, find events &amp; activities</li>
+        </ul>
+        <h3 id="hardware">Hardware</h3>
+        <ul>
+          <li>14&quot; Macbook Pro (2020)</li>
+          <li>Logitech MX Master 3 Mouse &amp; Keyboard</li>
         </ul>
       </div>
     </section>
