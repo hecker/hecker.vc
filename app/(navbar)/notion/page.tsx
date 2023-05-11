@@ -42,8 +42,6 @@ export default function NotionPage() {
           <li>Deployment of your Notion page to a website</li>
           <li>Custom templates, processes and structures for your team</li>
           <li>Set up your Notion workspace with permissions &amp; co</li>
-          <li>€1000 in Notion credits, if needed</li>
-          <li>An avatar in the typical Notion style</li>
         </ul>
       </div>
       <div className="flex items-center md:items-center flex-row md:flex-row">
