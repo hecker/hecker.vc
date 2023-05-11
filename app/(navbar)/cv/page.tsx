@@ -146,7 +146,7 @@ export default function CVPage() {
         </div>
       </div>
 
-      <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
+      <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-1 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
         <li>
           <Link
             className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
@@ -156,6 +156,17 @@ export default function CVPage() {
           >
             <ArrowIcon />
             <p className="h-7">Download as PDF</p>
+          </Link>
+        </li>
+        <li>
+          <Link
+            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.linkedin.com/in/janhecker/"
+          >
+            <ArrowIcon />
+            <p className="h-7">Connect on LinkedIn</p>
           </Link>
         </li>
       </ul>
