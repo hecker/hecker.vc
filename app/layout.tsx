@@ -1,9 +1,8 @@
 import "./global.css";
 import clsx from "clsx";
-import Navbar from "components/navbar";
 import { Libre_Baskerville } from "next/font/google";
 import { Metadata } from "next";
-import BackgroundMusicOnL from "components/music";
+import { Analytics } from "@vercel/analytics/react";
 import React from "react";
 
 const baskerville = Libre_Baskerville({
@@ -86,6 +85,7 @@ export default function RootLayout({
       >
         <main className="flex-auto min-w-0 mt-6 md:mt-0 flex flex-col px-2 md:px-0">
           {children}
+          <Analytics />
         </main>
       </body>
     </html>
