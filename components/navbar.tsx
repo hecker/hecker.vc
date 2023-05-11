@@ -19,8 +19,8 @@ const navItems: { [_: string]: any } = {
   "/kit": {
     name: "Kit",
   },
-  "/socials": {
-    name: "Socials",
+  "/links": {
+    name: "Links",
   },
 };
 

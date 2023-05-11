@@ -51,14 +51,14 @@ function SocialLink({
 }
 
 export const metadata: Metadata = {
-  title: "Socials",
-  description: "All important socials from me.",
+  title: "Links",
+  description: "All important links from me.",
 };
 
-export default function SocialsPage() {
+export default function LinksPage() {
   return (
     <section>
-      <h1 className="font-bold text-3xl font-serif mb-4">Socials</h1>
+      <h1 className="font-bold text-3xl font-serif mb-4">Links</h1>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-3">
         <SocialLink
           href="https://github.com/hecker"
