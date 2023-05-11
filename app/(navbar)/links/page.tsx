@@ -175,8 +175,6 @@ export default function LinksPage() {
       </div>
       <div className="prose prose-neutral dark:prose-invert text-neutral-800 dark:text-neutral-200">
         <p>
-          I'm most active on LinkedIn. But don't you dare not follow me on every
-          single channel. ;){"  "}
           <span className="inline-flex items-center">
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -184,8 +182,8 @@ export default function LinksPage() {
             </span>
           </span>
           {"  "}
-          indicates that I am active and publicly available on the platform. All
-          icons are from{" "}
+          indicates that I am active and publicly available on the platform.
+          Icons are from{" "}
           <Link className="font-normal no-underline" href="https://icons8.com/">
             Icons8
           </Link>
