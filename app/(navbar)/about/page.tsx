@@ -47,7 +47,7 @@ export default function AboutPage() {
         </p>
         <p className="mb-8">
           If you want to follow my journey or just want to grab a (virtual)
-          coffee, feel free to <a href="socials">connect with me</a>!
+          coffee, feel free to <a href="links">connect with me</a>!
         </p>
 
         {/* <div className="flex flex-col gap-2 md:flex-row md:gap-2"> */}
