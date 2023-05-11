@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { LayoutGroup, motion } from "framer-motion";
+import { HeckerIcon } from "./icons";
 
 const navItems: { [_: string]: any } = {
   "/": {
@@ -29,9 +30,17 @@ export default function Navbar() {
   return (
     <aside className="md:w-[150px] md:flex-shrink-0 -mx-6 md:mx-0 md:px-0 font-serif">
       <div className="lg:sticky lg:top-20">
+        <Link
+          className="invisible md:visible md:w-12 w-0 ml-2 md:ml-[12px] mb-2 px-4 md:px-0 md:mb-8 flex md:flex-row items-start"
+          // className="invisible md:visible md:ml-[12px] ml-2 space-y-10 md:px-4 md:mb-8 md:flex-row items-start"
+          aria-label="Jan Hecker"
+          href="/"
+        >
+          <HeckerIcon />
+        </Link>
         <LayoutGroup>
           <nav
-            className="flex flex-row md:flex-col items-start relative px-4 md:px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
+            className="flex overflow-hidden flex-row md:flex-col items-start relative px-4 md:px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
             id="nav"
           >
             <div className="flex flex-row md:flex-col space-x-0 pr-10 mb-2 mt-2 md:mt-0">
