@@ -11,13 +11,13 @@ import {
   InstagramIcon,
   BeRealIcon,
   DiscordIcon,
-  WhatsAppIcon,
   ClashRoyaleIcon,
   StravaIcon,
   JodelIcon,
   RedditIcon,
   PayPalIcon,
   RevolutIcon,
+  CalendlyIcon,
 } from "components/icons";
 import Link from "next/link";
 
@@ -113,9 +113,9 @@ export default function LinksPage() {
           active={false}
         />
         <SocialLink
-          href="https://chat.whatsapp.com/LhFGMUMgsylHwZF5Irfh8l"
-          icon={<WhatsAppIcon />}
-          title="WhatsApp"
+          href="https://calendly.com/janhecker"
+          icon={<CalendlyIcon />}
+          title="Calendly"
           active={false}
         />
         <SocialLink
