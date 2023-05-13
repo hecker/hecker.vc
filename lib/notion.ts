@@ -95,6 +95,6 @@ export const getSingleBlogPost = async (slug: string) => {
   const mdString = n2m.toMarkdownString(mdblocks);
   return {
     metadata: metadata,
-    content: mdString,
+    content: mdString.parent,
   };
 };
