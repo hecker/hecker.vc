@@ -50,6 +50,13 @@ export default function KitPage() {
             </a>
             , sports &amp; spa
           </li>
+          <li>
+            <a href="https://shared.jodel.com/3rxqoI9ixzb">Jodel</a>, what's
+            going on around me
+          </li>
+          <li>
+            <a href="https://artifact.news/i?code=5XZRFF">Artifact</a>, news
+          </li>
           <li>Things 3, todos</li>
           <li>Amie, calendar</li>
           <li>Superhuman, emails</li>
