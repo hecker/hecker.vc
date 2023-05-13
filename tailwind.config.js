@@ -15,6 +15,9 @@ module.exports = {
       fontFamily: {
         serif: ["var(--font-baskerville)"],
       },
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
     },
   },
   future: {
