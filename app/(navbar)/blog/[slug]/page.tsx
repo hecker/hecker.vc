@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getSingleBlogPost } from "lib/notion";
-import ReactMarkdown from "react-markdown";
+import Markdown from "markdown-to-jsx";
+import React from "react";
+import { render } from "react-dom";
 import Callout from "components/notion/callout";
 
 export const metadata: Metadata = {
@@ -27,7 +29,7 @@ export default async function BlogPostPage({
             emoji="🗓️"
           />
         )}
-        <ReactMarkdown>{blogPost.content}</ReactMarkdown>
+        render(<Markdown>{blogPost.content}</Markdown>, document.body);
       </article>
     </section>
   );

@@ -66,6 +66,19 @@ function formatDate(dateString: string, justMonthYear: boolean): string {
 const { NotionToMarkdown } = require("notion-to-md");
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
+n2m.setCustomTransformer("video", async (block: any) => {
+  const { video } = block as any;
+  const { type } = video;
+  const video_url = video[type].url;
+  console.log("video url", video_url);
+  return `
+      <video width="320" height="240" controls>
+      <source src="${video_url}" type="video/mp4">
+         Your browser does not support the video tag.
+     </video>
+  `.trim();
+});
+
 export const getSingleBlogPost = async (slug: string) => {
   if (process.env.NOTION_DATABASE_ID === undefined) {
     throw new Error("Notion database ID is not defined.");
@@ -91,8 +104,11 @@ export const getSingleBlogPost = async (slug: string) => {
       ? formatDate(page.last_edited_time, true)
       : undefined,
   };
+
   const mdblocks = await n2m.pageToMarkdown(page.id);
   const mdString = n2m.toMarkdownString(mdblocks);
+
+  console.log("mdString", mdString);
   return {
     metadata: metadata,
     content: mdString.parent,
