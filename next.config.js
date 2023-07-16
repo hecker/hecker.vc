@@ -62,6 +62,11 @@ const nextConfig = {
         destination: "https://paypal.me/llllllllllllllllllI",
         permanent: true,
       },
+      {
+        source: "/threads",
+        destination: "https://www.threads.net/@janhecker00",
+        permanent: true,
+      },
     ];
   },
 };
