@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     default: "Jan Hecker",
     template: "%s | Jan Hecker",
   },
+  metadataBase: new URL("https://hecker.vc"),
   description: "founder, amateur",
   openGraph: {
     title: "Jan Hecker",
