@@ -3,7 +3,7 @@ import {
   GitHubIcon,
   YouTubeIcon,
   LinkedInIcon,
-  MediumIcon,
+  ThreadsIcon,
   TwitchIcon,
   PolyworkIcon,
   TwitterIcon,
@@ -95,9 +95,9 @@ export default function LinksPage() {
           active={true}
         />
         <SocialLink
-          href="https://janhecker.medium.com/"
-          icon={<MediumIcon />}
-          title="Medium"
+          href="https://www.threads.net/@janhecker00"
+          icon={<ThreadsIcon />}
+          title="Threads"
           active={true}
         />
         <SocialLink
