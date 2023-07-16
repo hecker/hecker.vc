@@ -50,10 +50,10 @@ export default function NotionPage() {
             className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://www.fiverr.com/janhecker29"
+            href="https://www.linkedin.com/in/janhecker/"
           >
             <ArrowIcon />
-            <p className="h-7">Commission me on Fiverr</p>
+            <p className="h-7">Connect with me on LinkedIn</p>
           </Link>
           <Link
             className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
