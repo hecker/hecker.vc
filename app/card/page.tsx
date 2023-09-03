@@ -28,8 +28,8 @@ export default function CardPage() {
       {/* <BackgroundMusic /> */}
       <section className="pl-2 pr-2 md:pr-44">
         <Image
-          title={contact.name}
-          alt={contact.name}
+          title={contact.firstName + " " + contact.lastName}
+          alt={contact.firstName + " " + contact.lastName}
           className="rounded-full grayscale"
           src={avatar}
           placeholder="blur"
