@@ -1,15 +1,16 @@
 {
   "imagePath": "../../app/jan.png",
-  "name": "Jan Hecker",
-  "bio": "founder, amateur",
+  "firstName": "Jan",
+  "lastName": "Hecker",
+  "bio": "Product @Jodel",
   "email": "jan@hecker.vc",
   "phone": "+49 157 92354107",
   "website": "https://hecker.vc",
   "birthdate": "2000-09-20",
   "work": {
-    "company": "vamos!",
-    "role": "Founder & CEO",
-    "website": "https://getvamos.app"
+    "company": "Jodel",
+    "role": "Product Manager",
+    "website": "https://jodel.com"
   },
   "address": {
     "name": "Hecker Ventures UG",
