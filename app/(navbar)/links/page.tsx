@@ -18,7 +18,8 @@ import {
   RedditIcon,
   PayPalIcon,
   RevolutIcon,
-  CalendlyIcon,
+  CalendarIcon,
+  ChessIcon,
 } from "components/icons";
 import Link from "next/link";
 
@@ -74,7 +75,7 @@ export default function LinksPage() {
           href="https://www.youtube.com/@janhecker00"
           icon={<YouTubeIcon />}
           title="YouTube"
-          active={true}
+          active={false}
         />
         <SocialLink
           href="https://www.linkedin.com/in/janhecker/"
@@ -86,31 +87,31 @@ export default function LinksPage() {
           href="https://www.tiktok.com/@janhecker"
           icon={<TikTokIcon />}
           title="TikTok"
-          active={true}
+          active={false}
         />
         <SocialLink
           href="https://www.instagram.com/janhecker00/"
           icon={<InstagramIcon />}
           title="Instagram"
-          active={true}
+          active={false}
         />
         <SocialLink
           href="https://www.threads.net/@janhecker00"
           icon={<ThreadsIcon />}
           title="Threads"
-          active={true}
+          active={false}
         />
         <SocialLink
           href="https://open.spotify.com/user/eja8fqoy7qpqdm4bk7e5nt8o3?si=43929b476d604ad4"
           icon={<SpotifyIcon />}
           title="Spotify"
-          active={false}
+          active={true}
         />
         <SocialLink
           href="https://bere.al/janhecker"
           icon={<BeRealIcon />}
           title="BeReal"
-          active={false}
+          active={true}
         />
         <SocialLink
           // Save for later: https://discordapp.com/users/220992532836777985
@@ -120,9 +121,9 @@ export default function LinksPage() {
           active={false}
         />
         <SocialLink
-          href="https://calendly.com/janhecker"
-          icon={<CalendlyIcon />}
-          title="Calendly"
+          href="https://zeeg.me/hecker"
+          icon={<CalendarIcon />}
+          title="Book a Call"
           active={false}
         />
         <SocialLink
@@ -177,6 +178,12 @@ export default function LinksPage() {
           href="https://revolut.me/janhecker"
           icon={<RevolutIcon />}
           title="Revolut"
+          active={false}
+        />
+        <SocialLink
+          href="https://www.chess.com/member/janhecker00"
+          icon={<ChessIcon />}
+          title="Chess.com"
           active={false}
         />
       </div>
