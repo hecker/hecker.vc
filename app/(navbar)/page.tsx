@@ -43,7 +43,6 @@ export default async function HomePage() {
           and share my ideas online.
         </>
       </p>
-      {/* <div className="flex items-start md:items-center my-8 flex-col md:flex-row"> */}
       <div className="flex items-center my-8 flex-row">
         <Image
           title="Jan Hecker"
@@ -109,19 +108,6 @@ export default async function HomePage() {
         Thanks, <Link href="https://twitter.com/leeerob">Lee,</Link> for
         inspiring me to start web development &amp; launching my own website.
       </i>
-      {/* <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-2 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
-        <li>
-          <Link
-            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://open.spotify.com/user/eja8fqoy7qpqdm4bk7e5nt8o3?si=43929b476d604ad4"
-          >
-            <ArrowIcon />
-            <p className="h-7">Stalk me on Spotify</p>
-          </Link>
-        </li>
-      </ul> */}
     </section>
   );
 }
