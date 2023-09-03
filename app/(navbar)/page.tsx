@@ -48,7 +48,7 @@ export default async function HomePage() {
         <Image
           title="Jan Hecker"
           alt="Jan Hecker"
-          className="rounded-full grayscale hover:animate-spin-slow"
+          className="rounded-full grayscale pointer-events-none hover:animate-spin-slow"
           src={avatar}
           placeholder="blur"
           width={100}
