@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@inlang/cli": "^1.8.0",
     "@notionhq/client": "^2.2.5",
     "@types/node": "20.1.2",
     "@types/react": "18.2.6",
