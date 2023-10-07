@@ -90,7 +90,7 @@ export default function LinksPage() {
           active={false}
         />
         <SocialLink
-          href="https://www.instagram.com/janhecker00/"
+          href="https://www.instagram.com/hecker.vc/"
           icon={<InstagramIcon />}
           title="Instagram"
           active={false}
@@ -157,7 +157,7 @@ export default function LinksPage() {
           active={false}
         />
         <SocialLink
-          href="https://twitter.com/janhecker29"
+          href="https://twitter.com/janhecker00"
           icon={<TwitterIcon />}
           title="Twitter"
           active={false}
