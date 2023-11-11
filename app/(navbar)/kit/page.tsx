@@ -19,8 +19,8 @@ export default function KitPage() {
         <h3 id="software">Software</h3>
         <ul>
           <li>
-            <a href="https://notion.grsm.io/xx5n064t2ldu">Notion</a>, all-in-one
-            workspace
+            <a href="https://notion.grsm.io/xx5n064t2ldu">Notion</a>, docs,
+            notes &amp; projects
           </li>
           <li>
             <a href="https://qonto.com/r/m9ohxm">Qonto</a>, business bank
@@ -29,7 +29,7 @@ export default function KitPage() {
             <a href="https://revolut.com/referral/jancled9gq!MAR1-23-AR">
               Revolut
             </a>
-            , private bank
+            , personal bank
           </li>
           <li>
             <a href="https://de.scalable.capital/einladung/bvstpp">
@@ -42,7 +42,7 @@ export default function KitPage() {
           </li>
           <li>
             <a href="https://neotaste.app/invite/JanHecker1">NeoTaste</a>,
-            restaurant recommendations &amp; deals
+            restaurant deals
           </li>
           <li>
             <a href="https://urbansportsclub.com/join-as-friend/JH13678">
@@ -57,14 +57,19 @@ export default function KitPage() {
           <li>
             <a href="https://artifact.news/i?code=5XZRFF">Artifact</a>, news
           </li>
+          <li>
+            <a href="https://arc.net/gift/ff1dc0de">Arc</a>, browser
+          </li>
+          <li>
+            <a href="https://superhuman.com/refer/3c8uwohx">Superhuman</a>,
+            emails
+          </li>
           <li>Things 3, todos</li>
           <li>Amie, calendar</li>
-          <li>Superhuman, emails</li>
           <li>VS Code, programming</li>
           <li>Figma, designing</li>
           <li>Raycast, macOS Spotlight alternative</li>
           <li>Spotify, music</li>
-          <li>vamos!, find events &amp; activities</li>
         </ul>
         <h3 id="hardware">Hardware</h3>
         <ul>
