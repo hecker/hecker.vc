@@ -41,8 +41,8 @@ export default function KitPage() {
             <a href="https://bit.ly/3QQJ1he">Flink</a>, delivery service
           </li>
           <li>
-            <a href="https://neotaste.app/invite/Jan22">NeoTaste</a>, restaurant
-            recommendations &amp; deals
+            <a href="https://neotaste.app/invite/JanHecker1">NeoTaste</a>,
+            restaurant recommendations &amp; deals
           </li>
           <li>
             <a href="https://urbansportsclub.com/join-as-friend/JH13678">
