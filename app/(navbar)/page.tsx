@@ -91,17 +91,9 @@ export default async function HomePage() {
       </div>
       <p className="my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200">
         <>
-          I joined Jodel after they have acquired my startup{" "}
-          <Link href="https://getvamos.app">vamos!</Link> Currently, I'm
-          learning Flutter &amp; React (Next.js) and starting to work out again.
-          Also seeking a shared flat or apartment in Berlin.{" "}
-          <Link
-            href="https://www.linkedin.com/in/janhecker/"
-            className="text-gray-400"
-          >
-            Get in touch
-          </Link>{" "}
-          if you have tips.
+          I joined Jodel after they have acquired my startup vamos! Currently,
+          I'm learning Flutter &amp; React (Next.js) and starting to work out
+          again.
         </>
       </p>
       <i>

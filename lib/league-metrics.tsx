@@ -145,7 +145,9 @@ export async function fetchPlayerWithMostMatches(
 
   let mostMatchesPlayerName = "Faker";
   let mostMatchesCount = 0;
-  for (const [playerName, matchCount] of playerMatchCounts.entries()) {
+  for (const [playerName, matchCount] of Array.from(
+    playerMatchCounts.entries()
+  )) {
     if (matchCount > mostMatchesCount) {
       mostMatchesPlayerName = playerName;
       mostMatchesCount = matchCount;
