@@ -97,7 +97,7 @@ export default function CVPage() {
           <Link href={"tel:+4915792354107"} className="font-normal">
             +49 157 92354107
           </Link>{" "}
-          | E-Mail:{" "}
+          , E-Mail:{" "}
           <Link
             href={
               "mailto:jan@hecker.vc?body=Hi%20Jan%2C%0A%0AI%20saw%20your%20CV%20on%20your%20website%20and%20wanted%20to%20reach%20out%20to%20you%20about%3A%0A%0A"
@@ -123,25 +123,25 @@ export default function CVPage() {
         <div className="grid grid-cols-[auto_1fr] gap-x-4">
           <b>Languages:</b>
           <span className="whitespace-pre-line">
-            German (native speaker) | English (proficient)
+            German (native speaker), English (proficient)
           </span>
           <b>IT Skills:</b>
           <span className="whitespace-pre-line">
-            Java (beginner) | Dart & Flutter (beginner) | SQL (beginner)
+            Java (beginner), Dart & Flutter (beginner), SQL (beginner)
           </span>
           <b>Software:</b>
           <span className="whitespace-pre-line">
-            Git (GitHub) | Pitch | Notion | Typeform | Tally | Facebook Business
-            Manager | Personio Cloud Platform | Firebase | Analytics | BigQuery
-            | Looker | Google Workspace
+            Git (GitHub), Pitch, Notion, Typeform, Tally, Facebook Business
+            Manager, Personio Cloud Platform, Firebase, Analytics, BigQuery,
+            Looker, Google Workspace
           </span>
           <b>Interests:</b>
           <span className="whitespace-pre-line">
-            Tennis | Piano | Fitness | Inline Skating | Travelling
+            Tennis, Piano, Fitness, Inline Skating, Travelling
           </span>
           <b>Values:</b>
           <span className="whitespace-pre-line">
-            Impact | Authenticity | Sincerity
+            Impact, Authenticity, Sincerity
           </span>
         </div>
       </div>
