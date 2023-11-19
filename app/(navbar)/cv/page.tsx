@@ -132,8 +132,8 @@ export default function CVPage() {
           <b>Software:</b>
           <span className="whitespace-pre-line">
             Git (GitHub), Pitch, Notion, Typeform, Tally, Facebook Business
-            Manager, Personio Cloud Platform, Firebase, Analytics, BigQuery,
-            Looker, Google Workspace
+            Manager, Personio, Firebase, Analytics, BigQuery, Looker, Google
+            Workspace
           </span>
           <b>Interests:</b>
           <span className="whitespace-pre-line">
