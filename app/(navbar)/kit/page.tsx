@@ -55,14 +55,15 @@ export default function KitPage() {
             going on around me
           </li>
           <li>
-            <a href="https://artifact.news/i?code=5XZRFF">Artifact</a>, news
-          </li>
-          <li>
             <a href="https://arc.net/gift/ff1dc0de">Arc</a>, browser
           </li>
           <li>
             <a href="https://superhuman.com/refer/3c8uwohx">Superhuman</a>,
             emails
+          </li>
+          <li>
+            <a href="https://zeeg.me/">Zeeg</a>, scheduling{" "}
+            <span className="text-gray-400">(use code "hecker")</span>
           </li>
           <li>Things 3, todos</li>
           <li>Amie, calendar</li>
@@ -70,6 +71,7 @@ export default function KitPage() {
           <li>Figma, designing</li>
           <li>Raycast, macOS Spotlight alternative</li>
           <li>Spotify, music</li>
+          <li>Artifact, news</li>
         </ul>
         <h3 id="hardware">Hardware</h3>
         <ul>
