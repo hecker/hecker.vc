@@ -51,6 +51,12 @@ export default function KitPage() {
             , sports &amp; spa
           </li>
           <li>
+            <a href="https://apps.apple.com/redeem?ctx=offercodes&id=320606217&code=DREAMX3">
+              Sleep Cycle
+            </a>
+            , sleep tracking
+          </li>
+          <li>
             <a href="https://shared.jodel.com/3rxqoI9ixzb">Jodel</a>, what's
             going on around me
           </li>
