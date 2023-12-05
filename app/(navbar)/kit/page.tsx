@@ -68,6 +68,12 @@ export default function KitPage() {
             emails
           </li>
           <li>
+            <a href="https://rize.io/?utm_source=refer&code=A20833&name=Jan">
+              Rize
+            </a>
+            , productivity tracking
+          </li>
+          <li>
             <a href="https://zeeg.me/">Zeeg</a>, scheduling{" "}
             <span className="text-gray-400">(use code "hecker")</span>
           </li>
