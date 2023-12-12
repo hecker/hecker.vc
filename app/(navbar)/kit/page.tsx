@@ -77,6 +77,7 @@ export default function KitPage() {
             <a href="https://zeeg.me/">Zeeg</a>, scheduling{" "}
             <span className="text-gray-400">(use code "hecker")</span>
           </li>
+          <li>Rows, spreadsheets</li>
           <li>Things 3, todos</li>
           <li>Amie, calendar</li>
           <li>VS Code, programming</li>
