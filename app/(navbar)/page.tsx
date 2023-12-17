@@ -9,10 +9,25 @@ import { getSpotifyFollowers } from "lib/spotify-metrics";
 import { fetchYouTubeSubscribers } from "lib/youtube-metrics";
 import { fetchLeagueRank } from "lib/league-metrics";
 import avatar from "app/(navbar)/jan.png";
+import contactData from "../card/contact.json";
 
 export const revalidate = 60;
 
+function calculateAge() {
+  const today = new Date();
+  const birth = new Date(contactData.birthdate);
+  let age = today.getFullYear() - birth.getFullYear();
+  const m = today.getMonth() - birth.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+    age--;
+  }
+  return age;
+}
+
 export default async function HomePage() {
+  const age = calculateAge();
+  const firstName = contactData.firstName;
+
   // Get Spotify followers, YouTube subscribers and LoL rank
   let spotifyFollowers, youtubeSubscribers, leagueRank;
   try {
@@ -36,9 +51,9 @@ export default async function HomePage() {
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
       <p className="my-5 max-w-[500px] text-neutral-800 dark:text-neutral-200">
         <>
-          I am Jan. I work on{" "}
+          I am Jan. {age} y/o. I work on{" "}
           <b>
-            product at <Link href="https://jodel.com/de/">Jodel</Link>
+            product at <Link href="https://jodel.com">Jodel</Link>
           </b>{" "}
           and share my ideas online.
         </>
