@@ -1,4 +1,12 @@
 const getAccessToken = async () => {
+  const clientId = process.env.SPOTIFY_CLIENT_ID;
+  const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
+  const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN;
+
+  if (!clientId || !clientSecret || !refreshToken) {
+    throw new Error("One or more Spotify environment variables are missing.");
+  }
+
   const response = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: {
@@ -9,7 +17,16 @@ const getAccessToken = async () => {
     },
     body: `grant_type=refresh_token&refresh_token=${process.env.SPOTIFY_REFRESH_TOKEN}`,
   });
-  return response.json();
+
+  const responseBody = await response.text();
+
+  if (!response.ok) {
+    throw new Error(
+      `Spotify token fetch failed: ${response.status} ${response.statusText} - ${responseBody}`,
+    );
+  }
+
+  return JSON.parse(responseBody);
 };
 
 export async function getSpotifyFollowers(): Promise<number> {
