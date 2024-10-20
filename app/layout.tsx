@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { Libre_Baskerville } from "next/font/google";
 import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import React from "react";
 
 const baskerville = Libre_Baskerville({
@@ -77,7 +78,7 @@ export default function RootLayout({
       lang="en"
       className={clsx(
         "cursor-black dark:cursor-white text-black bg-white dark:text-white dark:bg-[#111010]",
-        baskerville.variable
+        baskerville.variable,
       )}
     >
       <body
@@ -86,6 +87,7 @@ export default function RootLayout({
       >
         <main className="flex-auto min-w-0 flex flex-col px-2 md:px-0">
           {children}
+          <SpeedInsights />
           <Analytics />
         </main>
       </body>
