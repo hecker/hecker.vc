@@ -6,8 +6,6 @@ import {
   SpotifyIcon,
 } from "components/icons";
 import { getSpotifyFollowers } from "lib/spotify-metrics";
-import { fetchYouTubeSubscribers } from "lib/youtube-metrics";
-import { fetchLeagueRank } from "lib/league-metrics";
 import avatar from "app/(navbar)/jan.png";
 import contactData from "../card/contact.json";
 
@@ -26,22 +24,11 @@ function calculateAge() {
 
 export default async function HomePage() {
   const age = calculateAge();
-  const firstName = contactData.firstName;
 
-  // Get Spotify followers, YouTube subscribers and LoL rank
-  let spotifyFollowers, youtubeSubscribers, leagueRank;
+  // Get Spotify followers
+  let spotifyFollowers;
   try {
     [spotifyFollowers] = await Promise.all([getSpotifyFollowers()]);
-  } catch (error) {
-    console.error(error);
-  }
-  try {
-    [youtubeSubscribers] = await Promise.all([fetchYouTubeSubscribers()]);
-  } catch (error) {
-    console.error(error);
-  }
-  try {
-    [leagueRank] = await Promise.all([fetchLeagueRank()]);
   } catch (error) {
     console.error(error);
   }
@@ -51,7 +38,7 @@ export default async function HomePage() {
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
       <p className="my-5 max-w-[500px] text-neutral-800 dark:text-neutral-200">
         <>
-          I am Jan. {age} y/o. I work on{" "}
+          I am {contactData.firstName}. {age} y/o. I work on{" "}
           <b>
             product at <Link href="https://jodel.com">Jodel</Link>
           </b>{" "}
@@ -78,28 +65,6 @@ export default async function HomePage() {
             >
               <SpotifyIcon />
               {`${spotifyFollowers} followers`}
-            </Link>
-          )}
-          {youtubeSubscribers && (
-            <Link
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://www.youtube.com/channel/UCoskbG0wO6RawevcsI41EWQ"
-              className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
-            >
-              <YouTubeIcon />
-              {`${youtubeSubscribers} subscribers`}
-            </Link>
-          )}
-          {leagueRank && (
-            <Link
-              rel="noopener noreferrer"
-              target="_self"
-              href="/lol/janhecker"
-              className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
-            >
-              <LeagueOfLegendsIcon />
-              {leagueRank}
             </Link>
           )}
         </div>
