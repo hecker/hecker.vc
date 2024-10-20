@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Kit",
-  description: "Here's what tools and tech I'm currently using.",
+  description: "Tools and tech I currently use.",
 };
 
 export default function KitPage() {
@@ -11,8 +11,8 @@ export default function KitPage() {
       <h1 className="font-bold text-3xl font-serif">Tech &amp; Tools Kit</h1>
       <div className="prose prose-neutral dark:prose-invert text-neutral-800 dark:text-neutral-200">
         <p>
-          Here's what tools and tech I'm currently using. All links are referral
-          links, with which you can support me for free.
+          Here are the tools and tech I currently use. These are referral links
+          that help support me at no extra cost to you.
         </p>
       </div>
       <div className="prose prose-neutral dark:prose-invert">
@@ -23,13 +23,13 @@ export default function KitPage() {
             notes &amp; projects
           </li>
           <li>
-            <a href="https://qonto.com/r/m9ohxm">Qonto</a>, business bank
+            <a href="https://qonto.com/r/m9ohxm">Qonto</a>, business banking
           </li>
           <li>
             <a href="https://revolut.com/referral/jancled9gq!MAR1-23-AR">
               Revolut
             </a>
-            , personal bank
+            , personal banking
           </li>
           <li>
             <a href="https://de.scalable.capital/einladung/bvstpp">
@@ -45,7 +45,7 @@ export default function KitPage() {
             restaurant deals
           </li>
           <li>
-            <a href="https://urbansportsclub.com/join-as-friend/JH13678">
+            <a href="https://urbansportsclub.com/join-as-friend/JH68134">
               Urban Sports Club
             </a>
             , sports &amp; spa
@@ -57,8 +57,8 @@ export default function KitPage() {
             , sleep tracking
           </li>
           <li>
-            <a href="https://shared.jodel.com/3rxqoI9ixzb">Jodel</a>, what's
-            going on around me
+            <a href="https://shared.jodel.com/3rxqoI9ixzb">Jodel</a>, local and
+            anomyous community
           </li>
           <li>
             <a href="https://arc.net/gift/ff1dc0de">Arc</a>, browser
@@ -68,10 +68,10 @@ export default function KitPage() {
             emails
           </li>
           <li>
-            <a href="https://rize.io/?utm_source=refer&code=A20833&name=Jan">
-              Rize
+            <a href="https://applink.opal.so/invite-friend?rc=9QDSV&rNme=janhecker&rId=3ebSfmeMiuh5pTwMP25FDD8OeOD3">
+              Opal
             </a>
-            , productivity tracking
+            , blocks distracting apps
           </li>
           <li>
             <a href="https://zeeg.me/">Zeeg</a>, scheduling{" "}
@@ -84,7 +84,6 @@ export default function KitPage() {
           <li>Figma, designing</li>
           <li>Raycast, macOS Spotlight alternative</li>
           <li>Spotify, music</li>
-          <li>Artifact, news</li>
         </ul>
         <h3 id="hardware">Hardware</h3>
         <ul>
