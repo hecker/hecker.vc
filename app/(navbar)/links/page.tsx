@@ -6,7 +6,7 @@ import {
   ThreadsIcon,
   TwitchIcon,
   PolyworkIcon,
-  TwitterIcon,
+  XIcon,
   SpotifyIcon,
   TikTokIcon,
   InstagramIcon,
@@ -18,8 +18,9 @@ import {
   RedditIcon,
   PayPalIcon,
   RevolutIcon,
-  CalendarIcon,
+  OpalIcon,
   ChessIcon,
+  DuolingoIcon,
 } from "components/icons";
 import Link from "next/link";
 
@@ -66,16 +67,16 @@ export default function LinksPage() {
       <h1 className="font-bold text-3xl font-serif mb-4">Links</h1>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-3">
         <SocialLink
+          href="https://open.spotify.com/user/eja8fqoy7qpqdm4bk7e5nt8o3?si=43929b476d604ad4"
+          icon={<SpotifyIcon />}
+          title="Spotify"
+          active={true}
+        />
+        <SocialLink
           href="https://github.com/hecker"
           icon={<GitHubIcon />}
           title="GitHub"
           active={true}
-        />
-        <SocialLink
-          href="https://www.youtube.com/@janhecker00"
-          icon={<YouTubeIcon />}
-          title="YouTube"
-          active={false}
         />
         <SocialLink
           href="https://www.linkedin.com/in/janhecker/"
@@ -96,22 +97,22 @@ export default function LinksPage() {
           active={false}
         />
         <SocialLink
-          href="https://www.threads.net/@janhecker00"
+          href="https://www.threads.net/@hecker.vc"
           icon={<ThreadsIcon />}
           title="Threads"
           active={false}
         />
         <SocialLink
-          href="https://open.spotify.com/user/eja8fqoy7qpqdm4bk7e5nt8o3?si=43929b476d604ad4"
-          icon={<SpotifyIcon />}
-          title="Spotify"
-          active={true}
+          href="https://www.youtube.com/@janhecker00"
+          icon={<YouTubeIcon />}
+          title="YouTube"
+          active={false}
         />
         <SocialLink
           href="https://bere.al/janhecker"
           icon={<BeRealIcon />}
           title="BeReal"
-          active={true}
+          active={false}
         />
         <SocialLink
           // Save for later: https://discordapp.com/users/220992532836777985
@@ -121,9 +122,9 @@ export default function LinksPage() {
           active={false}
         />
         <SocialLink
-          href="https://zeeg.me/hecker"
-          icon={<CalendarIcon />}
-          title="Book a Call"
+          href="https://applink.opal.so/invite-friend?rc=9QDSV&rNme=janhecker&rId=3ebSfmeMiuh5pTwMP25FDD8OeOD3"
+          icon={<OpalIcon />}
+          title="Opal"
           active={false}
         />
         <SocialLink
@@ -158,8 +159,8 @@ export default function LinksPage() {
         />
         <SocialLink
           href="https://twitter.com/janhecker00"
-          icon={<TwitterIcon />}
-          title="Twitter"
+          icon={<XIcon />}
+          title="X"
           active={false}
         />
         <SocialLink
@@ -186,6 +187,12 @@ export default function LinksPage() {
           title="Chess.com"
           active={false}
         />
+        <SocialLink
+          href="https://www.duolingo.com/profile/hecker.vc?via=share_profile_qr"
+          icon={<DuolingoIcon />}
+          title="Duolingo"
+          active={false}
+        />
       </div>
       <div className="prose prose-neutral dark:prose-invert text-neutral-800 dark:text-neutral-200">
         <p>
@@ -195,9 +202,7 @@ export default function LinksPage() {
               <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
             </span>
           </span>
-          {"  "}
-          indicates that I am active and publicly available on the platform.
-          Icons are from{" "}
+          &nbsp;&nbsp;shows I'm active and available. Icons by{" "}
           <Link className="font-normal no-underline" href="https://icons8.com/">
             Icons8
           </Link>
