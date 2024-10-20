@@ -1,10 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  YouTubeIcon,
-  LeagueOfLegendsIcon,
-  SpotifyIcon,
-} from "components/icons";
+import { SpotifyIcon } from "components/icons";
 import { getSpotifyFollowers } from "lib/spotify-metrics";
 import avatar from "app/(navbar)/jan.png";
 import contactData from "../card/contact.json";
