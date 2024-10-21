@@ -158,7 +158,7 @@ export default function LinksPage() {
           active={false}
         />
         <SocialLink
-          href="https://twitter.com/janhecker00"
+          href="https://x.com/janhecker00"
           icon={<XIcon />}
           title="X"
           active={false}

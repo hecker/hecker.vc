@@ -9,7 +9,7 @@ import {
   LinkIcon,
   PostBoxIcon,
   TwitchIcon,
-  TwitterIcon,
+  XIcon,
   WhatsAppIcon,
 } from "components/icons";
 import contact from "./contact.json";
@@ -142,16 +142,16 @@ export default function CardPage() {
                 </div>
               </Link>
             )}
-            {contact.socials.twitter && (
+            {contact.socials.x && (
               <Link
                 rel="noopener noreferrer"
                 target="_blank"
-                href={"https://twitter.com/" + contact.socials.twitter}
+                href={"https://x.com/" + contact.socials.x}
                 className="flex w-full border border-neutral-200 dark:border-neutral-800 rounded-lg p-4 no-underline items-center text-neutral-800 dark:text-neutral-200 hover:dark:bg-neutral-900 hover:bg-neutral-100 transition-all justify-between"
               >
                 <div className="flex items-center">
-                  <TwitterIcon />
-                  <div className="ml-3">Twitter</div>
+                  <XIcon />
+                  <div className="ml-3">X</div>
                 </div>
               </Link>
             )}

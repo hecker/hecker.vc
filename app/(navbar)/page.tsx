@@ -73,8 +73,8 @@ export default async function HomePage() {
         </>
       </p>
       <i>
-        Thanks, <Link href="https://twitter.com/leeerob">Lee,</Link> for
-        inspiring me to start web development &amp; launching my own website.
+        Thanks, <Link href="https://x.com/leeerob">Lee,</Link> for inspiring me
+        to start web development &amp; launching my own website.
       </i>
     </section>
   );
