@@ -32,8 +32,8 @@ export default function AboutPage() {
           During my final year of high school, I launched my first business. It
           all began with a one-week workshop in a big city, where my friends and
           I were trying to find things to do but didn't know anyone. Out of that
-          need, I started vamos!—a social network for young people to connect
-          and see what's going on nearby.
+          need, I started <b>vamos!</b>—a social network for young people to
+          connect and see what's going on nearby.
         </p>
         <p>
           In 2023, vamos! got acquired by{" "}
