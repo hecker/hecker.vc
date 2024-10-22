@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SpotifyIcon } from "components/icons";
+import { SpotifyIcon, GitHubIcon } from "components/icons"; // Make sure you have a GitHubIcon component
 import { getSpotifyFollowers } from "lib/spotify-metrics";
+import { getGithubFollowers } from "lib/github-metrics"; // Import the new function
 import avatar from "app/(navbar)/jan.png";
 import contactData from "../card/contact.json";
 
@@ -21,10 +22,14 @@ function calculateAge() {
 export default async function HomePage() {
   const age = calculateAge();
 
-  // Get Spotify followers
+  // Get Spotify and GitHub followers
   let spotifyFollowers;
+  let githubFollowers;
   try {
-    [spotifyFollowers] = await Promise.all([getSpotifyFollowers()]);
+    [spotifyFollowers, githubFollowers] = await Promise.all([
+      getSpotifyFollowers(),
+      getGithubFollowers(),
+    ]);
   } catch (error) {
     console.error(error);
   }
@@ -60,7 +65,18 @@ export default async function HomePage() {
               className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
             >
               <SpotifyIcon />
-              {`${spotifyFollowers} followers`}
+              {`${spotifyFollowers} listeners`}
+            </Link>
+          )}
+          {githubFollowers && (
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://github.com/hecker"
+              className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
+            >
+              <GitHubIcon />
+              {`${githubFollowers} hackers`}
             </Link>
           )}
         </div>
