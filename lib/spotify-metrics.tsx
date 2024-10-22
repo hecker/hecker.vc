@@ -1,12 +1,4 @@
 const getAccessToken = async () => {
-  const clientId = process.env.SPOTIFY_CLIENT_ID;
-  const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
-  const refreshToken = process.env.SPOTIFY_REFRESH_TOKEN;
-
-  if (!clientId || !clientSecret || !refreshToken) {
-    throw new Error("One or more Spotify environment variables are missing.");
-  }
-
   const response = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: {
