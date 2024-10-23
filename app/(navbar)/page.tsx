@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SpotifyIcon, GitHubIcon } from "components/icons"; // Make sure you have a GitHubIcon component
+import { SpotifyIcon, GitHubIcon } from "components/icons";
 import { getSpotifyFollowers } from "lib/spotify-metrics";
-import { getGithubFollowers } from "lib/github-metrics"; // Import the new function
+import { getGithubFollowers } from "lib/github-metrics";
+import { getLatestWeight } from "lib/weight-metrics";
 import avatar from "app/(navbar)/jan.png";
 import contactData from "../card/contact.json";
 
@@ -22,16 +23,32 @@ function calculateAge() {
 export default async function HomePage() {
   const age = calculateAge();
 
-  // Get Spotify and GitHub followers
   let spotifyFollowers;
   let githubFollowers;
-  try {
-    [spotifyFollowers, githubFollowers] = await Promise.all([
-      getSpotifyFollowers(),
-      getGithubFollowers(),
-    ]);
-  } catch (error) {
-    console.error(error);
+  let latestWeight;
+
+  const [spotifyResult, githubResult, weightResult] = await Promise.allSettled([
+    getSpotifyFollowers(),
+    getGithubFollowers(),
+    getLatestWeight(),
+  ]);
+
+  if (spotifyResult.status === "fulfilled") {
+    spotifyFollowers = spotifyResult.value;
+  } else {
+    console.error("Failed to get Spotify followers:", spotifyResult.reason);
+  }
+
+  if (githubResult.status === "fulfilled") {
+    githubFollowers = githubResult.value;
+  } else {
+    console.error("Failed to get GitHub followers:", githubResult.reason);
+  }
+
+  if (weightResult.status === "fulfilled") {
+    latestWeight = weightResult.value;
+  } else {
+    console.error("Failed to get latest weight:", weightResult.reason);
   }
 
   return (
@@ -39,9 +56,20 @@ export default async function HomePage() {
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
       <p className="my-5 max-w-[500px] text-neutral-800 dark:text-neutral-200">
         <>
-          I am {contactData.firstName}. {age} y/o. I work on{" "}
+          I am {contactData.firstName}. {age} years old.{" "}
+          {latestWeight && !isNaN(latestWeight.weight)
+            ? `${Math.round(latestWeight.weight)} kg heavy. `
+            : ""}
+          I work on{" "}
           <b>
-            product at <Link href="https://jodel.com">Jodel</Link>
+            product at{" "}
+            <Link
+              href="https://jodel.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Jodel
+            </Link>
           </b>{" "}
           and share my ideas online.
         </>
