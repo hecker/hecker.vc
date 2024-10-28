@@ -10,16 +10,41 @@ interface WeightEntry {
   weight: number;
 }
 
+function getCredentialsFromEnv(): string {
+  const credentialsEnvVar = process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS;
+
+  if (!credentialsEnvVar) {
+    throw new Error(
+      "Service account credentials not found in environment variables.",
+    );
+  }
+
+  let credentialsJson = credentialsEnvVar;
+
+  if (credentialsJson.startsWith('"') && credentialsJson.endsWith('"')) {
+    credentialsJson = credentialsJson.substring(1, credentialsJson.length - 1);
+  }
+
+  return credentialsJson;
+}
+
 export async function getLatestWeight(): Promise<WeightEntry | null> {
-  const credentials: Credentials = process.env
-    .GOOGLE_SERVICE_ACCOUNT_CREDENTIALS
-    ? JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS)
-    : require("../credentials/weight-data-service-account.json");
+  let credentialsJson: string = getCredentialsFromEnv();
+  let credentials: Credentials;
+
+  try {
+    credentials = JSON.parse(credentialsJson);
+  } catch (error) {
+    console.error("Error parsing service account credentials JSON:", error);
+    return null;
+  }
+
+  credentials.private_key = credentials.private_key.replace(/\\n/g, "\n");
 
   const auth = new google.auth.JWT(
     credentials.client_email,
     undefined,
-    credentials.private_key.replace(/\\n/gm, "\n"),
+    credentials.private_key,
     ["https://www.googleapis.com/auth/spreadsheets.readonly"],
   );
 
@@ -39,12 +64,8 @@ export async function getLatestWeight(): Promise<WeightEntry | null> {
       const latestEntry = rows[rows.length - 1];
       const [timestamp, weight] = latestEntry;
 
-      // Ensure weight is defined
       if (weight) {
-        // Parse the weight value (e.g., "70 kg")
         const weightValue = parseFloat(weight.replace(" kg", "").trim());
-
-        // Check if weightValue is a valid number
         if (!isNaN(weightValue)) {
           return {
             timestamp,

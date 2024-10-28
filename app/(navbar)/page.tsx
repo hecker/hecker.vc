@@ -56,11 +56,7 @@ export default async function HomePage() {
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
       <p className="my-5 max-w-[500px] text-neutral-800 dark:text-neutral-200">
         <>
-          I am {contactData.firstName}. {age} years old.{" "}
-          {latestWeight && !isNaN(latestWeight.weight)
-            ? `${Math.round(latestWeight.weight)} kg heavy. `
-            : ""}
-          I work on{" "}
+          I am {contactData.firstName}. {age} years old. I work on{" "}
           <b>
             product at{" "}
             <Link
@@ -111,9 +107,11 @@ export default async function HomePage() {
       </div>
       <p className="my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200">
         <>
-          I joined Jodel after they have acquired my startup vamos! Currently,
-          I'm learning Flutter &amp; React (Next.js) and starting to work out
-          again.
+          I joined Jodel after they have acquired my startup vamos! Always
+          curious, learning, building.{" "}
+          {latestWeight && !isNaN(latestWeight.weight)
+            ? `Working out more, currently at ${Math.round(latestWeight.weight)} kg.`
+            : ""}
         </>
       </p>
     </section>
