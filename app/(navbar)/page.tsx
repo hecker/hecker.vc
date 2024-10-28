@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SpotifyIcon, GitHubIcon } from "components/icons";
-import { getSpotifyFollowers } from "lib/spotify-metrics";
+import { getSpotifyFollowers, getCurrentlyPlaying } from "lib/spotify-metrics";
 import { getGithubFollowers } from "lib/github-metrics";
 import { getLatestWeight } from "lib/weight-metrics";
 import avatar from "app/(navbar)/jan.png";
 import contactData from "../card/contact.json";
 
-export const revalidate = 60;
+export const revalidate = 30;
 
 function calculateAge() {
   const today = new Date();
@@ -23,20 +23,29 @@ function calculateAge() {
 export default async function HomePage() {
   const age = calculateAge();
 
-  let spotifyFollowers;
-  let githubFollowers;
-  let latestWeight;
+  let spotifyFollowers, currentlyPlaying, githubFollowers, latestWeight;
 
-  const [spotifyResult, githubResult, weightResult] = await Promise.allSettled([
-    getSpotifyFollowers(),
-    getGithubFollowers(),
-    getLatestWeight(),
-  ]);
+  const [spotifyResult, currentlyPlayingResult, githubResult, weightResult] =
+    await Promise.allSettled([
+      getSpotifyFollowers(),
+      getCurrentlyPlaying(),
+      getGithubFollowers(),
+      getLatestWeight(),
+    ]);
 
   if (spotifyResult.status === "fulfilled") {
     spotifyFollowers = spotifyResult.value;
   } else {
     console.error("Failed to get Spotify followers:", spotifyResult.reason);
+  }
+
+  if (currentlyPlayingResult.status === "fulfilled") {
+    currentlyPlaying = currentlyPlayingResult.value;
+  } else {
+    console.error(
+      "Failed to get currently playing track:",
+      currentlyPlayingResult.reason,
+    );
   }
 
   if (githubResult.status === "fulfilled") {
@@ -82,22 +91,44 @@ export default async function HomePage() {
         />
         <div className="ml-6 md:ml-6 space-y-2">
           {spotifyFollowers && (
-            <Link
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://open.spotify.com/user/eja8fqoy7qpqdm4bk7e5nt8o3?si=43929b476d604ad4"
-              className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
-            >
-              <SpotifyIcon />
-              {`${spotifyFollowers} listeners`}
-            </Link>
+            <div className="flex items-start flex-wrap text-neutral-500 dark:text-neutral-400">
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://open.spotify.com/user/eja8fqoy7qpqdm4bk7e5nt8o3?si=43929b476d604ad4"
+                className="flex items-center gap-1 text-neutral-500 dark:text-neutral-400"
+              >
+                <SpotifyIcon
+                  className={
+                    currentlyPlaying && currentlyPlaying.is_playing
+                      ? "animate-spin-slow"
+                      : ""
+                  }
+                />
+                <span>{spotifyFollowers} listeners</span>
+              </Link>
+              {currentlyPlaying &&
+                currentlyPlaying.is_playing &&
+                currentlyPlaying.item && (
+                  <Link
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href={currentlyPlaying.item.external_urls.spotify}
+                  >
+                    : {currentlyPlaying.item.name} by{" "}
+                    {currentlyPlaying.item.artists
+                      .map((artist: { name: string }) => artist.name)
+                      .join(", ")}
+                  </Link>
+                )}
+            </div>
           )}
           {githubFollowers && (
             <Link
               rel="noopener noreferrer"
               target="_blank"
               href="https://github.com/hecker"
-              className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
+              className="flex items-center gap-1 text-neutral-500 dark:text-neutral-400"
             >
               <GitHubIcon />
               {`${githubFollowers} hackers`}

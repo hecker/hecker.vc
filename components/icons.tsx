@@ -141,9 +141,10 @@ export function LinkedInIcon() {
   );
 }
 
-export function SpotifyIcon() {
+export function SpotifyIcon({ className }: { className?: string }) {
   return (
     <svg
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
