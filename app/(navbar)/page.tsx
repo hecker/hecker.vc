@@ -91,7 +91,7 @@ export default async function HomePage() {
         />
         <div className="ml-6 md:ml-6 space-y-2">
           {spotifyFollowers && (
-            <div className="flex items-start flex-wrap text-neutral-500 dark:text-neutral-400">
+            <div className="flex items-center text-neutral-500 dark:text-neutral-400 flex-wrap">
               <Link
                 rel="noopener noreferrer"
                 target="_blank"
@@ -107,20 +107,22 @@ export default async function HomePage() {
                 />
                 <span>{spotifyFollowers} listeners</span>
               </Link>
-              {currentlyPlaying &&
-                currentlyPlaying.is_playing &&
-                currentlyPlaying.item && (
+              {currentlyPlaying && currentlyPlaying.is_playing && (
+                <>
+                  <span>:</span>
                   <Link
                     rel="noopener noreferrer"
                     target="_blank"
                     href={currentlyPlaying.item.external_urls.spotify}
+                    className="ml-1 break-words"
                   >
-                    : {currentlyPlaying.item.name} by{" "}
+                    {currentlyPlaying.item.name} by{" "}
                     {currentlyPlaying.item.artists
                       .map((artist: { name: string }) => artist.name)
                       .join(", ")}
                   </Link>
-                )}
+                </>
+              )}
             </div>
           )}
           {githubFollowers && (
