@@ -90,6 +90,28 @@ export default async function HomePage() {
           priority
         />
         <div className="ml-6 md:ml-6 space-y-2">
+          {currentlyPlaying && currentlyPlaying.is_playing && (
+            <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400">
+              <SpotifyIcon className="animate-spin-slow" />
+              <div>
+                <span className="text-neutral-800 dark:text-neutral-200">
+                  Currently streaming
+                </span>
+                <Link
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={currentlyPlaying.item.external_urls.spotify}
+                  className=""
+                >
+                  {" "}
+                  {currentlyPlaying.item.name} by{" "}
+                  {currentlyPlaying.item.artists
+                    .map((artist: { name: string }) => artist.name)
+                    .join(", ")}
+                </Link>
+              </div>
+            </div>
+          )}
           {spotifyFollowers && (
             <div className="flex items-center text-neutral-500 dark:text-neutral-400 flex-wrap">
               <Link
@@ -98,31 +120,9 @@ export default async function HomePage() {
                 href="https://open.spotify.com/user/eja8fqoy7qpqdm4bk7e5nt8o3?si=43929b476d604ad4"
                 className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
               >
-                <SpotifyIcon
-                  className={
-                    currentlyPlaying && currentlyPlaying.is_playing
-                      ? "animate-spin-slow"
-                      : ""
-                  }
-                />
-                <span>{spotifyFollowers} listeners</span>
+                <SpotifyIcon />
+                <span>{spotifyFollowers} followers</span>
               </Link>
-              {currentlyPlaying && currentlyPlaying.is_playing && (
-                <>
-                  <span>:</span>
-                  <Link
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href={currentlyPlaying.item.external_urls.spotify}
-                    className="ml-1 break-words"
-                  >
-                    {currentlyPlaying.item.name} by{" "}
-                    {currentlyPlaying.item.artists
-                      .map((artist: { name: string }) => artist.name)
-                      .join(", ")}
-                  </Link>
-                </>
-              )}
             </div>
           )}
           {githubFollowers && (
