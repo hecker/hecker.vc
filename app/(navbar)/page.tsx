@@ -92,7 +92,7 @@ export default async function HomePage() {
         <div className="ml-6 md:ml-6 space-y-2">
           {currentlyPlaying && currentlyPlaying.is_playing && (
             <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400">
-              <SpotifyIcon className="animate-spin-slow" />
+              <SpotifyIcon className="flex-shrink-0 animate-spin-slow" />
               <div>
                 <span className="text-neutral-800 dark:text-neutral-200">
                   Currently streaming
@@ -101,7 +101,6 @@ export default async function HomePage() {
                   rel="noopener noreferrer"
                   target="_blank"
                   href={currentlyPlaying.item.external_urls.spotify}
-                  className=""
                 >
                   {" "}
                   {currentlyPlaying.item.name} by{" "}
@@ -118,7 +117,7 @@ export default async function HomePage() {
                 rel="noopener noreferrer"
                 target="_blank"
                 href="https://open.spotify.com/user/eja8fqoy7qpqdm4bk7e5nt8o3?si=43929b476d604ad4"
-                className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
+                className="flex flex-shrink-0 items-center gap-2 text-neutral-500 dark:text-neutral-400"
               >
                 <SpotifyIcon />
                 <span>{spotifyFollowers} followers</span>
@@ -130,7 +129,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               target="_blank"
               href="https://github.com/hecker"
-              className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
+              className="flex flex-shrink-0 items-center gap-2 text-neutral-500 dark:text-neutral-400"
             >
               <GitHubIcon />
               {`${githubFollowers} hackers`}
