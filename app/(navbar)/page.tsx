@@ -96,7 +96,7 @@ export default async function HomePage() {
                 rel="noopener noreferrer"
                 target="_blank"
                 href="https://open.spotify.com/user/eja8fqoy7qpqdm4bk7e5nt8o3?si=43929b476d604ad4"
-                className="flex items-center gap-1 text-neutral-500 dark:text-neutral-400"
+                className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
               >
                 <SpotifyIcon
                   className={
@@ -130,7 +130,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               target="_blank"
               href="https://github.com/hecker"
-              className="flex items-center gap-1 text-neutral-500 dark:text-neutral-400"
+              className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400"
             >
               <GitHubIcon />
               {`${githubFollowers} hackers`}
