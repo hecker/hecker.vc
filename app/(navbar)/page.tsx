@@ -7,7 +7,7 @@ import { getLatestWeight } from "lib/weight-metrics";
 import avatar from "app/(navbar)/jan.png";
 import contactData from "../card/contact.json";
 
-export const revalidate = 30;
+export const revalidate = 15;
 
 function calculateAge() {
   const today = new Date();
