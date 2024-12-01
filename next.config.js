@@ -63,6 +63,12 @@ const nextConfig = {
         destination: "https://www.threads.net/@janhecker00",
         permanent: true,
       },
+      {
+        source: "/okr",
+        destination:
+          "https://heckervc.notion.site/OKRs-Acme-a3fb132aa1ee401eb52642e7507d87e6?pvs=4",
+        permanent: false,
+      },
     ];
   },
 };
