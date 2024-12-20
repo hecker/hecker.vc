@@ -74,8 +74,7 @@ export default function KitPage() {
             , blocks distracting apps
           </li>
           <li>
-            <a href="https://zeeg.me/">Zeeg</a>, scheduling{" "}
-            <span className="text-gray-400">(use code "hecker")</span>
+            <a href="https://zeeg.cello.so/nPKEzGJGf2r">Zeeg</a>, scheduling
           </li>
           <li>Rows, spreadsheets</li>
           <li>Things 3, todos</li>
