@@ -69,6 +69,11 @@ const nextConfig = {
           "https://heckervc.notion.site/OKRs-Acme-a3fb132aa1ee401eb52642e7507d87e6?pvs=4",
         permanent: false,
       },
+      {
+        source: "/zfellows",
+        destination: "https://youtu.be/MM6nNRW9lEY",
+        permanent: false,
+      },
     ];
   },
 };
