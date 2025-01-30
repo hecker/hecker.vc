@@ -103,7 +103,7 @@ export default function LinksPage() {
           active={false}
         />
         <SocialLink
-          href="https://www.youtube.com/@janhecker00"
+          href="https://www.youtube.com/@janheckercom"
           icon={<YouTubeIcon />}
           title="YouTube"
           active={false}
@@ -158,7 +158,7 @@ export default function LinksPage() {
           active={false}
         />
         <SocialLink
-          href="https://x.com/janhecker00"
+          href="https://x.com/janheckercom"
           icon={<XIcon />}
           title="X"
           active={false}
@@ -179,12 +179,6 @@ export default function LinksPage() {
           href="https://revolut.me/janhecker"
           icon={<RevolutIcon />}
           title="Revolut"
-          active={false}
-        />
-        <SocialLink
-          href="https://www.chess.com/member/janhecker00"
-          icon={<ChessIcon />}
-          title="Chess.com"
           active={false}
         />
         <SocialLink

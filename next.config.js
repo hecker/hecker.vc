@@ -14,12 +14,12 @@ const nextConfig = {
     return [
       {
         source: "/yt",
-        destination: "https://www.youtube.com/@janhecker00",
+        destination: "https://www.youtube.com/@janheckercom",
         permanent: true,
       },
       {
         source: "/ig",
-        destination: "https://www.instagram.com/janhecker00/",
+        destination: "https://www.instagram.com/hecker.vercel/",
         permanent: true,
       },
       {
@@ -60,7 +60,7 @@ const nextConfig = {
       },
       {
         source: "/threads",
-        destination: "https://www.threads.net/@janhecker00",
+        destination: "https://www.threads.net/@hecker.vercel",
         permanent: true,
       },
       {
