@@ -21,6 +21,7 @@ import {
   OpalIcon,
   ChessIcon,
   DuolingoIcon,
+  CatanIcon,
 } from "components/icons";
 import Link from "next/link";
 
@@ -82,6 +83,12 @@ export default function LinksPage() {
           href="https://www.linkedin.com/in/janhecker/"
           icon={<LinkedInIcon />}
           title="LinkedIn"
+          active={true}
+        />
+        <SocialLink
+          href="https://colonist.io/profile/janhecker"
+          icon={<CatanIcon />}
+          title="Colonist"
           active={true}
         />
         <SocialLink
