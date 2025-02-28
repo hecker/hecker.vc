@@ -65,15 +65,15 @@ export default async function HomePage() {
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
       <p className="my-5 max-w-[500px] text-neutral-800 dark:text-neutral-200">
         <>
-          I am {contactData.firstName}. {age} years old. I work on{" "}
+          I am {contactData.firstName}. {age} years old. I am building the{" "}
           <b>
-            product at{" "}
+            future of preventive healthcare at{" "}
             <Link
-              href="https://jodel.com"
+              href="https://livyhealth.co"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Jodel
+              Livy
             </Link>
           </b>{" "}
           and share my ideas online.
@@ -139,8 +139,8 @@ export default async function HomePage() {
       </div>
       <p className="my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200">
         <>
-          I joined Jodel after they have acquired my startup vamos! Always
-          curious, learning, building.{" "}
+          Before, I joined Jodel after they have acquired my startup vamos!
+          Always curious, learning, building.{" "}
           {latestWeight && !isNaN(latestWeight.weight)
             ? `Working out more, currently at ${Math.round(latestWeight.weight)} kg.`
             : ""}
