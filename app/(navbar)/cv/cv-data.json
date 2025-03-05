@@ -28,15 +28,29 @@
   ],
   "work": [
     {
+      "organization": "Livy",
+      "position": "Co-Founder, Product",
+      "location": "Europe",
+      "date": "01/2025 – present",
+      "highlights": [
+        "Working on a personal companion, making health data actionable so you can feel your best."
+      ]
+    },
+    {
       "organization": "Jodel",
       "position": "Product",
       "location": "Berlin, Germany",
-      "date": "05/2023 – present",
-      "highlights": ["Overseeing platform moderation and community guidelines."]
+      "date": "05/2023 – 02/2025",
+      "highlights": [
+        "Worked on core product features like 'Top 10' with the founder.",
+        "Fine-tuned AI models to move sexual content to NSFW channels and handle spam.",
+        "Improved platform moderation and overhauled community guidelines.",
+        "Created a Discord serverfor power users to report issues, give feedback, and actively contribute in events."
+      ]
     },
     {
       "organization": "vamos!",
-      "position": "Founder & CEO",
+      "position": "Founder, CEO",
       "location": "Cologne, Germany",
       "date": "07/2019 – 05/2023",
       "highlights": [
