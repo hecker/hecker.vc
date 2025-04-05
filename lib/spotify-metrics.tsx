@@ -29,7 +29,7 @@ export async function getSpotifyFollowers(): Promise<number> {
     },
   });
   const data = await response.json();
-  return data.followers.total;
+  return Number(data.followers.total);
 }
 
 export async function getCurrentlyPlaying() {
