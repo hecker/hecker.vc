@@ -65,7 +65,9 @@ export async function getLatestWeight(): Promise<WeightEntry | null> {
       const [timestamp, weight] = latestEntry;
 
       if (weight) {
-        const weightValue = parseFloat(weight.replace(" kg", "").trim());
+        const weightValue = parseFloat(
+          weight.replace(/^Weight:\s*/, "").trim(),
+        );
         if (!isNaN(weightValue)) {
           return {
             timestamp,
