@@ -81,12 +81,13 @@ const nextConfig = {
 // https://nextjs.org/docs/advanced-features/security-headers
 const ContentSecurityPolicy = `
     default-src 'self' vercel.live;
-    script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live;
+    script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live assets.zeeg.me;
     style-src 'self' 'unsafe-inline' https://vercel.live;
     img-src * blob: data:;
     media-src 'self' 'unsafe-eval' 'unsafe-inline' vercel.live;
     connect-src *;
     font-src 'self';
+    frame-src 'self' zeeg.me *.zeeg.me;
 `;
 
 const securityHeaders = [
@@ -103,7 +104,7 @@ const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
   {
     key: "X-Frame-Options",
-    value: "DENY",
+    value: "SAMEORIGIN",
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
   {
