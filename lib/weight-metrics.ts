@@ -1,5 +1,7 @@
 import { google } from "googleapis";
 
+// File: https://docs.google.com/spreadsheets/d/12kHjNl0sjaZzCweM0pXahO8ij_wljivv3cnSMeypFaM/edit?gid=0#gid=0
+
 interface Credentials {
   client_email: string;
   private_key: string;
@@ -85,5 +87,71 @@ export async function getLatestWeight(): Promise<WeightEntry | null> {
   } catch (error) {
     console.error("Error fetching weight data:", error);
     return null;
+  }
+}
+
+export async function getAllWeightEntries(): Promise<WeightEntry[]> {
+  let credentialsJson: string = getCredentialsFromEnv();
+  let credentials: Credentials;
+
+  try {
+    credentials = JSON.parse(credentialsJson);
+  } catch (error) {
+    console.error("Error parsing service account credentials JSON:", error);
+    return [];
+  }
+
+  credentials.private_key = credentials.private_key.replace(/\\n/g, "\n");
+
+  const auth = new google.auth.JWT(
+    credentials.client_email,
+    undefined,
+    credentials.private_key,
+    ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+  );
+
+  const sheets = google.sheets({ version: "v4", auth });
+
+  const spreadsheetId = "12kHjNl0sjaZzCweM0pXahO8ij_wljivv3cnSMeypFaM";
+
+  try {
+    const res = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: "Measurements!A:B",
+    });
+
+    const rows = res.data.values;
+
+    if (!rows || rows.length === 0) {
+      console.error("No data found in the sheet.");
+      return [];
+    }
+
+    // Skip header row if it exists
+    const dataRows = rows[0][0].toLowerCase().includes("date")
+      ? rows.slice(1)
+      : rows;
+
+    return dataRows
+      .map((row) => {
+        const [date, weightStr] = row;
+        const weightValue = parseFloat(
+          weightStr.replace(/^Weight:\s*/, "").trim(),
+        );
+
+        if (isNaN(weightValue)) {
+          console.error("Invalid weight value:", weightStr);
+          return null;
+        }
+
+        return {
+          timestamp: date,
+          weight: weightValue,
+        };
+      })
+      .filter((entry): entry is WeightEntry => entry !== null);
+  } catch (error) {
+    console.error("Error fetching weight data:", error);
+    return [];
   }
 }
