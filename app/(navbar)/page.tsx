@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SpotifyIcon, GitHubIcon } from "components/icons";
-import { getSpotifyFollowers, getCurrentlyPlaying } from "lib/spotify-metrics";
+import { getSpotifyFollowers } from "lib/spotify-metrics";
 import { getGithubFollowers } from "lib/github-metrics";
 import { getLatestWeight } from "lib/weight-metrics";
 import avatar from "app/(navbar)/jan.png";
 import contactData from "../card/contact.json";
-
-export const revalidate = 15;
+import SpotifyStatus from "components/spotify-status";
 
 function calculateAge() {
   const today = new Date();
@@ -23,29 +22,18 @@ function calculateAge() {
 export default async function HomePage() {
   const age = calculateAge();
 
-  let spotifyFollowers, currentlyPlaying, githubFollowers, latestWeight;
+  let spotifyFollowers, githubFollowers, latestWeight;
 
-  const [spotifyResult, currentlyPlayingResult, githubResult, weightResult] =
-    await Promise.allSettled([
-      getSpotifyFollowers(),
-      getCurrentlyPlaying(),
-      getGithubFollowers(),
-      getLatestWeight(),
-    ]);
+  const [spotifyResult, githubResult, weightResult] = await Promise.allSettled([
+    getSpotifyFollowers(),
+    getGithubFollowers(),
+    getLatestWeight(),
+  ]);
 
   if (spotifyResult.status === "fulfilled") {
     spotifyFollowers = spotifyResult.value;
   } else {
     console.error("Failed to get Spotify followers:", spotifyResult.reason);
-  }
-
-  if (currentlyPlayingResult.status === "fulfilled") {
-    currentlyPlaying = currentlyPlayingResult.value;
-  } else {
-    console.error(
-      "Failed to get currently playing track:",
-      currentlyPlayingResult.reason,
-    );
   }
 
   if (githubResult.status === "fulfilled") {
@@ -90,27 +78,7 @@ export default async function HomePage() {
           priority
         />
         <div className="ml-6 md:ml-6 space-y-2">
-          {currentlyPlaying && currentlyPlaying.is_playing && (
-            <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400">
-              <SpotifyIcon className="flex-shrink-0 animate-spin-slow" />
-              <div>
-                <span className="text-neutral-800 dark:text-neutral-200">
-                  Currently streaming
-                </span>
-                <Link
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  href={currentlyPlaying.item.external_urls.spotify}
-                >
-                  {" "}
-                  {currentlyPlaying.item.name} by{" "}
-                  {currentlyPlaying.item.artists
-                    .map((artist: { name: string }) => artist.name)
-                    .join(", ")}
-                </Link>
-              </div>
-            </div>
-          )}
+          <SpotifyStatus />
           {spotifyFollowers && (
             <div className="flex items-center text-neutral-500 dark:text-neutral-400 flex-wrap">
               <Link
