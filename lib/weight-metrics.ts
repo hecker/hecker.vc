@@ -7,10 +7,19 @@ interface Credentials {
   private_key: string;
 }
 
-interface WeightEntry {
+export interface WeightEntry {
   timestamp: string;
   weight: number;
+  fatMassPercent: string;
 }
+
+interface CacheEntry {
+  data: WeightEntry[];
+  timestamp: number;
+}
+
+let weightsCache: CacheEntry | null = null;
+const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
 function getCredentialsFromEnv(): string {
   const credentialsEnvVar = process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS;
@@ -30,7 +39,7 @@ function getCredentialsFromEnv(): string {
   return credentialsJson;
 }
 
-export async function getLatestWeight(): Promise<WeightEntry | null> {
+async function getSheets() {
   let credentialsJson: string = getCredentialsFromEnv();
   let credentials: Credentials;
 
@@ -38,7 +47,7 @@ export async function getLatestWeight(): Promise<WeightEntry | null> {
     credentials = JSON.parse(credentialsJson);
   } catch (error) {
     console.error("Error parsing service account credentials JSON:", error);
-    return null;
+    throw error;
   }
 
   credentials.private_key = credentials.private_key.replace(/\\n/g, "\n");
@@ -50,42 +59,73 @@ export async function getLatestWeight(): Promise<WeightEntry | null> {
     ["https://www.googleapis.com/auth/spreadsheets.readonly"],
   );
 
-  const sheets = google.sheets({ version: "v4", auth });
+  return google.sheets({ version: "v4", auth });
+}
 
+async function fetchWeights(): Promise<WeightEntry[]> {
+  const sheets = await getSheets();
   const spreadsheetId = "12kHjNl0sjaZzCweM0pXahO8ij_wljivv3cnSMeypFaM";
 
   try {
     const res = await sheets.spreadsheets.values.get({
       spreadsheetId,
-      range: "Measurements!A:B",
+      range: "Measurements!A:D",
     });
 
     const rows = res.data.values;
 
-    if (rows && rows.length) {
-      const latestEntry = rows[rows.length - 1];
-      const [timestamp, weight] = latestEntry;
-
-      if (weight) {
-        const weightValue = parseFloat(
-          weight.replace(/^Weight:\s*/, "").trim(),
-        );
-        if (!isNaN(weightValue)) {
-          return {
-            timestamp,
-            weight: weightValue,
-          };
-        }
-      }
-
-      console.error("Weight value is not a valid number:", weight);
-      return null;
-    } else {
+    if (!rows || rows.length <= 1) {
       console.error("No data found in the sheet.");
-      return null;
+      return [];
     }
+
+    // Skip header row and process all entries
+    return rows
+      .slice(1)
+      .map((row) => {
+        const [timestamp, weightStr, , fatMassPercentStr] = row;
+        const weight = parseFloat(weightStr.replace(/^Weight:\s*/, "").trim());
+        const fatMassPercent = fatMassPercentStr
+          .replace(/^Fat mass percent:\s*/, "")
+          .trim();
+
+        if (isNaN(weight)) {
+          console.warn(`Invalid weight value found: ${weightStr}`);
+          return null;
+        }
+
+        return {
+          timestamp,
+          weight,
+          fatMassPercent,
+        };
+      })
+      .filter((entry): entry is WeightEntry => entry !== null);
   } catch (error) {
     console.error("Error fetching weight data:", error);
-    return null;
+    return [];
   }
+}
+
+export async function getAllWeights(): Promise<WeightEntry[]> {
+  // Check if we have valid cached data
+  if (weightsCache && Date.now() - weightsCache.timestamp < CACHE_DURATION) {
+    return weightsCache.data;
+  }
+
+  // Fetch fresh data
+  const weights = await fetchWeights();
+
+  // Update cache
+  weightsCache = {
+    data: weights,
+    timestamp: Date.now(),
+  };
+
+  return weights;
+}
+
+export async function getLatestWeight(): Promise<WeightEntry | null> {
+  const weights = await getAllWeights();
+  return weights.length > 0 ? weights[weights.length - 1] : null;
 }
