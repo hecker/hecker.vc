@@ -12,7 +12,7 @@ export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Weight",
-  description: "Track your weight progress over time",
+  description: "Jan's weight progress over time",
 };
 
 export default async function WeightPage() {
@@ -22,10 +22,11 @@ export default async function WeightPage() {
   if (!weights || weights.length === 0) {
     return (
       <section>
-        <h1 className="font-bold text-3xl font-serif mb-4">Weight Tracking</h1>
+        <h1 className="font-bold text-3xl font-serif mb-4">Weight</h1>
         <p className="prose prose-neutral dark:prose-invert text-neutral-800 dark:text-neutral-200">
-          Track your weight progress over time. Data is automatically synced
-          from Apple Health via Shortcuts.
+          I believe in transparency and accountability. Here's my weight
+          journey, automatically tracked and shared because data is beautiful –
+          and because I can.
         </p>
         <p className="text-neutral-500 dark:text-neutral-400">
           No weight data available. Please check your Google Sheets connection.
@@ -45,7 +46,7 @@ export default async function WeightPage() {
 
   return (
     <section>
-      <h1 className="font-bold text-3xl font-serif mb-4">Weight Tracking</h1>
+      <h1 className="font-bold text-3xl font-serif mb-4">Weight</h1>
       <p className="prose prose-neutral dark:prose-invert text-neutral-800 dark:text-neutral-200 mb-8">
         I believe in transparency and accountability. Here's my weight journey,
         automatically tracked and shared because data is beautiful – and because
