@@ -109,9 +109,14 @@ export default async function HomePage() {
         <>
           Before, I joined Jodel after they have acquired my startup vamos!
           Always curious, learning, building.{" "}
-          {latestWeight && !isNaN(latestWeight.weight)
-            ? `Working out more, currently at ${Math.round(latestWeight.weight)} kg.`
-            : ""}
+          {latestWeight && !isNaN(latestWeight.weight) ? (
+            <>
+              Working out more, currently at{" "}
+              <Link href="/weight">{Math.round(latestWeight.weight)} kg</Link>.
+            </>
+          ) : (
+            ""
+          )}
         </>
       </p>
     </section>
