@@ -68,6 +68,12 @@ export default function LinksPage() {
       <h1 className="font-bold text-3xl font-serif mb-4">Links</h1>
       <div className="grid gap-2 grid-cols-1 md:grid-cols-3">
         <SocialLink
+          href="https://x.com/janheckercom"
+          icon={<XIcon />}
+          title="X"
+          active={true}
+        />
+        <SocialLink
           href="https://open.spotify.com/user/eja8fqoy7qpqdm4bk7e5nt8o3?si=43929b476d604ad4"
           icon={<SpotifyIcon />}
           title="Spotify"
@@ -162,12 +168,6 @@ export default function LinksPage() {
           href="https://www.polywork.com/hecker"
           icon={<PolyworkIcon />}
           title="Polywork"
-          active={false}
-        />
-        <SocialLink
-          href="https://x.com/janheckercom"
-          icon={<XIcon />}
-          title="X"
           active={false}
         />
         <SocialLink
