@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Script from "next/script";
-import avatar from "app/(navbar)/jan.png";
+import avatar from "app/(navbar)/jan.jpeg";
 
 export default function DatePage() {
   return (

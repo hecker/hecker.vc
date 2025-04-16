@@ -13,7 +13,7 @@ import {
   WhatsAppIcon,
 } from "components/icons";
 import contact from "./contact.json";
-import avatar from "app/(navbar)/jan.png";
+import avatar from "app/(navbar)/jan.jpeg";
 import Link from "next/link";
 import { BackgroundMusic } from "components/music";
 import { ContactSaveButton } from "./contact-save-button";
