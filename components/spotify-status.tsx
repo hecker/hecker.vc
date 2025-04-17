@@ -52,7 +52,7 @@ export default function SpotifyStatus() {
       <SpotifyIcon className="flex-shrink-0 animate-spin-slow" />
       <div>
         <span className="text-neutral-800 dark:text-neutral-200">
-          Currently streaming
+          Currently streaming:
         </span>
         <Link
           rel="noopener noreferrer"

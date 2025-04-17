@@ -53,18 +53,16 @@ export default async function HomePage() {
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
       <p className="my-5 max-w-[500px] text-neutral-800 dark:text-neutral-200">
         <>
-          I am {contactData.firstName}. {age} years old. I am building the{" "}
-          <b>
-            future of preventive healthcare at{" "}
-            <Link
-              href="https://livyhealth.co"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Livy
-            </Link>
-          </b>{" "}
-          and share my ideas online.
+          I'm building{" "}
+          <Link
+            href="https://livy.club?ref=jan&landing_page=hecker.vc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Livy
+          </Link>{" "}
+          - a personal health companion that helps you stay healthy for the long
+          run
         </>
       </p>
       <div className="flex items-center my-8 flex-row">
@@ -100,15 +98,15 @@ export default async function HomePage() {
               className="flex flex-shrink-0 items-center gap-2 text-neutral-500 dark:text-neutral-400"
             >
               <GitHubIcon />
-              {`${githubFollowers} hackers`}
+              {`${githubFollowers} fellow hackers`}
             </Link>
           )}
         </div>
       </div>
       <p className="my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200">
         <>
-          Before, I joined Jodel after they have acquired my startup vamos!
-          Always curious, learning, building.{" "}
+          Ex-founder of vamos! (acquired by Jodel). Curious builder, health
+          enthusiast.{" "}
           {latestWeight && !isNaN(latestWeight.weight) ? (
             <>
               Working out more.{" "}
@@ -116,7 +114,8 @@ export default async function HomePage() {
             </>
           ) : (
             ""
-          )}
+          )}{" "}
+          {age} years old.
         </>
       </p>
     </section>
