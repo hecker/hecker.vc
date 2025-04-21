@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Product at Jodel",
+  description: "Co-founder at Livy",
 };
 
 export default function AboutPage() {
@@ -41,9 +41,24 @@ export default function AboutPage() {
           community app from Berlin with significantly more users, funding, and
           experience. Now, I focus on product and moderation at Jodel.
         </p>
+        <p>
+          Now,{" "}
+          <Link
+            href="https://www.linkedin.com/in/noahpetermann/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Noah
+          </Link>{" "}
+          and I are building{" "}
+          <Link href="https://livy.so?ref=jan&landing_page=hecker.vc">
+            Livy
+          </Link>{" "}
+          - a health app that tracks your biomarkers and gives you personalized
+          supplements and advice to stay healthy.
+        </p>
         <p className="mb-8">
-          If you want to follow my journey or grab a (virtual) coffee, feel free
-          to <Link href="links">connect with me</Link>!
+          Feel free to follow or <Link href="links">connect with me</Link>!
         </p>
       </div>
     </section>

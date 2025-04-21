@@ -55,7 +55,7 @@ export default async function HomePage() {
         <>
           I'm building{" "}
           <Link
-            href="https://livy.club?ref=jan&landing_page=hecker.vc"
+            href="https://livy.so?ref=jan&landing_page=hecker.vc"
             target="_blank"
             rel="noopener noreferrer"
           >
