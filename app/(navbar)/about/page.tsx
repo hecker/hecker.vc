@@ -50,12 +50,8 @@ export default function AboutPage() {
           >
             Noah
           </Link>{" "}
-          and I are building{" "}
-          <Link href="https://livy.so?ref=jan&landing_page=hecker.vc">
-            Livy
-          </Link>{" "}
-          - a health app that tracks your biomarkers and gives you personalized
-          supplements and advice to stay healthy.
+          and I are building a health OS that tracks your biomarkers and gives
+          you personalized supplements and advice to stay healthy.
         </p>
         <p className="mb-8">
           Feel free to follow or <Link href="links">connect with me</Link>!

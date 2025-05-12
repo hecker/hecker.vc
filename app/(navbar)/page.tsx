@@ -53,16 +53,8 @@ export default async function HomePage() {
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
       <p className="my-5 max-w-[500px] text-neutral-800 dark:text-neutral-200">
         <>
-          I'm building{" "}
-          <Link
-            href="https://livy.so?ref=jan&landing_page=hecker.vc"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Livy
-          </Link>{" "}
-          - a personal health companion that helps you stay healthy for the long
-          run
+          I'm building a personal health companion that helps you stay healthy
+          for the long run.
         </>
       </p>
       <div className="flex items-center my-8 flex-row">
