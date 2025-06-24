@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     template: "%s | Jan Hecker",
   },
   metadataBase: new URL("https://hecker.vc"),
-  description: "founder, amateur",
+  description: "Founder",
   openGraph: {
     title: "Jan Hecker",
-    description: "founder, amateur",
+    description: "Founder",
     url: "https://hecker.vc",
     siteName: "Jan Hecker",
     images: [

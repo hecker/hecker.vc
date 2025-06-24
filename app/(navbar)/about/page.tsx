@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Co-founder at Livy",
+  description: "Co-Founder, Aniva",
 };
 
 export default function AboutPage() {

@@ -2,15 +2,15 @@
   "imagePath": "../../app/jan.jpeg",
   "firstName": "Jan",
   "lastName": "Hecker",
-  "bio": "Founder, Livy",
+  "bio": "Co-Founder, Aniva",
   "email": "jan@hecker.vc",
   "phone": "+49 157 92354107",
   "website": "https://hecker.vc",
   "birthdate": "2000-09-20",
   "work": {
-    "company": "Livy",
-    "role": "Founder",
-    "website": "https://livy.so?ref=jan&landing_page=hecker.vc"
+    "company": "Aniva",
+    "role": "Co-Founder",
+    "website": "https://aniva.health/?ref=jan&landing_page=hecker.vc"
   },
   "address": {
     "name": "Hecker Ventures UG",
