@@ -13,14 +13,6 @@ export interface WeightEntry {
   fatMassPercent: string;
 }
 
-interface CacheEntry {
-  data: WeightEntry[];
-  timestamp: number;
-}
-
-let weightsCache: CacheEntry | null = null;
-const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-
 function getCredentialsFromEnv(): string {
   const credentialsEnvVar = process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS;
 
@@ -36,11 +28,15 @@ function getCredentialsFromEnv(): string {
     credentialsJson = credentialsJson.substring(1, credentialsJson.length - 1);
   }
 
+  // dotenv in Next 16 expands \n inside double-quoted values to real
+  // newlines, turning \\n into `\` + newline, which breaks JSON.parse.
+  credentialsJson = credentialsJson.replace(/\\\r?\n/g, "\\n");
+
   return credentialsJson;
 }
 
 async function getSheets() {
-  let credentialsJson: string = getCredentialsFromEnv();
+  const credentialsJson: string = getCredentialsFromEnv();
   let credentials: Credentials;
 
   try {
@@ -52,12 +48,11 @@ async function getSheets() {
 
   credentials.private_key = credentials.private_key.replace(/\\n/g, "\n");
 
-  const auth = new google.auth.JWT(
-    credentials.client_email,
-    undefined,
-    credentials.private_key,
-    ["https://www.googleapis.com/auth/spreadsheets.readonly"],
-  );
+  const auth = new google.auth.JWT({
+    email: credentials.client_email,
+    key: credentials.private_key,
+    scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+  });
 
   return google.sheets({ version: "v4", auth });
 }
@@ -107,22 +102,10 @@ async function fetchWeights(): Promise<WeightEntry[]> {
   }
 }
 
+// Caching happens via ISR on the pages that call this (`revalidate`),
+// so no in-memory cache is needed here.
 export async function getAllWeights(): Promise<WeightEntry[]> {
-  // Check if we have valid cached data
-  if (weightsCache && Date.now() - weightsCache.timestamp < CACHE_DURATION) {
-    return weightsCache.data;
-  }
-
-  // Fetch fresh data
-  const weights = await fetchWeights();
-
-  // Update cache
-  weightsCache = {
-    data: weights,
-    timestamp: Date.now(),
-  };
-
-  return weights;
+  return fetchWeights();
 }
 
 export async function getLatestWeight(): Promise<WeightEntry | null> {

@@ -1,8 +1,5 @@
 import { getCurrentlyPlaying } from "lib/spotify-metrics";
-import { NextResponse } from "next/server";
-
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+import { NextResponse, connection } from "next/server";
 
 // Simple in-memory cache
 let cache = {
@@ -13,6 +10,8 @@ let cache = {
 const CACHE_DURATION = 5000; // 5 seconds cache
 
 export async function GET() {
+  // Opt out of build-time prerendering under cacheComponents.
+  await connection();
   try {
     const now = Date.now();
 

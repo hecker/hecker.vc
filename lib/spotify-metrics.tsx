@@ -1,4 +1,12 @@
-const getAccessToken = async () => {
+// Spotify access tokens live ~1 hour; cache to avoid an OAuth refresh
+// round-trip on every call.
+let tokenCache: { token: string; expiresAt: number } | null = null;
+
+const getAccessToken = async (): Promise<string> => {
+  if (tokenCache && Date.now() < tokenCache.expiresAt) {
+    return tokenCache.token;
+  }
+
   const response = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: {
@@ -18,14 +26,20 @@ const getAccessToken = async () => {
     );
   }
 
-  return JSON.parse(responseBody);
+  const data = JSON.parse(responseBody);
+  tokenCache = {
+    token: data.access_token,
+    // Refresh a minute early so we never send an expired token.
+    expiresAt: Date.now() + (data.expires_in - 60) * 1000,
+  };
+  return data.access_token;
 };
 
 export async function getSpotifyFollowers(): Promise<number> {
   const access_token = await getAccessToken();
   const response = await fetch("https://api.spotify.com/v1/me/", {
     headers: {
-      Authorization: `Bearer ${access_token.access_token}`,
+      Authorization: `Bearer ${access_token}`,
     },
   });
   const data = await response.json();
@@ -38,7 +52,7 @@ export async function getCurrentlyPlaying() {
     "https://api.spotify.com/v1/me/player/currently-playing",
     {
       headers: {
-        Authorization: `Bearer ${access_token.access_token}`,
+        Authorization: `Bearer ${access_token}`,
       },
     },
   );

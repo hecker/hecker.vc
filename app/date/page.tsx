@@ -16,6 +16,7 @@ export default function DatePage() {
           width={64}
           height={64}
           priority
+          draggable={false}
         />
         <div>
           <h1 className="font-bold text-2xl font-serif">Jan Hecker</h1>
@@ -33,7 +34,9 @@ export default function DatePage() {
         </p>
       </div>
 
-      <div className="rounded-lg overflow-hidden -mx-2 sm:mx-0 bg-neutral-50 dark:bg-neutral-900">
+      {/* Light widget; dark mode inverts the iframe (see global.css).
+          Inverted fafafa = #050505, hence the dark wrapper bg. */}
+      <div className="rounded-lg overflow-hidden -mx-2 sm:mx-0 bg-neutral-50 dark:bg-[#050505]">
         <div
           className="zeeg-inline-widget"
           id="zeeg-embed-hecker-date"
@@ -43,11 +46,10 @@ export default function DatePage() {
           src="https://assets.zeeg.me/embed.min.js"
           data-user="hecker"
           data-event-type="date"
-          data-background-color="ffffff"
+          data-background-color="fafafa"
           data-text-color="171717"
-          data-primary-color="171717"
+          data-primary-color="d97757"
           data-hide-details="1"
-          data-compact="1"
           strategy="lazyOnload"
         />
       </div>

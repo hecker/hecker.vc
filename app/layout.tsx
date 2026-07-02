@@ -76,11 +76,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      // The inline script below may set data-spotify before hydration.
+      suppressHydrationWarning
       className={clsx(
         "cursor-black dark:cursor-white text-black bg-white dark:text-white dark:bg-[#111010]",
         baskerville.variable,
       )}
     >
+      <head>
+        {/* Runs before first paint: if a recent Spotify track is stored
+            (see components/spotify-status.tsx), reserve the streaming
+            line's slot so its restore doesn't shift the page. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=JSON.parse(localStorage.getItem("spotify-track"));if(t&&t.label&&Date.now()-t.at<300000)document.documentElement.setAttribute("data-spotify","")}catch(e){}`,
+          }}
+        />
+      </head>
       <body
         key="without-navbar"
         className="antialiased max-w-4xl mb-40 flex flex-col md:flex-row mx-4 mt-8 md:mt-20 lg:mt-20 lg:mx-auto"

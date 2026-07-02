@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { ArrowIcon } from "components/icons";
+import EntityLink from "components/entity-link";
 
 export const metadata: Metadata = {
   title: "Notion",
@@ -18,16 +19,15 @@ export default function NotionPage() {
         <p>
           I am offering a variety of Notion services. I am using Notion for over
           3 years, built my own startup using Notion, published a few{" "}
-          <Link
+          <EntityLink
             href="https://www.notion.so/templates/subscription-management-2"
+            logo="/logos/notion.png"
             style={{ fontWeight: "normal" }}
           >
             templates
-          </Link>
+          </EntityLink>
           , deployed the{" "}
-          <Link href="https://getvamos.app" style={{ fontWeight: "normal" }}>
-            vamos! website
-          </Link>{" "}
+          <EntityLink logo="/logos/vamos.png">vamos! website</EntityLink>{" "}
           out of a Notion page and hold the{" "}
           <Link
             href="https://www.credly.com/badges/60c570b9-3b2e-4325-8dbe-b549a811f770/public_url"
@@ -71,6 +71,7 @@ export default function NotionPage() {
           width={150}
           height={150}
           priority
+          draggable={false}
         />
       </div>
     </section>

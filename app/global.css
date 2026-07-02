@@ -1,14 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.ts";
 
 ::selection {
-  background-color: #47a3f3;
+  background-color: #d97757;
   color: #fefefe;
+}
+
+@layer base {
+  /* Site-wide keyboard focus style, matching the selection accent. Utility
+     classes (e.g. the navbar pill) still win over this base-layer rule. */
+  :focus-visible {
+    outline: 2px solid #d97757;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
 }
 
 html {
   min-width: 360px;
+}
+
+/* Hide scrollbars everywhere; content stays scrollable. */
+* {
+  scrollbar-width: none; /* Firefox, Chrome 121+, Safari 18.2+ */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* older Chrome/Safari */
 }
 
 .prose .anchor {
@@ -26,7 +45,7 @@ html {
 }
 
 .prose a {
-  @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+  @apply font-normal transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
 }
 
 .prose .anchor:after {
@@ -58,13 +77,13 @@ pre[class*="language-"] {
   @apply text-neutral-50;
 }
 
-pre::-webkit-scrollbar {
-  display: none;
-}
-
-pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+/* Zeeg can't theme its form inputs, so real dark params always clash.
+   Instead: widget stays light, dark mode inverts the whole iframe.
+   hue-rotate keeps the d97757 accent in the orange family. */
+@media (prefers-color-scheme: dark) {
+  .zeeg-inline-widget iframe {
+    filter: invert(1) hue-rotate(180deg);
+  }
 }
 
 /* Remove Safari input shadow on mobile */
@@ -100,13 +119,13 @@ table {
   color: gray;
 }
 [data-rehype-pretty-code-fragment] .line--highlighted {
-  @apply bg-slate-500 bg-opacity-10;
+  @apply bg-slate-500/10;
 }
 [data-rehype-pretty-code-fragment] .line-highlighted span {
   @apply relative;
 }
 [data-rehype-pretty-code-fragment] .word--highlighted {
-  @apply rounded-md bg-slate-500 bg-opacity-10 p-1;
+  @apply rounded-md bg-slate-500/10 p-1;
 }
 [data-rehype-pretty-code-title] {
   @apply px-4 py-3 font-mono text-xs font-medium border rounded-t-lg text-neutral-200 border-[#333333] bg-[#1c1c1c];
@@ -137,4 +156,286 @@ table {
 }
 .prose h3 {
   @apply font-serif text-neutral-700 dark:text-neutral-200;
+}
+
+/* transitions.dev — motion tokens (number pop-in + skeleton pulse) */
+:root {
+  --digit-dur: 500ms;
+  --digit-distance: 8px;
+  --digit-stagger: 70ms;
+  --digit-blur: 2px;
+  --digit-ease: cubic-bezier(0.34, 1.45, 0.64, 1);
+  --digit-dir-x: 0;
+  --digit-dir-y: 1;
+  --pulse-dur: 1000ms;
+  --pulse-count: infinite;
+  --pulse-min: 0.5;
+}
+
+/* transitions.dev — number pop-in (02) */
+@keyframes t-digit-pop-in {
+  0% {
+    transform: translate(
+      calc(var(--digit-distance) * var(--digit-dir-x)),
+      calc(var(--digit-distance) * var(--digit-dir-y))
+    );
+    opacity: 0;
+    filter: blur(var(--digit-blur));
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.t-digit-group {
+  display: inline-flex;
+  align-items: baseline;
+}
+.t-digit {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+.t-digit-group.is-animating .t-digit {
+  animation: t-digit-pop-in var(--digit-dur) var(--digit-ease) both;
+}
+.t-digit-group.is-animating .t-digit[data-stagger="1"] {
+  animation-delay: var(--digit-stagger);
+}
+.t-digit-group.is-animating .t-digit[data-stagger="2"] {
+  animation-delay: calc(var(--digit-stagger) * 2);
+}
+
+/* transitions.dev — skeleton pulse (14); Suspense swaps the nodes, so only
+   the pulse half of the snippet applies here */
+.t-skel-skeleton.is-pulsing > * {
+  animation: t-skel-pulse var(--pulse-dur) ease-in-out var(--pulse-count);
+}
+@keyframes t-skel-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: var(--pulse-min);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-digit-group .t-digit {
+    animation: none !important;
+  }
+  .t-skel-skeleton.is-pulsing > * {
+    animation: none !important;
+  }
+}
+
+/* transitions.dev — text states swap (04) */
+:root {
+  --text-swap-dur: 150ms;
+  --text-swap-translate-y: 4px;
+  --text-swap-blur: 2px;
+  --text-swap-ease: ease-in-out;
+}
+
+.t-text-swap {
+  display: inline-block;
+  transform: translateY(0);
+  filter: blur(0);
+  opacity: 1;
+  transition:
+    transform var(--text-swap-dur) var(--text-swap-ease),
+    filter var(--text-swap-dur) var(--text-swap-ease),
+    opacity var(--text-swap-dur) var(--text-swap-ease);
+  will-change: transform, filter, opacity;
+}
+.t-text-swap.is-exit {
+  transform: translateY(calc(var(--text-swap-translate-y) * -1));
+  filter: blur(var(--text-swap-blur));
+  opacity: 0;
+}
+.t-text-swap.is-enter-start {
+  transform: translateY(var(--text-swap-translate-y));
+  filter: blur(var(--text-swap-blur));
+  opacity: 0;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-text-swap {
+    transition: none !important;
+  }
+}
+
+/* transitions.dev — texts reveal (18): staggered blurred rise on entrance,
+   quiet fade on exit. Used by the "Currently streaming" line. */
+:root {
+  --stagger-dur: 500ms;
+  --stagger-distance: 12px;
+  --stagger-stagger: 40ms;
+  --stagger-blur: 3px;
+  --stagger-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Lines start translated down + blurred + invisible; .is-shown
+   on the parent flips them to their resting state. The second
+   line's transition-delay holds it back by --stagger-stagger
+   so the eye lands on the headline first. */
+.t-stagger-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(var(--stagger-distance));
+  filter: blur(var(--stagger-blur));
+  transition:
+    opacity var(--stagger-dur) var(--stagger-ease),
+    transform var(--stagger-dur) var(--stagger-ease),
+    filter var(--stagger-dur) var(--stagger-ease);
+  will-change: transform, opacity, filter;
+}
+.t-stagger-line--2 {
+  transition-delay: var(--stagger-stagger);
+}
+
+.t-stagger.is-shown .t-stagger-line {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+/* Exit decouples from the stagger: same fade for every line,
+   no Y return, no blur — so the disappearance reads as a
+   single quiet fade instead of a reverse reveal. */
+.t-stagger.is-hiding .t-stagger-line {
+  opacity: 0;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 200ms ease,
+    transform 0s linear,
+    filter 0s linear;
+  transition-delay: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-stagger-line {
+    transition: none !important;
+  }
+}
+
+/* transitions.dev — entity link hover reveal (01 card resize, inline variant):
+   the logo slot tweens from 0 to its full width while the mark itself
+   fades/scales/unblurs in, pushing the label aside. Pure CSS. */
+:root {
+  --entity-size: 1.05em;
+  --entity-gap: 0.3em;
+  /* asymmetric like dropdown open/close: reveal fast, collapse quicker */
+  --entity-dur-in: 200ms;
+  --entity-dur-out: 150ms;
+  --entity-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --entity-blur: 2px;
+  --entity-scale: 0.6;
+}
+
+/* Keep logo and label on one line so the reveal never splits across a wrap. */
+.t-entity {
+  white-space: nowrap;
+}
+
+/* Underline + regular weight so entity links look identical inside and
+   outside .prose (e.g. the homepage intro). Only anchors — the linkless
+   span variant (e.g. vamos!) must not read as clickable. */
+a.t-entity {
+  @apply font-normal underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+}
+
+/* text-decoration doesn't propagate into atomic inline boxes, so the
+   animated digit group inside a link (the weight link) loses its underline;
+   force each box to draw its own. */
+a .t-digit-group,
+a .t-digit {
+  text-decoration: inherit;
+}
+
+.t-entity .t-entity-logo {
+  display: inline-block;
+  width: 0;
+  height: var(--entity-size);
+  vertical-align: -0.18em;
+  overflow: hidden;
+  transition: width var(--entity-dur-out) var(--entity-ease);
+  will-change: width;
+}
+
+.t-entity .t-entity-logo img {
+  /* block, not inline: inline baseline layout leaves descender space under
+     the image inside the fixed-height slot and clips the logo's bottom */
+  display: block;
+  width: var(--entity-size);
+  height: var(--entity-size);
+  max-width: none;
+  margin: 0;
+  /* iOS-squircle-like rounding so flat square favicons match app icons
+     that ship their rounding baked in (e.g. Aniva). */
+  border-radius: 25%;
+  opacity: 0;
+  transform: scale(var(--entity-scale));
+  filter: blur(var(--entity-blur));
+  transition:
+    opacity var(--entity-dur-out) var(--entity-ease),
+    transform var(--entity-dur-out) var(--entity-ease),
+    filter var(--entity-dur-out) var(--entity-ease);
+  will-change: opacity, transform, filter;
+}
+
+.t-entity .t-entity-logo.is-circle img {
+  border-radius: 9999px;
+}
+
+/* Hover reveal only on real-pointer devices: on touch, tap-hover would
+   reflow the line mid-navigation, and at wrap-boundary widths a growing
+   link can jump lines, escape the cursor, and flicker. */
+@media (hover: hover) and (pointer: fine) {
+  .t-entity:hover .t-entity-logo {
+    width: calc(var(--entity-size) + var(--entity-gap));
+    transition-duration: var(--entity-dur-in);
+  }
+
+  .t-entity:hover .t-entity-logo img {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+    transition-duration: var(--entity-dur-in);
+  }
+}
+
+/* Keyboard focus reveals too; focus isn't pointer-position-dependent,
+   so a line jump can't oscillate. */
+.t-entity:focus-visible .t-entity-logo {
+  width: calc(var(--entity-size) + var(--entity-gap));
+  transition-duration: var(--entity-dur-in);
+}
+
+.t-entity:focus-visible .t-entity-logo img {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+  transition-duration: var(--entity-dur-in);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-entity .t-entity-logo,
+  .t-entity .t-entity-logo img {
+    transition: none !important;
+  }
+}
+
+/* Streaming-line slot: reserved before first paint by the inline script in
+   app/layout.tsx when a recent track is stored, so the client-restored
+   "Currently streaming" line doesn't shift the page on refresh. */
+.spotify-slot {
+  display: none;
+}
+html[data-spotify] .spotify-slot {
+  display: block;
+  height: 1.5rem;
 }

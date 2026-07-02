@@ -35,6 +35,7 @@ export default function CardPage() {
           placeholder="blur"
           width={100}
           priority
+          draggable={false}
         />
         <div className="items-center rounded-lg shadow-lg hover:shadow-xl overflow-hidden p-4 mt-4">
           <div className="flex flex-col items-start gap-1">

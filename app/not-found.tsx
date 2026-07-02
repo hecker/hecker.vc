@@ -111,6 +111,9 @@ const NotFoundPage: React.FC = () => {
   useEffect(() => {
     const randomMessage =
       errorMessages[Math.floor(Math.random() * errorMessages.length)];
+    // Random message must be picked client-side to avoid a hydration
+    // mismatch with the statically prerendered 404 shell.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setErrorMessage(randomMessage.replace("{slug}", pathname));
   }, [pathname]);
 

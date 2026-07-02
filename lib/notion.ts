@@ -1,4 +1,5 @@
 import { Client } from "@notionhq/client";
+import { NotionToMarkdown } from "notion-to-md";
 
 export interface BlogPost {
   id: string;
@@ -12,12 +13,25 @@ const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-export async function getAllBlogPosts(): Promise<BlogPost[]> {
+// Notion SDK v5 queries data sources instead of databases; resolve the
+// database's single data source once and reuse it.
+let dataSourceId: string | undefined;
+async function getDataSourceId(): Promise<string> {
   if (process.env.NOTION_DATABASE_ID === undefined) {
     throw new Error("Notion database ID is not defined.");
   }
-  const response = await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID,
+  if (dataSourceId === undefined) {
+    const database: any = await notion.databases.retrieve({
+      database_id: process.env.NOTION_DATABASE_ID,
+    });
+    dataSourceId = database.data_sources[0].id;
+  }
+  return dataSourceId!;
+}
+
+export async function getAllBlogPosts(): Promise<BlogPost[]> {
+  const response = await notion.dataSources.query({
+    data_source_id: await getDataSourceId(),
     filter: {
       property: "Published",
       date: {
@@ -63,7 +77,6 @@ function formatDate(dateString: string, justMonthYear: boolean): string {
   return `${month} ${year}`;
 }
 
-const { NotionToMarkdown } = require("notion-to-md");
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
 n2m.setCustomTransformer("video", async (block: any) => {
@@ -80,11 +93,8 @@ n2m.setCustomTransformer("video", async (block: any) => {
 });
 
 export const getSingleBlogPost = async (slug: string) => {
-  if (process.env.NOTION_DATABASE_ID === undefined) {
-    throw new Error("Notion database ID is not defined.");
-  }
-  const response = await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID,
+  const response = await notion.dataSources.query({
+    data_source_id: await getDataSourceId(),
     filter: {
       property: "Slug",
       formula: {
@@ -108,7 +118,6 @@ export const getSingleBlogPost = async (slug: string) => {
   const mdblocks = await n2m.pageToMarkdown(page.id);
   const mdString = n2m.toMarkdownString(mdblocks);
 
-  console.log("mdString", mdString);
   return {
     metadata: metadata,
     content: mdString.parent,
