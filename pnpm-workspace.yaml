@@ -5,3 +5,7 @@ onlyBuiltDependencies:
   - esbuild
   - sharp
   - unrs-resolver
+
+overrides:
+  "next>postcss": "^8.5.16"
+  "js-yaml@4": "^4.2.0"
