@@ -27,7 +27,16 @@ export default function EntityLink({
       className={`t-entity-logo${shape === "circle" ? " is-circle" : ""}`}
       aria-hidden="true"
     >
-      <Image src={logo} alt="" width={64} height={64} draggable={false} />
+      {/* eager: lazy images inside the width-0 slot never load until first
+          hover, so the reveal runs before the logo has arrived */}
+      <Image
+        src={logo}
+        alt=""
+        width={64}
+        height={64}
+        loading="eager"
+        draggable={false}
+      />
     </span>
   );
 
