@@ -77,8 +77,8 @@ export default function AboutPage() {
           >
             Aniva
           </EntityLink>
-          —a health OS that tracks your biomarkers and gives you personalized
-          supplements and advice to stay healthy.
+          , Europe’s diagnostics infrastructure. Companies can offer lab tests
+          in any town, through one API.
         </p>
         <p className="mb-8">
           Feel free to follow or <Link href="/links">connect with me</Link>!

@@ -9,18 +9,29 @@ import { getAllWeights, type WeightEntry } from "lib/weight-metrics";
 
 // Cached data wrappers: served instantly from cache on navigation,
 // revalidated in the background per the "metrics" profile in
-// next.config.ts. Errors are thrown before an entry is stored, so a failed
-// fetch is retried on the next request instead of being cached.
-async function cachedSpotifyFollowers() {
+// next.config.ts. A throw inside "use cache" fails the whole prerender
+// (one rate-limited API would break every build), so failures resolve to
+// null and are retried when the entry revalidates.
+async function cachedSpotifyFollowers(): Promise<number | null> {
   "use cache";
   cacheLife("metrics");
-  return getSpotifyFollowers();
+  try {
+    return await getSpotifyFollowers();
+  } catch (error) {
+    console.error("Failed to get Spotify followers:", error);
+    return null;
+  }
 }
 
-async function cachedGithubFollowers() {
+async function cachedGithubFollowers(): Promise<number | null> {
   "use cache";
   cacheLife("metrics");
-  return getGithubFollowers();
+  try {
+    return await getGithubFollowers();
+  } catch (error) {
+    console.error("Failed to get GitHub followers:", error);
+    return null;
+  }
 }
 
 // Single cache entry for weight data, shared by the home-page number and
@@ -56,13 +67,14 @@ async function FollowerCount({
   name,
   errorLabel,
 }: {
-  load: () => Promise<number>;
+  load: () => Promise<number | null>;
   name: string;
   errorLabel: string;
 }) {
   let value = "–";
   try {
-    value = String(await load());
+    const count = await load();
+    if (count !== null) value = String(count);
   } catch (error) {
     console.error(`Failed to get ${errorLabel}:`, error);
   }
@@ -79,7 +91,7 @@ function FollowerLink({
   suffix,
   errorLabel,
 }: {
-  load: () => Promise<number>;
+  load: () => Promise<number | null>;
   href: string;
   icon: React.ReactNode;
   name: string;

@@ -41,8 +41,8 @@ export default function HomePage() {
           >
             Aniva
           </EntityLink>
-          , a personal health concierge that helps you stay healthy for the
-          long run.
+          , Europe’s diagnostics infrastructure. Offer lab tests in any town,
+          through one API.
         </>
       </p>
       <div className="flex items-center my-8 flex-row">

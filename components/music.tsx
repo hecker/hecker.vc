@@ -10,6 +10,7 @@ function BackgroundMusicOnL() {
   );
 
   useEffect(() => {
+    if (process.env.NODE_ENV === "development") return;
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "l") {
         if (!isPlaying) {
@@ -39,6 +40,7 @@ export function BackgroundMusic() {
   );
 
   useEffect(() => {
+    if (process.env.NODE_ENV === "development") return;
     const handleClick = () => {
       if (!isPlaying) {
         audio.current?.play();
