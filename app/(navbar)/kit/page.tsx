@@ -91,7 +91,7 @@ const building: Item[] = [
   },
   {
     name: "Granola",
-    href: "https://www.granola.ai",
+    href: "https://join.granola.ai/t/kx3c279pvk",
     logo: "/logos/granola.png",
     note: "meeting notes",
   },
@@ -109,7 +109,7 @@ const building: Item[] = [
   },
   {
     name: "Aside",
-    href: "https://aside.com",
+    href: "https://aside.com/r/9H4kmzxqic",
     logo: "/logos/aside.png",
     note: "AI browser",
   },
@@ -175,6 +175,12 @@ const life: Item[] = [
     href: "https://qonto.com/r/m9ohxm",
     logo: "/logos/qonto.png",
     note: "business banking",
+  },
+  {
+    name: "Finom",
+    href: "https://app.finom.co/r/M7r3mP07",
+    logo: "/logos/finom.png",
+    note: "banking for my side business",
   },
   {
     name: "Scalable Capital",
