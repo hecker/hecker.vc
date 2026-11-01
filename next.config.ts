@@ -52,6 +52,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
+  partialPrefetching: true,
   cacheLife: {
     // Live numbers (followers, weight): refresh every 5 minutes.
     metrics: { stale: 300, revalidate: 300, expire: 86400 },
