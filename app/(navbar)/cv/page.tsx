@@ -14,6 +14,7 @@ type Entry = {
   position: string;
   location: string;
   date?: string;
+  summary?: string;
   highlights?: string[];
 };
 
@@ -70,6 +71,11 @@ function Section({ title, data }: { title: string; data: Entry[] }) {
                 {item.location}
               </span>
             </p>
+            {item.summary && (
+              <p className="mt-2 text-pretty text-neutral-800 dark:text-neutral-200">
+                {parseHighlightText(item.summary)}
+              </p>
+            )}
             {item.highlights && item.highlights.length > 0 && (
               <ul className="mt-2 space-y-1 list-disc pl-5 marker:text-neutral-300 dark:marker:text-neutral-700 text-neutral-800 dark:text-neutral-200">
                 {item.highlights.map((highlight) => (

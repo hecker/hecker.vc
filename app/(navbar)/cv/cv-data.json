@@ -5,13 +5,7 @@
       "position": "Co-Founder & Managing Director",
       "location": "Berlin, Germany",
       "date": "01/2025 – present",
-      "highlights": [
-        "Building Europe’s diagnostics infrastructure: companies offer lab tests in any town, through one API.",
-        "Co-founded with {Noah Petermann,https://www.linkedin.com/in/noahpetermann/}, backed by Antler.",
-        "Pivoted from a consumer health membership to B2B diagnostics-as-a-service.",
-        "Built the partner API, admin panel and at-home sample kits on top of a network of labs and blood-draw locations.",
-        "Speaker at IFA Berlin 2026: “Health as a Product: Building in a highly regulated market”."
-      ]
+      "summary": "Building Europe’s diagnostics infrastructure: companies offer lab tests in any town, through one API."
     },
     {
       "organization": "Jodel",
