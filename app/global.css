@@ -439,3 +439,19 @@ html[data-spotify] .spotify-slot {
   display: block;
   height: 1.5rem;
 }
+
+/* CV "Save as PDF": print in light colors without the site chrome. */
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  body {
+    margin: 0 !important;
+  }
+  * {
+    color: inherit !important;
+    border-color: #ddd !important;
+  }
+}

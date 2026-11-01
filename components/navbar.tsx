@@ -13,6 +13,9 @@ const navItems: { [_: string]: any } = {
   "/about": {
     name: "About",
   },
+  "/cv": {
+    name: "CV",
+  },
   "/kit": {
     name: "Kit",
   },
@@ -58,7 +61,7 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <aside className="md:w-[150px] md:flex-shrink-0 -mx-6 md:mx-0 md:px-0 font-serif">
+    <aside className="print:hidden md:w-[150px] md:flex-shrink-0 -mx-6 md:mx-0 md:px-0 font-serif">
       <div className="lg:sticky lg:top-20">
         <Link
           className="invisible md:visible md:w-12 w-0 ml-2 md:ml-[12px] mb-2 px-4 md:px-0 md:mb-8 flex md:flex-row items-start"

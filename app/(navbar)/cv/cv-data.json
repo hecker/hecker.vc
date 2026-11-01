@@ -1,63 +1,41 @@
 {
-  "education": [
-    {
-      "organization": "University of Mannheim",
-      "position": "B.Sc. Business Informatics (Current GPA: 2.9)",
-      "location": "Mannheim, Germany",
-      "date": "09/2020 – 08/2023"
-    },
-    {
-      "organization": "Collegium Augustinianum Gaesdonck",
-      "position": "A-Levels (Final GPA: 2.6)",
-      "location": "Goch, Germany",
-      "date": "08/2017 – 07/2020",
-      "highlights": [
-        "Completed advanced courses in Mathematics and Geography.",
-        "Served as the Preliminary Committee Chair."
-      ]
-    },
-    {
-      "organization": "Junior Business School Gaesdonck",
-      "position": "Additional course in cooperation with the German Chamber of Industry and Commerce",
-      "location": "Goch, Germany",
-      "date": "09/2018 – 06/2019",
-      "highlights": [
-        "Completed 130 hours of advanced training in soft skills, IT, ethics, economics, and business English."
-      ]
-    }
-  ],
   "work": [
     {
       "organization": "Aniva",
-      "position": "Co-Founder, Product",
+      "position": "Co-Founder & Managing Director",
       "location": "Berlin, Germany",
       "date": "01/2025 – present",
       "highlights": [
-        "Working on a personal companion, making health data actionable so you can feel your best."
+        "Building Europe’s diagnostics infrastructure: companies offer lab tests in any town, through one API.",
+        "Co-founded with {Noah Petermann,https://www.linkedin.com/in/noahpetermann/}, backed by Antler.",
+        "Pivoted from a consumer health membership to B2B diagnostics-as-a-service.",
+        "Built the partner API, admin panel and at-home sample kits on top of a network of labs and blood-draw locations.",
+        "Speaker at IFA Berlin 2026: “Health as a Product: Building in a highly regulated market”."
       ]
     },
     {
       "organization": "Jodel",
-      "position": "Product",
+      "position": "Product, Trust & Safety",
       "location": "Berlin, Germany",
       "date": "05/2023 – 02/2025",
       "highlights": [
-        "Worked on core product features like 'Top 10' with the founder.",
+        "Worked on core product features like ‘Top 10’ with the founder.",
         "Fine-tuned AI models to move sexual content to NSFW channels and handle spam.",
         "Improved platform moderation and overhauled community guidelines.",
-        "Created a Discord serverfor power users to report issues, give feedback, and actively contribute in events."
+        "Created a Discord server for power users to report issues, give feedback, and contribute to events."
       ]
     },
     {
       "organization": "vamos!",
-      "position": "Founder, CEO",
+      "position": "Founder & CEO",
       "location": "Cologne, Germany",
       "date": "07/2019 – 05/2023",
       "highlights": [
-        "Created the vamos! app for on-the-go events on iOS & Android.",
-        "Managed a 15-person team, focusing on fundraising, product development, and marketing.",
-        "Secured €250k from {angels,https://www.linkedin.com/feed/update/urn:li:activity:6898226711532593152/}, €3k in {crowdfunding,https://www.startnext.com/siptogether}, and self-invested €50k.",
-        "Co-developed app using Dart (Flutter) and Google Firebase backend.",
+        "Built vamos!, a social app for young people to find what’s going on nearby (iOS & Android).",
+        "{Acquired,https://www.businessinsider.de/gruenderszene/business/koelner-studenten-app-wird-an-jodel-verkauft-kommt-jetzt-der-relaunch/} by Jodel in 2023.",
+        "Led a 15-person team across fundraising, product development, and marketing.",
+        "Raised €250k from {angels,https://www.linkedin.com/feed/update/urn:li:activity:6898226711532593152/}, €3k in {crowdfunding,https://www.startnext.com/siptogether}, and self-invested €50k.",
+        "Co-developed the app in Dart (Flutter) on Google Firebase.",
         "Analyzed user behavior with surveys, Google Analytics, BigQuery, and Looker.",
         "Finished a 6-week Product Discovery Workshop by Markus Müller (ex-N26)."
       ]
@@ -74,35 +52,88 @@
       "location": "Goch, Germany",
       "date": "06/2015 – 03/2017",
       "highlights": [
-        "Managed an 8-person team and developed Java plugins for Minecraft."
+        "Ran a Minecraft server with an 8-person team and developed Java plugins."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "organization": "University of Mannheim",
+      "position": "Business Informatics (B.Sc. program)",
+      "location": "Mannheim, Germany",
+      "date": "2020 – 2021"
+    },
+    {
+      "organization": "Collegium Augustinianum Gaesdonck",
+      "position": "A-Levels (Final GPA: 2.6)",
+      "location": "Goch, Germany",
+      "date": "08/2017 – 07/2020",
+      "highlights": [
+        "Advanced courses in Mathematics and Geography.",
+        "Preliminary Committee Chair."
+      ]
+    },
+    {
+      "organization": "Junior Business School Gaesdonck",
+      "position": "Additional course with the German Chamber of Industry and Commerce",
+      "location": "Goch, Germany",
+      "date": "09/2018 – 06/2019",
+      "highlights": [
+        "130 hours of training in soft skills, IT, ethics, economics, and business English."
       ]
     }
   ],
   "extracurricular": [
     {
-      "organization": "thinc! e.V. – University of Mannheim Student Initiative",
-      "position": "Co-initiator of mentoring program and IT advisor",
-      "location": "Mannheim, Germany",
-      "date": "10/2020 – 07/2021",
-      "highlights": []
+      "organization": "STARTUP TEENS",
+      "position": "Mentor",
+      "location": "Germany"
     },
     {
-      "organization": "Gründerstipendium.NRW – Entrepreneur Scholarship ",
-      "position": "Alumnus (awarded €1k/month by the Ministry of Economy)",
+      "organization": "thinc! e.V., University of Mannheim",
+      "position": "Co-initiator of the mentoring program and IT advisor",
+      "location": "Mannheim, Germany",
+      "date": "10/2020 – 07/2021"
+    },
+    {
+      "organization": "Gründerstipendium.NRW",
+      "position": "Entrepreneur scholarship, €1k/month from the NRW Ministry of Economy",
       "location": "Germany",
       "date": "09/2020 – 09/2021"
     },
     {
       "organization": "Amnesty International",
-      "position": "Raising awareness about Amnesty International",
-      "location": "Cleve, Germany",
+      "position": "Local group, raising awareness",
+      "location": "Kleve, Germany",
       "date": "12/2019 – 10/2020"
     },
     {
-      "organization": "Free Democratic Party FDP",
+      "organization": "Free Democratic Party (FDP)",
       "position": "Member",
       "location": "Germany",
       "date": "10/2019 – present"
+    }
+  ],
+  "skills": [
+    {
+      "label": "Languages",
+      "value": "German (native), English (C1, LCCI Business English Certificate)"
+    },
+    {
+      "label": "Tech",
+      "value": "TypeScript & Next.js, SQL (Postgres/Supabase), Dart & Flutter, Java"
+    },
+    {
+      "label": "Tools",
+      "value": "Claude Code, Linear, Notion, Figma, Supabase, Vercel, PostHog, Stripe, BigQuery, Looker"
+    },
+    {
+      "label": "Interests",
+      "value": "Longevity, Running, Fitness, Tennis, Piano, Travelling"
+    },
+    {
+      "label": "Values",
+      "value": "Impact, Authenticity, Sincerity"
     }
   ]
 }

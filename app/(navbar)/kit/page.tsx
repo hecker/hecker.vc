@@ -58,11 +58,9 @@ export default function KitPage() {
           </li>
           <li>
             <a href="https://shared.jodel.com/3rxqoI9ixzb">Jodel</a>, local and
-            anomyous community
+            anonymous community
           </li>
-          <li>
-            <a href="https://arc.net/gift/ff1dc0de">Arc</a>, browser
-          </li>
+          <li>Aside, AI browser</li>
           <li>
             <a href="https://superhuman.com/refer/3c8uwohx">Superhuman</a>,
             emails
@@ -79,15 +77,19 @@ export default function KitPage() {
           <li>Rows, spreadsheets</li>
           <li>Things 3, todos</li>
           <li>Amie, calendar</li>
-          <li>VS Code, programming</li>
+          <li>Claude Code &amp; Devin, programming</li>
+          <li>Linear, product &amp; issue tracking</li>
           <li>Figma, designing</li>
           <li>Raycast, macOS Spotlight alternative</li>
           <li>Spotify, music</li>
         </ul>
         <h3 id="hardware">Hardware</h3>
         <ul>
-          <li>14&quot; Macbook Pro (2020)</li>
-          <li>Logitech MX Master 3 Mouse &amp; Keyboard</li>
+          <li>MacBook Pro</li>
+          <li>Dell U3224KB 6K monitor</li>
+          <li>NuPhy keyboard</li>
+          <li>Logitech MX Master 3 mouse</li>
+          <li>iPhone 17 Pro &amp; Apple Watch</li>
         </ul>
       </div>
     </section>

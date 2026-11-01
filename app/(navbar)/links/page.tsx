@@ -6,7 +6,6 @@ import {
   LinkedInIcon,
   ThreadsIcon,
   TwitchIcon,
-  PolyworkIcon,
   XIcon,
   SpotifyIcon,
   TikTokIcon,
@@ -163,12 +162,6 @@ export default function LinksPage() {
           href="https://www.twitch.tv/hecker"
           icon={<TwitchIcon />}
           title="Twitch"
-          active={false}
-        />
-        <SocialLink
-          href="https://www.polywork.com/hecker"
-          icon={<PolyworkIcon />}
-          title="Polywork"
           active={false}
         />
         <SocialLink

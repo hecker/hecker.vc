@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     template: "%s | Jan Hecker",
   },
   metadataBase: new URL("https://hecker.vc"),
-  description: "Founder",
+  description: "Co-Founder of Aniva, Europe’s diagnostics infrastructure.",
   openGraph: {
     title: "Jan Hecker",
-    description: "Founder",
+    description: "Co-Founder of Aniva, Europe’s diagnostics infrastructure.",
     url: "https://hecker.vc",
     siteName: "Jan Hecker",
     images: [

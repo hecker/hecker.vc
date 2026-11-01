@@ -2,12 +2,25 @@ import type { Metadata } from "next";
 import { ArrowIcon } from "components/icons";
 import Link from "next/link";
 import CV_DATA from "./cv-data.json";
+import PrintButton from "./print-button";
 
 export const metadata: Metadata = {
   title: "CV",
-  description: "It all began in 2000...",
+  description: "Co-Founder of Aniva. Previously vamos! (acquired by Jodel).",
 };
 
+type Entry = {
+  organization: string;
+  position: string;
+  location: string;
+  date?: string;
+  highlights?: string[];
+};
+
+const linkClass =
+  "underline transition-all decoration-neutral-400 dark:decoration-neutral-600 hover:decoration-neutral-800 dark:hover:decoration-neutral-300 underline-offset-2 decoration-[0.1em]";
+
+// "{text,url}" inside a highlight becomes an inline link.
 function parseHighlightText(highlight: string) {
   return highlight.split(/({.*?})/).map((part, index) => {
     if (part.startsWith("{") && part.endsWith("}")) {
@@ -15,7 +28,7 @@ function parseHighlightText(highlight: string) {
       return (
         <Link
           key={index}
-          className="font-normal"
+          className={linkClass}
           href={link.trim()}
           target="_blank"
           rel="noopener noreferrer"
@@ -28,135 +41,101 @@ function parseHighlightText(highlight: string) {
   });
 }
 
-function Section({ title, data }: { title: string; data: any[] }) {
+function Section({ title, data }: { title: string; data: Entry[] }) {
   return (
-    <>
-      <b className="text-xl">{title}</b>
-      <hr className="space-y-0" style={{ margin: "0em", borderWidth: "1px" }} />
-      {data.map((item: any, index: number) => (
-        <div key={index} style={{ marginBottom: "0.5rem" }}>
-          <div
-            className="justify-between"
-            style={{ marginTop: "0rem", marginBottom: "0rem" }}
+    <section className="mt-12 break-inside-avoid-page">
+      <h2 className="font-serif text-xl mb-5 pb-2 border-b border-neutral-200 dark:border-neutral-800">
+        {title}
+      </h2>
+      <div className="space-y-7">
+        {data.map((item) => (
+          <article
+            key={`${item.organization}-${item.position}`}
+            className="break-inside-avoid"
           >
-            <b className="md:grid md:grid-cols-[4fr_1fr]">
-              <span className="whitespace-pre-wrap">{item.organization}</span>
-              <span className="hidden md:block text-right">
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+              <h3 className="font-semibold text-neutral-900 dark:text-neutral-100">
+                {item.organization}
+              </h3>
+              {item.date && (
+                <span className="text-sm tabular-nums text-neutral-500 dark:text-neutral-400 sm:whitespace-nowrap">
+                  {item.date}
+                </span>
+              )}
+            </div>
+            <p className="text-neutral-600 dark:text-neutral-400">
+              {item.position}
+              <span className="text-neutral-400 dark:text-neutral-600">
+                {" · "}
                 {item.location}
               </span>
-            </b>
-            <p
-              className="md:hidden"
-              style={{ marginTop: "0rem", marginBottom: "0rem" }}
-            >
-              {item.date} in {item.location}
             </p>
-            <p
-              className="md:grid md:grid-cols-[4fr_1fr]"
-              style={{ marginTop: "0rem", marginBottom: "0rem" }}
-            >
-              <i className="whitespace-pre-wrap">{item.position}</i>
-              <span className="hidden md:block text-right">{item.date}</span>
-            </p>
-          </div>
-          {item.highlights && (
-            <ul
-              className="list-disc hover:list-decimal m-0"
-              style={{ paddingLeft: "1.2em" }}
-            >
-              {item.highlights.map((highlight: string, index: number) => (
-                <li
-                  key={index}
-                  className="whitespace-pre-wrap"
-                  style={{ marginTop: "0rem", marginBottom: "0rem" }}
-                >
-                  {parseHighlightText(highlight)}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      ))}
-      <div style={{ height: "1rem" }} />
-    </>
+            {item.highlights && item.highlights.length > 0 && (
+              <ul className="mt-2 space-y-1 list-disc pl-5 marker:text-neutral-300 dark:marker:text-neutral-700 text-neutral-800 dark:text-neutral-200">
+                {item.highlights.map((highlight) => (
+                  <li key={highlight} className="pl-1 text-pretty">
+                    {parseHighlightText(highlight)}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
 
 export default function CVPage() {
-  const { education, work, extracurricular } = CV_DATA;
+  const { work, education, extracurricular, skills } = CV_DATA;
   return (
-    <section>
+    <section className="max-w-[640px]">
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
-      <div
-        className="prose prose-neutral dark:prose-invert text-neutral-800 dark:text-neutral-200"
-        style={{ lineHeight: "1.4", whiteSpace: "nowrap" }}
-      >
-        <p>
-          Kalkarer Str. 47b, 47574 Goch, Germany <br></br>
-          Mobile:{" "}
-          <Link href={"tel:+4915792354107"} className="font-normal">
-            +49 157 92354107
-          </Link>{" "}
-          , E-Mail:{" "}
-          <Link
-            href={
-              "mailto:jan@hecker.vc?body=Hi%20Jan%2C%0A%0AI%20saw%20your%20CV%20on%20your%20website%20and%20wanted%20to%20reach%20out%20to%20you%20about%3A%0A%0A"
-            }
-            className="font-normal"
-          >
-            jan@hecker.vc
-          </Link>
-        </p>
+      <p className="mt-4 text-neutral-600 dark:text-neutral-400">
+        Berlin, Germany
+        <span className="text-neutral-400 dark:text-neutral-600"> · </span>
+        <Link
+          href="mailto:jan@hecker.vc?body=Hi%20Jan%2C%0A%0AI%20saw%20your%20CV%20on%20your%20website%20and%20wanted%20to%20reach%20out%20to%20you%20about%3A%0A%0A"
+          className={linkClass}
+        >
+          jan@hecker.vc
+        </Link>
+        <span className="text-neutral-400 dark:text-neutral-600"> · </span>
+        <Link
+          href="https://www.linkedin.com/in/janhecker/"
+          className={linkClass}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </Link>
+      </p>
 
-        <Section title={"EDUCATION"} data={CV_DATA.education} />
-        <Section title={"WORK EXPERIENCE"} data={CV_DATA.work} />
-        <Section
-          title={"EXTRACURRICULAR ENGAGEMENT"}
-          data={CV_DATA.extracurricular}
-        />
+      <Section title="Work Experience" data={work} />
+      <Section title="Education" data={education} />
+      <Section title="Extracurricular" data={extracurricular} />
 
-        <b className="text-xl">FURTHER QUALIFICATIONS</b>
-        <hr
-          className="space-y-0"
-          style={{ margin: "0em", borderWidth: "1px" }}
-        />
-        <div className="grid grid-cols-[auto_1fr] gap-x-4">
-          <b>Languages:</b>
-          <span className="whitespace-pre-line">
-            German (native speaker), English (proficient)
-          </span>
-          <b>IT Skills:</b>
-          <span className="whitespace-pre-line">
-            Java (beginner), Dart & Flutter (beginner), SQL (beginner)
-          </span>
-          <b>Software:</b>
-          <span className="whitespace-pre-line">
-            Git (GitHub), Pitch, Notion, Typeform, Tally, Facebook Business
-            Manager, Personio, Firebase, Analytics, BigQuery, Looker, Google
-            Workspace
-          </span>
-          <b>Interests:</b>
-          <span className="whitespace-pre-line">
-            Tennis, Piano, Fitness, Inline Skating, Travelling
-          </span>
-          <b>Values:</b>
-          <span className="whitespace-pre-line">
-            Impact, Authenticity, Sincerity
-          </span>
-        </div>
-      </div>
+      <section className="mt-12 break-inside-avoid">
+        <h2 className="font-serif text-xl mb-5 pb-2 border-b border-neutral-200 dark:border-neutral-800">
+          Skills &amp; Interests
+        </h2>
+        <dl className="grid grid-cols-1 sm:grid-cols-[110px_1fr] gap-x-6 gap-y-1 sm:gap-y-3">
+          {skills.map(({ label, value }) => (
+            <div key={label} className="contents">
+              <dt className="font-semibold text-neutral-900 dark:text-neutral-100 mt-2 sm:mt-0">
+                {label}
+              </dt>
+              <dd className="text-neutral-800 dark:text-neutral-200">
+                {value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
 
-      <ul className="flex flex-col md:flex-row mt-8 space-x-0 md:space-x-4 space-y-1 md:space-y-0 font-sm text-neutral-500 dark:text-neutral-400">
+      <ul className="print:hidden flex flex-col md:flex-row mt-12 space-x-0 md:space-x-4 space-y-1 md:space-y-0 text-neutral-500 dark:text-neutral-400">
         <li>
-          <Link
-            className="flex items-center hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="CV_Hecker_Jan_Clemens_2023.pdf"
-          >
-            <ArrowIcon />
-            <p className="h-7">Download as PDF</p>
-          </Link>
+          <PrintButton />
         </li>
         <li>
           <Link
