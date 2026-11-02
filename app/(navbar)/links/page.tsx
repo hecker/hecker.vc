@@ -4,13 +4,10 @@ import {
   GitHubIcon,
   YouTubeIcon,
   LinkedInIcon,
-  ThreadsIcon,
   TwitchIcon,
   XIcon,
   SpotifyIcon,
-  TikTokIcon,
   InstagramIcon,
-  DiscordIcon,
   ClashRoyaleIcon,
   StravaIcon,
   JodelIcon,
@@ -95,34 +92,15 @@ export default function LinksPage() {
           active={true}
         />
         <SocialLink
-          href="https://www.tiktok.com/@janhecker"
-          icon={<TikTokIcon />}
-          title="TikTok"
-          active={false}
-        />
-        <SocialLink
           href="https://www.instagram.com/hecker.vc/"
           icon={<InstagramIcon />}
           title="Instagram"
           active={false}
         />
         <SocialLink
-          href="https://www.threads.net/@hecker.vc"
-          icon={<ThreadsIcon />}
-          title="Threads"
-          active={false}
-        />
-        <SocialLink
           href="https://www.youtube.com/@janheckercom"
           icon={<YouTubeIcon />}
           title="YouTube"
-          active={false}
-        />
-        <SocialLink
-          // Save for later: https://discordapp.com/users/220992532836777985
-          href="https://discord.gg/YYuraFejJX"
-          icon={<DiscordIcon />}
-          title="Discord"
           active={false}
         />
         <SocialLink
