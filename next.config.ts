@@ -62,6 +62,10 @@ const nextConfig: NextConfig = {
     // Live numbers (followers, weight): refresh every 5 minutes.
     metrics: { stale: 300, revalidate: 300, expire: 86400 },
   },
+  images: {
+    // AVIF first (~20% smaller than WebP), WebP for older browsers.
+    formats: ["image/avif", "image/webp"],
+  },
   async headers() {
     return [
       {

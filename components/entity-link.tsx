@@ -28,13 +28,17 @@ export default function EntityLink({
       aria-hidden="true"
     >
       {/* eager: lazy images inside the width-0 slot never load until first
-          hover, so the reveal runs before the logo has arrived */}
+          hover, so the reveal runs before the logo has arrived. Low
+          priority: otherwise React preloads every logo in <head> ahead of
+          the LCP image, though touch devices never reveal them. 32px
+          intrinsic covers the ~17px slot at 1x (64px variant at 2x+). */}
       <Image
         src={logo}
         alt=""
-        width={64}
-        height={64}
+        width={32}
+        height={32}
         loading="eager"
+        fetchPriority="low"
         draggable={false}
       />
     </span>
