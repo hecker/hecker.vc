@@ -103,6 +103,11 @@ export default function Navbar() {
                     data-path={path}
                     className={clsx(
                       "relative py-[5px] px-[10px] rounded-md transition-colors group-focus-visible:bg-neutral-100 dark:group-focus-visible:bg-neutral-800",
+                      // Invisible 5px bleed above and below grows the touch
+                      // target from 34px to 44px in the mobile row layout.
+                      // On the span, not the link: a positioned link would
+                      // become the span's offsetParent and break the pill.
+                      "max-md:after:absolute max-md:after:inset-x-0 max-md:after:-inset-y-[5px]",
                       // Static pill on the server-rendered HTML; the measured
                       // floating pill replaces it in the same commit it
                       // appears, so refreshes don't flicker.
