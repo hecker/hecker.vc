@@ -53,6 +53,11 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
+  experimental: {
+    // Keep visited and prefetched pages in the client cache so returning
+    // to one renders from memory instead of refetching.
+    staleTimes: { dynamic: 300, static: 1800 },
+  },
   cacheLife: {
     // Live numbers (followers, weight): refresh every 5 minutes.
     metrics: { stale: 300, revalidate: 300, expire: 86400 },

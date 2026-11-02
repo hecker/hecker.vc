@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
+import { preload } from "react-dom";
 import { cacheLife } from "next/cache";
 import avatar from "app/(navbar)/jan.jpeg";
 import contactData from "../card/contact.json";
 import SpotifyStatus from "components/spotify-status";
 import EntityLink from "components/entity-link";
+import PrefetchLink from "components/prefetch-link";
 import {
   SpotifyFollowers,
   GithubFollowers,
@@ -29,6 +31,9 @@ async function Age() {
 }
 
 export default function HomePage() {
+  // Start the now-playing request with the HTML instead of after hydration;
+  // SpotifyStatus's first fetch() picks up the preloaded response.
+  preload("/api/spotify", { as: "fetch", crossOrigin: "anonymous" });
   return (
     <section>
       <h1 className="font-bold text-3xl font-serif">Jan Hecker</h1>
@@ -80,7 +85,7 @@ export default function HomePage() {
           </EntityLink>
           ). Curious builder, health
           enthusiast. Working out more.{" "}
-          <Link
+          <PrefetchLink
             className="underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em]"
             href="/weight"
           >
@@ -88,7 +93,7 @@ export default function HomePage() {
               <WeightKg />
             </Suspense>{" "}
             kg
-          </Link>
+          </PrefetchLink>
           . <Age /> years old.
         </>
       </p>

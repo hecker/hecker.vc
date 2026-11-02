@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
+import PrefetchLink from "./prefetch-link";
 import { useLayoutEffect, useRef, useState } from "react";
 import { HeckerIcon } from "./icons";
 
@@ -60,13 +60,13 @@ export default function Navbar() {
   return (
     <aside className="print:hidden md:w-[150px] md:flex-shrink-0 -mx-6 md:mx-0 md:px-0 font-serif">
       <div className="lg:sticky lg:top-20">
-        <Link
+        <PrefetchLink
           className="invisible md:visible md:w-12 w-0 ml-2 md:ml-[12px] mb-2 px-4 md:px-0 md:mb-8 flex md:flex-row items-start"
           aria-label="Jan Hecker"
           href="/"
         >
           <HeckerIcon />
-        </Link>
+        </PrefetchLink>
         <nav
           className="flex overflow-hidden flex-row md:flex-col items-start relative px-4 md:px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
           id="nav"
@@ -89,7 +89,7 @@ export default function Navbar() {
             {Object.entries(navItems).map(([path, { name }]) => {
               const isActive = path === pathname;
               return (
-                <Link
+                <PrefetchLink
                   key={path}
                   href={path}
                   className={clsx(
@@ -111,7 +111,7 @@ export default function Navbar() {
                   >
                     {name}
                   </span>
-                </Link>
+                </PrefetchLink>
               );
             })}
           </div>

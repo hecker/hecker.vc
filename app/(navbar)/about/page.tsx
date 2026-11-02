@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import EntityLink from "components/entity-link";
+import PrefetchLink from "components/prefetch-link";
 
 export const metadata: Metadata = {
   title: "About",
@@ -81,7 +82,7 @@ export default function AboutPage() {
           in any town, through one API.
         </p>
         <p className="mb-8">
-          Feel free to follow or <Link href="/links">connect with me</Link>!
+          Feel free to follow or <PrefetchLink href="/links">connect with me</PrefetchLink>!
         </p>
       </div>
     </section>

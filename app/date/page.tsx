@@ -50,7 +50,7 @@ export default function DatePage() {
           data-text-color="171717"
           data-primary-color="d97757"
           data-hide-details="1"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
       </div>
 

@@ -9,6 +9,12 @@ let cache = {
 
 const CACHE_DURATION = 5000; // 5 seconds cache
 
+// Let the CDN answer polls: fresh for 5s, then served stale while one
+// request refreshes it, so visitors rarely wait on the Spotify round-trips.
+const CDN_HEADERS = {
+  "Cache-Control": "public, max-age=0, s-maxage=5, stale-while-revalidate=25",
+};
+
 export async function GET() {
   // Opt out of build-time prerendering under cacheComponents.
   await connection();
@@ -17,7 +23,7 @@ export async function GET() {
 
     // Return cached data if it's fresh
     if (cache.data && now - cache.timestamp < CACHE_DURATION) {
-      return NextResponse.json(cache.data);
+      return NextResponse.json(cache.data, { headers: CDN_HEADERS });
     }
 
     // Fetch new data
@@ -29,7 +35,7 @@ export async function GET() {
       timestamp: now,
     };
 
-    return NextResponse.json(currentlyPlaying);
+    return NextResponse.json(currentlyPlaying, { headers: CDN_HEADERS });
   } catch (error) {
     console.error("Error fetching Spotify status:", error);
     return NextResponse.json(null, { status: 500 });

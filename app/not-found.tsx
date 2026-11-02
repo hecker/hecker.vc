@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Link from "next/link";
+import PrefetchLink from "components/prefetch-link";
 import { ArrowIcon } from "components/icons";
 import React, { useEffect, useState } from "react";
 
@@ -123,13 +123,13 @@ const NotFoundPage: React.FC = () => {
       <p className="my-5 max-w-[500px] text-neutral-800 dark:text-neutral-200 mb-4">
         {errorMessage}
       </p>
-      <Link
+      <PrefetchLink
         className="flex items-center text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-all"
         href="/"
       >
         <ArrowIcon />
         <p className="h-7">Back home</p>
-      </Link>
+      </PrefetchLink>
     </section>
   );
 };
