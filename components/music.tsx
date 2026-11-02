@@ -12,68 +12,47 @@ function useLazyAudio(url: string) {
   }, [url]);
 }
 
-function BackgroundMusicOnL() {
+// Pressing "l" toggles playback; with startOnClick, any click starts it.
+function useBackgroundMusic(url: string, startOnClick = false) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const url = "/music/last-of-the-real-ones.mp3";
   const audio = useLazyAudio(url);
 
   useEffect(() => {
     if (process.env.NODE_ENV === "development") return;
+    const play = () => {
+      audio().play();
+      setIsPlaying(true);
+    };
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "l") {
-        if (!isPlaying) {
-          audio().play();
-          setIsPlaying(true);
-        } else {
-          audio().pause();
-          setIsPlaying(false);
-        }
+      if (event.key !== "l") return;
+      if (isPlaying) {
+        audio().pause();
+        setIsPlaying(false);
+      } else {
+        play();
       }
     };
+    const handleClick = () => {
+      if (!isPlaying) play();
+    };
+
     document.addEventListener("keydown", handleKeyDown);
+    if (startOnClick) document.addEventListener("click", handleClick);
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("click", handleClick);
     };
-  }, [isPlaying, audio]);
+  }, [isPlaying, audio, startOnClick]);
+}
+
+function BackgroundMusicOnL() {
+  useBackgroundMusic("/music/last-of-the-real-ones.mp3");
   return null;
 }
 
 export default BackgroundMusicOnL;
 
 export function BackgroundMusic() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const url = "/music/beautiful-mind.mp3";
-  const audio = useLazyAudio(url);
-
-  useEffect(() => {
-    if (process.env.NODE_ENV === "development") return;
-    const handleClick = () => {
-      if (!isPlaying) {
-        audio().play();
-        setIsPlaying(true);
-      }
-    };
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "l") {
-        if (!isPlaying) {
-          audio().play();
-          setIsPlaying(true);
-        } else {
-          audio().pause();
-          setIsPlaying(false);
-        }
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("click", handleClick);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("click", handleClick);
-    };
-  }, [isPlaying, audio]);
-
+  useBackgroundMusic("/music/beautiful-mind.mp3", true);
   return null;
 }
