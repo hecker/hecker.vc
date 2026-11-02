@@ -107,8 +107,3 @@ async function fetchWeights(): Promise<WeightEntry[]> {
 export async function getAllWeights(): Promise<WeightEntry[]> {
   return fetchWeights();
 }
-
-export async function getLatestWeight(): Promise<WeightEntry | null> {
-  const weights = await getAllWeights();
-  return weights.length > 0 ? weights[weights.length - 1] : null;
-}

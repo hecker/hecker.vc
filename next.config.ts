@@ -62,14 +62,6 @@ const nextConfig: NextConfig = {
     // Live numbers (followers, weight): refresh every 5 minutes.
     metrics: { stale: 300, revalidate: 300, expire: 86400 },
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "ddragon.leagueoflegends.com",
-      },
-    ],
-  },
   async headers() {
     return [
       {

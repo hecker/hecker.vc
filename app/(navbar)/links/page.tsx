@@ -19,7 +19,6 @@ import {
   PayPalIcon,
   RevolutIcon,
   OpalIcon,
-  ChessIcon,
   DuolingoIcon,
   CatanIcon,
 } from "components/icons";
