@@ -7,7 +7,6 @@ import { useCallback, useEffect, useState, useRef } from "react";
 function useLazyAudio(url: string) {
   const ref = useRef<HTMLAudioElement | null>(null);
   return useCallback(() => {
-    if (typeof Audio === "undefined") return null;
     ref.current ??= new Audio(url);
     return ref.current;
   }, [url]);
@@ -23,10 +22,10 @@ function BackgroundMusicOnL() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "l") {
         if (!isPlaying) {
-          audio()?.play();
+          audio().play();
           setIsPlaying(true);
         } else {
-          audio()?.pause();
+          audio().pause();
           setIsPlaying(false);
         }
       }
@@ -50,7 +49,7 @@ export function BackgroundMusic() {
     if (process.env.NODE_ENV === "development") return;
     const handleClick = () => {
       if (!isPlaying) {
-        audio()?.play();
+        audio().play();
         setIsPlaying(true);
       }
     };
@@ -58,10 +57,10 @@ export function BackgroundMusic() {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "l") {
         if (!isPlaying) {
-          audio()?.play();
+          audio().play();
           setIsPlaying(true);
         } else {
-          audio()?.pause();
+          audio().pause();
           setIsPlaying(false);
         }
       }
