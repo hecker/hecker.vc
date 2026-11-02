@@ -10,13 +10,11 @@ import {
   SpotifyIcon,
   TikTokIcon,
   InstagramIcon,
-  BeRealIcon,
   DiscordIcon,
   ClashRoyaleIcon,
   StravaIcon,
   JodelIcon,
   RedditIcon,
-  PayPalIcon,
   RevolutIcon,
   OpalIcon,
   DuolingoIcon,
@@ -121,12 +119,6 @@ export default function LinksPage() {
           active={false}
         />
         <SocialLink
-          href="https://bere.al/janhecker"
-          icon={<BeRealIcon />}
-          title="BeReal"
-          active={false}
-        />
-        <SocialLink
           // Save for later: https://discordapp.com/users/220992532836777985
           href="https://discord.gg/YYuraFejJX"
           icon={<DiscordIcon />}
@@ -167,12 +159,6 @@ export default function LinksPage() {
           href="https://www.reddit.com/user/hecker"
           icon={<RedditIcon />}
           title="Reddit"
-          active={false}
-        />
-        <SocialLink
-          href="https://paypal.me/llllllllllllllllllI"
-          icon={<PayPalIcon />}
-          title="PayPal"
           active={false}
         />
         <SocialLink

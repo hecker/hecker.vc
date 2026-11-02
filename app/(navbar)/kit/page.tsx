@@ -126,34 +126,16 @@ const building: Item[] = [
     note: "scheduling",
   },
   {
-    name: "Amie",
-    href: "https://amie.so",
-    logo: "/logos/amie.png",
-    note: "calendar",
-  },
-  {
     name: "Things 3",
     href: "https://culturedcode.com/things/",
     logo: "/logos/things.png",
     note: "todos",
   },
   {
-    name: "Rows",
-    href: "https://rows.com",
-    logo: "/logos/rows.png",
-    note: "spreadsheets",
-  },
-  {
     name: "1Password",
     href: "https://1password.com",
     logo: "/logos/1password.png",
     note: "passwords",
-  },
-  {
-    name: "Opal",
-    href: "https://applink.opal.so/invite-friend?rc=9QDSV&rNme=janhecker&rId=3ebSfmeMiuh5pTwMP25FDD8OeOD3",
-    logo: "/logos/opal.png",
-    note: "blocks distracting apps",
   },
   {
     name: "Spotify",
@@ -171,28 +153,10 @@ const life: Item[] = [
     note: "personal banking",
   },
   {
-    name: "Qonto",
-    href: "https://qonto.com/r/m9ohxm",
-    logo: "/logos/qonto.png",
-    note: "business banking",
-  },
-  {
     name: "Finom",
     href: "https://app.finom.co/r/M7r3mP07",
     logo: "/logos/finom.png",
     note: "banking for my side business",
-  },
-  {
-    name: "Scalable Capital",
-    href: "https://de.scalable.capital/einladung/bvstpp",
-    logo: "/logos/scalable-capital.png",
-    note: "neo broker",
-  },
-  {
-    name: "Urban Sports Club",
-    href: "https://urbansportsclub.com/join-as-friend/JH68134",
-    logo: "/logos/urban-sports-club.png",
-    note: "sports & spa",
   },
   {
     name: "Sleep Cycle",
@@ -211,12 +175,6 @@ const life: Item[] = [
     href: "https://neotaste.app/invite/JanHecker1",
     logo: "/logos/neotaste.png",
     note: "restaurant deals",
-  },
-  {
-    name: "Jodel",
-    href: "https://shared.jodel.com/3rxqoI9ixzb",
-    logo: "/logos/jodel.png",
-    note: "local and anonymous community",
   },
 ];
 
