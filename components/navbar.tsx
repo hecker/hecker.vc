@@ -13,9 +13,6 @@ const navItems: { [_: string]: any } = {
   "/about": {
     name: "About",
   },
-  "/cv": {
-    name: "CV",
-  },
   "/kit": {
     name: "Kit",
   },
