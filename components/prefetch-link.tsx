@@ -13,23 +13,20 @@ export default function PrefetchLink({
   ...props
 }: Omit<ComponentProps<typeof Link>, "prefetch">) {
   const [intent, setIntent] = useState(false);
+  const withIntent =
+    <E,>(handler?: (event: E) => void) =>
+    (event: E) => {
+      setIntent(true);
+      handler?.(event);
+    };
 
   return (
     <Link
       {...props}
       prefetch={intent ? true : "auto"}
-      onMouseEnter={(e) => {
-        setIntent(true);
-        onMouseEnter?.(e);
-      }}
-      onFocus={(e) => {
-        setIntent(true);
-        onFocus?.(e);
-      }}
-      onTouchStart={(e) => {
-        setIntent(true);
-        onTouchStart?.(e);
-      }}
+      onMouseEnter={withIntent(onMouseEnter)}
+      onFocus={withIntent(onFocus)}
+      onTouchStart={withIntent(onTouchStart)}
     />
   );
 }
