@@ -82,7 +82,8 @@ export default function AboutPage() {
           in any town, through one API.
         </p>
         <p className="mb-8">
-          Feel free to follow or <PrefetchLink href="/links">connect with me</PrefetchLink>!
+          Feel free to follow or{" "}
+          <PrefetchLink href="/links">connect with me</PrefetchLink>!
         </p>
       </div>
     </section>
